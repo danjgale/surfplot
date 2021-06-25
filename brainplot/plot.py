@@ -6,11 +6,7 @@ from brainspace.plotting.utils import PTuple
 from brainspace.mesh.array_operations import get_labeling_border
 from brainspace.vtk_interface.wrappers import BSPolyData
 
-from surf import plot_surf
-
-from brainspace.datasets import load_conte69, load_parcellation
-from brainnotation.transforms import mni152_to_fslr
-
+from .surf import plot_surf
 
 def check_surf(surf):
     if isinstance(surf, str):
