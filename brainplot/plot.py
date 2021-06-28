@@ -451,8 +451,8 @@ class Plot(object):
             Keyword arguments for `Plot._add_colorbar`. By default None, which
             will plot the default colorbar parameters
         scale : tuple, optional
-            Amount to scale the surface plot resolution. By default (2, 2), 
-            which is a good baseline for higher resolution plotting. 
+            Amount to scale the surface plot. By default (2, 2), which is a 
+            good baseline for higher resolution plotting. 
 
         Returns
         -------
@@ -471,7 +471,7 @@ class Plot(object):
 
         return fig
 
-    def save(self, fname=None, transparent_bg=True, scale=(1, 1)):
+    def save(self, fname, transparent_bg=True, scale=(1, 1)):
         """Save Brainspace vtk rendering to file.
 
         Notes
@@ -482,12 +482,12 @@ class Plot(object):
 
         Parameters
         ----------
-        fname : [type], optional
-            [description], by default None
+        fname : str or os.PathLike
+            File name for saving. By default None
         transparent_bg : bool, optional
-            [description], by default True
+            Whether to us a transparent background. By default True
         scale : tuple, optional
-            [description], by default (1, 1)
+            Amount to scale the surface plot, by default (1, 1)
         """
         p = self.build()
         p.screenshot(fname, transparent_bg, scale)
@@ -506,13 +506,12 @@ class Plot(object):
         Parameters
         ----------
         embed_nb : bool, optional
-            [description], by default False
+            Whether to embed figure in notebook. Only used if running in a 
+            notebook. By default False
         interactive : bool, optional
-            [description], by default True
-        transparent_bg : bool, optional
-            [description], by default True
+            Whether to enable interaction, by default True
         scale : tuple, optional
-            [description], by default (1, 1)
+            Amount to scale the surface plot, by default (1, 1)
 
         Returns
         -------
@@ -520,7 +519,7 @@ class Plot(object):
             Brainspace surface plot rendering
         """
         p = self.build()
-        return p.show(embed_nb, interactive, transparent_bg, scale)
+        return p.show(embed_nb, interactive, scale=scale)
 
 
 
