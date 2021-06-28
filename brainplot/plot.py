@@ -126,18 +126,15 @@ def _set_label_positions(orientation, rotation):
     respectively, based on orientation and rotation
     """
     if orientation == 'horizontal':
-        if rotation is None:
-            return 'horizontal', 'right', 'center'
-        else:
-            return rotation, 'right', 'center'
+        rotation = 'horizontal' if rotation is None else rotation
+        return rotation, 'right', 'center'
+    
     else:
-        if rotation is None:
-            return 'horizontal', 'center', 'center'
-        else: 
-            if rotation == 90:
-                return rotation, 'center', 'center'
-            else:
-                return rotation, 'left', 'center'
+        rotation = 90 if rotation is None else rotation
+        if rotation == 90 or rotation == 0:
+            return rotation, 'center', 'bottom'
+        else:
+            return rotation, 'left', 'center'
 
 
 def _set_colorbar_labels(cbar, label, orientation, fontsize=10, rotation=None):
@@ -148,7 +145,7 @@ def _set_colorbar_labels(cbar, label, orientation, fontsize=10, rotation=None):
     if orientation == 'horizontal':
         cbar.ax.set_ylabel(label, **label_args)
     else:
-        cbar.ax.set_title(label, pad=20, **label_args)
+        cbar.ax.set_title(label, pad=10, **label_args)
     return cbar
 
 
@@ -263,13 +260,12 @@ class Plot(object):
     def _add_colorbars(self, orientation='horizontal', label_direction=None,   
                        n_ticks=3, decimals=2, fontsize=10,
                        show_outline=True, share_tick_labels=False, 
-                       pad=.05, shrink=.3, fraction=.05):
+                       pad=.08, shrink=.3, fraction=.05):
         
         cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
-        n_cbars = sum(self._show_cbar)
         cbar_indices = [i for i, c in enumerate(self._show_cbar) if c]
         
-        # draw in reverse order so that outermost colorbar is last layer
+        # draw in reverse order so that outermost colorbar is uppermost layer
         for i in cbar_indices[::-1]:
             vmin, vmax = self.color_ranges[i]
 
@@ -279,8 +275,8 @@ class Plot(object):
             ticks = np.linspace(vmin, vmax, n_ticks)
             
             cb = plt.colorbar(sm, ticks=ticks, orientation=orientation, 
-                                fraction=fraction, pad=cbar_pads[i], 
-                                shrink=shrink)
+                              fraction=fraction, pad=cbar_pads[i], 
+                              shrink=shrink)
 
             tick_labels = np.linspace(vmin, vmax, n_ticks)
             if decimals > 0:
@@ -288,7 +284,7 @@ class Plot(object):
             else:
                 tick_labels = tick_labels.as_type(int)
 
-            if share_tick_labels and i != n_cbars-1:
+            if share_tick_labels and i != cbar_indices[-1]:
                 cb.set_ticklabels([])
             else:
                 cb.set_ticklabels(tick_labels)
@@ -301,20 +297,20 @@ class Plot(object):
                 cb.outline.set_visible(False)
                 cb.ax.tick_params(size=0)
     
-    def plot(self, fig=None, transparent_bg=True, scale=(2, 2), flip=False, 
-             figsize=None, colorbar=True, **cbar_kwargs):
+    def plot(self, transparent_bg=True, scale=(2, 2), flip=False, 
+             figsize=None, colorbar=True, cbar_kws=None):
 
         p = self.build(flip)
         x = p.to_numpy(transparent_bg, scale)
 
-        if fig is None:
-            fig, ax = plt.subplots(figsize=figsize)
-            ax.imshow(x)
-            ax.axis('off')
-            if colorbar:
-                self._add_colorbars(**cbar_kwargs)
+        fig, ax = plt.subplots(figsize=figsize)
+        ax.imshow(x)
+        ax.axis('off')
+        if colorbar:
+            cbar_kws = {} if cbar_kws is None else cbar_kws
+            self._add_colorbars(**cbar_kws)
 
-            return fig
+        return fig
 
     def save(self, fname=None, transparent_bg=True, scale=(1, 1), flip=False):
         p = self.build(flip)
