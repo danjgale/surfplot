@@ -238,10 +238,9 @@ class Plot(object):
         self.add_overlay(backdrop, 'Greys_r', color_range=(0, 1), 
                          show_cbar=False)
 
-
-    def add_overlay(self, data, cmap='viridis', color_range=None,
-                    as_outline=False, zero_transparent=True, show_cbar=True, 
-                    cbar_label=None):
+    def add_layer(self, data, cmap='viridis', color_range=None,
+                  as_outline=False, zero_transparent=True, show_cbar=True, 
+                  cbar_label=None):
         """Add plotting layer to surface
 
         Parameters
