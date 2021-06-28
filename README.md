@@ -1,2 +1,2 @@
 # brainplot
-High-level interface for Brainspace's surface plotting capabilities
+A high-level interface for Brainspace's surface plotting capabilities
