@@ -1,6 +1,8 @@
 """Main module containing the Plotter class"""
 
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 from brainspace.mesh.mesh_io import read_surface
 from brainspace.plotting.utils import PTuple
 from brainspace.mesh.array_operations import get_labeling_border
@@ -8,7 +10,8 @@ from brainspace.vtk_interface.wrappers import BSPolyData
 
 from .surf import plot_surf
 
-def check_surf(surf):
+def _check_surf(surf):
+    """Validate surface type and load if a file name"""
     if isinstance(surf, str):
         return read_surface(surf)
     elif isinstance(surf, BSPolyData) or (surf is None):
@@ -19,6 +22,28 @@ def check_surf(surf):
 
 
 def set_layout(lh, rh, layout, views):
+    """Determine hemisphere and view layout based user input
+
+    Parameters
+    ----------
+    lh, rh : str, BSPolyData, or None
+        Left and right hemisphere input
+    layout : {'grid', 'row', 'column'}
+        Layout style
+    views : str or list
+        One or more view types: 'medial', 'lateral', 'ventral', 'dorsal', 
+        'anterior', or 'posterior'
+
+    Returns
+    -------
+    list, list
+        lists defining view and hemisphere layouts, respectively
+
+    Raises
+    ------
+    ValueError
+        Invalid layout and/or views are provided
+    """
 
     valid_layouts = ['grid', 'row', 'column']
     if layout not in  valid_layouts:
@@ -62,38 +87,79 @@ def set_layout(lh, rh, layout, views):
     return v.tolist(), h.tolist()
 
 
+def _flip_hemispheres(v, h):
+    """Flip left and right hemispheres in the horizontal dimension
+
+    Parameters
+    ----------
+    v : list
+        View layout list
+    h : list
+        Hemisphere layout list
+
+    Returns
+    -------
+    list, list
+        Flipped view and hemisphere layouts 
+    """
+    v = np.array(v)
+    h = np.array(h)
+    if (v.ndim == 1) and (v.shape[0] > 1):
+        # flip row
+        flip_axis = 0
+    elif (v.ndim == 2) and (v.shape[1] > 1):
+        # flip grid
+        flip_axis = 1
+    return np.flip(v, flip_axis).tolist(), np.flip(h, flip_axis).tolist()
+
+
+def _find_color_range(v):
+    """Find min and max of both hemispheres"""
+    hemis = ['left', 'right']
+    vmin = np.min([np.nanmin(v[h]) for h in hemis if h in v])
+    vmax = np.max([np.nanmax(v[h]) for h in hemis if h in v])
+    return vmin, vmax
+
+
+def _set_colorbar_label():
+    pass
+
+
 class Plot(object):
     def __init__(self, surf_lh=None, surf_rh=None, layout='grid', views=None, 
-                 size=(400, 400), zoom=1, background=(1, 1, 1), 
-                 surf_shade=.5):
-
+                 size=(400, 400), zoom=1, background=(1, 1, 1),
+                 label_text=None, surf_shade=.5):
+    
         hemi_inputs = zip(['left', 'right'], [surf_lh, surf_rh])
-        self.surfaces = {k: check_surf(v) 
+        self.surfaces = {k: _check_surf(v) 
                          for k, v in hemi_inputs if v is not None}
 
         if views == None:
             views = ['lateral', 'medial']
-        
         self.plot_layout = set_layout(surf_lh, surf_rh, layout, views)
+
+        # plot_surf args
         self.size = size
         self.zoom = zoom
         self.background = background
+        self.label_text = label_text
+
+        # these are updated with each overlay
         self.layers, self.cmaps, self.color_ranges = [], [], []
+        self._show_cbar, self.cbar_labels, self.cbar_units = [], [], []
 
         # add gray surface by default
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
-        self.add_overlay(backdrop, 'Greys_r', vmin=0, 
-                         vmax=1/surf_shade)
+        self.add_overlay(backdrop, 'Greys_r', color_range=(0, 1 / surf_shade), 
+                         show_cbar=False)
 
 
-    def add_overlay(self, data, cmap='viridis', vmin=None, vmax=None, outline=False):
-        
-
+    def add_overlay(self, data, cmap='viridis', color_range=None,
+                    outline=False, zero_transparent=True, show_cbar=True, 
+                    cbar_label=None, cbar_units=None):
         # let the name just be the layer number 
         name = str(len(self.layers))
 
-        
-        
         if isinstance(data, np.ndarray):
             data = data.astype(float)
 
@@ -121,24 +187,30 @@ class Plot(object):
                 x = get_labeling_border(v, vertices[k]).astype(float)
             else:
                 x = vertices[k].astype(float)
-            x[x == 0] = np.nan
+            if zero_transparent:
+                x[x == 0] = np.nan
             v.append_array(x, name=name, at='p')
         
         self.layers.append(name)
         self.cmaps.append(cmap)
         
-        if vmin == None and vmax == None:
-            # let range automatically be determined
-            self.color_ranges.append(None)
+        if color_range is None:
+            self.color_ranges.append(_find_color_range(vertices))
         else:
-            self.color_ranges.append((vmin, vmax))
+            self.color_ranges.append(color_range)
 
+        self._show_cbar.append(show_cbar)
+        self.cbar_labels.append(cbar_label)
+        self.cbar_units.append(cbar_units)
 
-    def _make(self):
-
+    def build(self, flip=False):
         view_layout, hemi_layout = self.plot_layout
         dims = np.array(view_layout).shape
-        
+                
+        if flip and len(self.surfaces) == 2:
+            view_layout, hemi_layout = _flip_hemispheres(view_layout, 
+                                                         hemi_layout)
+
         # create plot tuples
         layers = PTuple(*self.layers)
         cmaps = PTuple(*self.cmaps)
@@ -155,17 +227,98 @@ class Plot(object):
             cmap = [cmaps]
             color_range = [crange]
 
-        return plot_surf(surfs=self.surfaces, layout = hemi_layout,
-                         array_name=names, cmap=cmap, color_bar='right',
+        return plot_surf(surfs=self.surfaces, layout=hemi_layout,
+                         array_name=names, cmap=cmap, color_bar=False,
                          color_range=color_range, view=view_layout,
-                         background=self.background,
-                         nan_color=(0.85, 0.85, 0.85, 0),
-                         zoom=self.zoom, size=self.size, share=False,
+                         background=self.background, zoom=self.zoom,
+                         nan_color=(0, 0, 0, 0), share=True,
+                         label_text=self.label_text, size=self.size, 
                          return_plotter=True)
 
-    def show(self, embed_nb=False, interactive=True):
-        p = self._make()
-        return p.show(embed_nb=embed_nb, interactive=interactive)
+    def _add_colorbars(self, pad=.05, unit_labels=None, 
+                       orientation='horizontal', n_ticks=3, decimals=2, 
+                       shrink=.3, fraction=.05, rotate_label=None,
+                       show_outline=True, share_tick_labels=False):
+        
+        cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
 
-    def save(self):
-        pass
+        # reverse so that uppermost layer is outermost colorbar
+        cmaps = self.cmaps[::-1]
+        color_ranges = self.color_ranges[::-1]
+        cbar_pads = cbar_pads[::-1]
+        labels = self.cbar_labels[::-1]
+        unit_labels = self.cbar_units[::-1]
+
+        n_cbars = sum(self._show_cbar)
+
+        for i, cbar in enumerate(self._show_cbar[::-1]):
+            if cbar:
+                vmin, vmax = color_ranges[i]
+
+                norm = mpl.colors.Normalize(vmin, vmax)
+                sm = plt.cm.ScalarMappable(cmap=cmaps[i], norm=norm)
+                sm.set_array([])
+                ticks = np.linspace(vmin, vmax, n_ticks)
+                
+                cb = plt.colorbar(sm, ticks=ticks, orientation=orientation, 
+                                    fraction=fraction, pad=cbar_pads[i], 
+                                    shrink=shrink)
+  
+                if decimals > 0:
+                    tick_labels = np.around(np.linspace(vmin, vmax, n_ticks), 
+                                            decimals)
+                else:
+                    tick_labels = np.linspace(vmin, vmax, n_ticks).as_type(int)
+
+                if share_tick_labels and i != n_cbars-1:
+                    cb.set_ticklabels([])
+                else:
+                    cb.set_ticklabels(tick_labels)
+                
+                if labels[i] is not None:
+                    if orientation == 'horizontal':
+                        if rotate_label is None:
+                            cb.ax.set_ylabel(labels[i], rotation='horizontal', 
+                                            ha='right', va='center', fontsize=10)
+                        else:
+                            cb.ax.set_ylabel(labels[i], rotation=rotate_label, 
+                                            ha='right', va='center', fontsize=10)
+                        if unit_labels[i] is not None:
+                            cb.ax.set_title(unit_labels[i], fontsize=10, pad=.01)
+                    else:
+                        cb.ax.set_title(labels[i], fontsize=10, ha='center',
+                                        rotation=rotate_label)
+                        if unit_labels[i] is not None:
+                            cb.ax.set_ylabel(unit_labels[i], fontsize=10)
+                if not show_outline:
+                    cb.outline.set_visible(False)
+                    cb.ax.tick_params(size=0)
+    
+    def plot(self, fig=None, transparent_bg=True, scale=(2, 2), flip=False, 
+             figsize=None, colorbar=True, **cbar_kwargs):
+
+        p = self.build(flip)
+        x = p.to_numpy(transparent_bg, scale)
+
+        if fig is None:
+            fig, ax = plt.subplots(figsize=figsize)
+            ax.imshow(x)
+            ax.axis('off')
+
+            if colorbar:
+                self._add_colorbars(**cbar_kwargs)
+
+            return fig
+
+    def save(self, fname=None, transparent_bg=True, scale=(1, 1), flip=False):
+        p = self.build(flip)
+        p.screenshot(fname, transparent_bg, scale)
+
+    def show(self, embed_nb=False, interactive=True, transparent_bg=True, 
+             scale=(1, 1), flip=False):
+        p = self.build(flip)
+        return p.show(embed_nb, interactive, transparent_bg, scale)
+
+
+
+
