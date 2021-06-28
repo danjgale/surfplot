@@ -121,8 +121,35 @@ def _find_color_range(v):
     return vmin, vmax
 
 
-def _set_colorbar_label():
-    pass
+def _set_label_positions(orientation, rotation):
+    """Get rotation, horizontal alignment, and vertical alignment, 
+    respectively, based on orientation and rotation
+    """
+    if orientation == 'horizontal':
+        if rotation is None:
+            return 'horizontal', 'right', 'center'
+        else:
+            return rotation, 'right', 'center'
+    else:
+        if rotation is None:
+            return 'horizontal', 'center', 'center'
+        else: 
+            if rotation == 90:
+                return rotation, 'center', 'center'
+            else:
+                return rotation, 'left', 'center'
+
+
+def _set_colorbar_labels(cbar, label, orientation, fontsize=10, rotation=None):
+    """Add colorbar labels to drawn colorbar"""
+    rotation, ha, va = _set_label_positions(orientation, rotation)
+    label_args = dict(rotation=rotation, ha=ha, va=va, fontsize=fontsize)
+    
+    if orientation == 'horizontal':
+        cbar.ax.set_ylabel(label, **label_args)
+    else:
+        cbar.ax.set_title(label, pad=20, **label_args)
+    return cbar
 
 
 class Plot(object):
@@ -146,7 +173,7 @@ class Plot(object):
 
         # these are updated with each overlay
         self.layers, self.cmaps, self.color_ranges = [], [], []
-        self._show_cbar, self.cbar_labels, self.cbar_units = [], [], []
+        self._show_cbar, self.cbar_labels = [], []
 
         # add gray surface by default
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
@@ -156,7 +183,7 @@ class Plot(object):
 
     def add_overlay(self, data, cmap='viridis', color_range=None,
                     outline=False, zero_transparent=True, show_cbar=True, 
-                    cbar_label=None, cbar_units=None):
+                    cbar_label=None):
         # let the name just be the layer number 
         name = str(len(self.layers))
 
@@ -181,7 +208,6 @@ class Plot(object):
         else:
             raise TypeError('`x` must be an instance of numpy.ndarray or dict')
 
-
         for k, v in self.surfaces.items():
             if outline:
                 x = get_labeling_border(v, vertices[k]).astype(float)
@@ -201,7 +227,6 @@ class Plot(object):
 
         self._show_cbar.append(show_cbar)
         self.cbar_labels.append(cbar_label)
-        self.cbar_units.append(cbar_units)
 
     def build(self, flip=False):
         view_layout, hemi_layout = self.plot_layout
@@ -235,64 +260,46 @@ class Plot(object):
                          label_text=self.label_text, size=self.size, 
                          return_plotter=True)
 
-    def _add_colorbars(self, pad=.05, unit_labels=None, 
-                       orientation='horizontal', n_ticks=3, decimals=2, 
-                       shrink=.3, fraction=.05, rotate_label=None,
-                       show_outline=True, share_tick_labels=False):
+    def _add_colorbars(self, orientation='horizontal', label_direction=None,   
+                       n_ticks=3, decimals=2, fontsize=10,
+                       show_outline=True, share_tick_labels=False, 
+                       pad=.05, shrink=.3, fraction=.05):
         
         cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
-
-        # reverse so that uppermost layer is outermost colorbar
-        cmaps = self.cmaps[::-1]
-        color_ranges = self.color_ranges[::-1]
-        cbar_pads = cbar_pads[::-1]
-        labels = self.cbar_labels[::-1]
-        unit_labels = self.cbar_units[::-1]
-
         n_cbars = sum(self._show_cbar)
+        cbar_indices = [i for i, c in enumerate(self._show_cbar) if c]
+        
+        # draw in reverse order so that outermost colorbar is last layer
+        for i in cbar_indices[::-1]:
+            vmin, vmax = self.color_ranges[i]
 
-        for i, cbar in enumerate(self._show_cbar[::-1]):
-            if cbar:
-                vmin, vmax = color_ranges[i]
+            norm = mpl.colors.Normalize(vmin, vmax)
+            sm = plt.cm.ScalarMappable(cmap=self.cmaps[i], norm=norm)
+            sm.set_array([])
+            ticks = np.linspace(vmin, vmax, n_ticks)
+            
+            cb = plt.colorbar(sm, ticks=ticks, orientation=orientation, 
+                                fraction=fraction, pad=cbar_pads[i], 
+                                shrink=shrink)
 
-                norm = mpl.colors.Normalize(vmin, vmax)
-                sm = plt.cm.ScalarMappable(cmap=cmaps[i], norm=norm)
-                sm.set_array([])
-                ticks = np.linspace(vmin, vmax, n_ticks)
-                
-                cb = plt.colorbar(sm, ticks=ticks, orientation=orientation, 
-                                    fraction=fraction, pad=cbar_pads[i], 
-                                    shrink=shrink)
-  
-                if decimals > 0:
-                    tick_labels = np.around(np.linspace(vmin, vmax, n_ticks), 
-                                            decimals)
-                else:
-                    tick_labels = np.linspace(vmin, vmax, n_ticks).as_type(int)
+            tick_labels = np.linspace(vmin, vmax, n_ticks)
+            if decimals > 0:
+                tick_labels = np.around(tick_labels, decimals)
+            else:
+                tick_labels = tick_labels.as_type(int)
 
-                if share_tick_labels and i != n_cbars-1:
-                    cb.set_ticklabels([])
-                else:
-                    cb.set_ticklabels(tick_labels)
-                
-                if labels[i] is not None:
-                    if orientation == 'horizontal':
-                        if rotate_label is None:
-                            cb.ax.set_ylabel(labels[i], rotation='horizontal', 
-                                            ha='right', va='center', fontsize=10)
-                        else:
-                            cb.ax.set_ylabel(labels[i], rotation=rotate_label, 
-                                            ha='right', va='center', fontsize=10)
-                        if unit_labels[i] is not None:
-                            cb.ax.set_title(unit_labels[i], fontsize=10, pad=.01)
-                    else:
-                        cb.ax.set_title(labels[i], fontsize=10, ha='center',
-                                        rotation=rotate_label)
-                        if unit_labels[i] is not None:
-                            cb.ax.set_ylabel(unit_labels[i], fontsize=10)
-                if not show_outline:
-                    cb.outline.set_visible(False)
-                    cb.ax.tick_params(size=0)
+            if share_tick_labels and i != n_cbars-1:
+                cb.set_ticklabels([])
+            else:
+                cb.set_ticklabels(tick_labels)
+            
+            if self.cbar_labels[i] is not None:
+                cb = _set_colorbar_labels(cb, self.cbar_labels[i], orientation,
+                                          fontsize=fontsize, 
+                                          rotation=label_direction)
+            if not show_outline:
+                cb.outline.set_visible(False)
+                cb.ax.tick_params(size=0)
     
     def plot(self, fig=None, transparent_bg=True, scale=(2, 2), flip=False, 
              figsize=None, colorbar=True, **cbar_kwargs):
@@ -304,7 +311,6 @@ class Plot(object):
             fig, ax = plt.subplots(figsize=figsize)
             ax.imshow(x)
             ax.axis('off')
-
             if colorbar:
                 self._add_colorbars(**cbar_kwargs)
 
