@@ -2,7 +2,7 @@
 brainplot: A simple Python package for plotting brain surfaces
 ==============================================================
 
-.. figure:: _static/example.png
+.. figure:: /docs/_static/example.png
 	:scale: 25 %
 	:align: center
 	:figwidth: 500px
@@ -45,6 +45,9 @@ Several of the tutorials make use of additional neuroimaging packages. Although 
 Usage
 -----
 
+Check out the tutorials:
+
+1 Basic example, 2 layouts and views, 3 Multiple layers, 4 parcelations and region of interest, 5 mapping values to regions
 
 Contributing
 ------------
