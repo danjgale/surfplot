@@ -38,10 +38,6 @@ Several of the tutorials make use of additional neuroimaging packages. Although 
 Usage
 -----
 
-Check out the tutorials:
-
-1 Basic example, 2 layouts and views, 3 Multiple layers, 4 parcelations and region of interest, 5 mapping values to regions
-
 Contributing
 ------------
 
