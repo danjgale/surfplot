@@ -2,13 +2,6 @@
 brainplot: A simple Python package for plotting brain surfaces
 ==============================================================
 
-.. figure:: /docs/_static/example.png
-	:scale: 25 %
-	:align: center
-	:figwidth: 500px
-
-	Multi-layer plot of Default Mode and Frontoparietal network associations from Neurosynth. See `example`_.
-
 ``brainplot`` is a flexible and easy-to-use package that makes publication-ready brain surface plots. Users can easily set the views and layout, add multiple data layers, draw outlines, and further customize their figure using matplotlib. 
 
 Notably, ``brainplot`` is built on top of `Brainspace`_ to provide a high-level interface to its *excellent* brain surface plotting capabilities. It is not intended to be a replacement of Brainspace, but rather an extension of its plotting functions.  
