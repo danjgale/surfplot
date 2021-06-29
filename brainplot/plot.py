@@ -1,5 +1,6 @@
 """Main module containing the Plot class
 """
+import pathlib
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -12,8 +13,8 @@ from .surf import plot_surf
 
 def _check_surf(surf):
     """Validate surface type and load if a file name"""
-    if isinstance(surf, str):
-        return read_surface(surf)
+    if isinstance(surf, (str, pathlib.PosixPath)):
+        return read_surface(str(surf))
     elif isinstance(surf, BSPolyData) or (surf is None):
         return surf
     else:
@@ -235,8 +236,8 @@ class Plot(object):
         # add gray surface by default
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
         backdrop *= brightness
-        self.add_overlay(backdrop, 'Greys_r', color_range=(0, 1), 
-                         show_cbar=False)
+        self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), 
+                       show_cbar=False)
 
     def add_layer(self, data, cmap='viridis', color_range=None,
                   as_outline=False, zero_transparent=True, show_cbar=True, 
