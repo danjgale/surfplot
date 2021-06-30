@@ -243,9 +243,7 @@ class Plot(object):
 
         Parameters
         ----------
-        data : str or os.PathLike, numpy.ndarray, dict, 
-               nibabel.gifti.gifti.GiftiImage, 
-               or nibabel.cifti2.cifti2.Cifti2Image
+        data : str or os.PathLike, numpy.ndarray, dict, nibabel.gifti.gifti.GiftiImage, or nibabel.cifti2.cifti2.Cifti2Image
             Vertex data to plot on surfaces. Must be a valid file path of a 
             GIFTI or CIFTI image, a loaded GIFTI or CIFTI image, a numpy array
             with length equal to the total number of vertices in the provided 
@@ -375,10 +373,10 @@ class Plot(object):
                          label_text=self.label_text, size=self.size, 
                          return_plotter=True)
 
-    def _add_colorbars(self, location='bottom', label_direction=None,   
-                       n_ticks=3, decimals=2, fontsize=10,
-                       draw_border=True, outer_labels_only=False, 
-                       pad=.08, shrink=.3, fraction=.05):
+    def add_colorbars(self, location='bottom', label_direction=None,   
+                      n_ticks=3, decimals=2, fontsize=10, draw_border=True, 
+                      outer_labels_only=False, pad=.08, shrink=.3, 
+                      fraction=.05):
         """Draw colorbar(s) for applicable layer(s)  
 
         Parameters
@@ -459,7 +457,7 @@ class Plot(object):
         colorbar : bool, optional
             Draw colorbars for each applicable layer, default: True
         cbar_kws : dict, optional
-            Keyword arguments for ``Plot._add_colorbar``. Default: None, 
+            Keyword arguments for :func:`Plot.add_colorbar` . Default: None, 
             which will plot the default colorbar parameters
         scale : tuple, optional
             Amount to scale the surface plot. Default: (2, 2), which is a 
@@ -481,7 +479,7 @@ class Plot(object):
         ax.axis('off')
         if colorbar:
             cbar_kws = {} if cbar_kws is None else cbar_kws
-            self._add_colorbars(**cbar_kws)
+            self.add_colorbars(**cbar_kws)
 
         return fig
 

@@ -13,8 +13,8 @@ def load_example_data(dataset='default_mode', join=False):
     projected to fsLR space using ``brainnotation.transforms.mni152_to_fslr``.
     Then, their vertex arrays were saved. 
 
-    Default mode: https://www.neurosynth.org/analyses/terms/default%20mode/
-    Frontoparietal: https://www.neurosynth.org/analyses/terms/frontoparietal/
+    1. Default mode: https://www.neurosynth.org/analyses/terms/default%20mode/  
+    2. Frontoparietal: https://www.neurosynth.org/analyses/terms/frontoparietal/
 
     Yarkoni T, Poldrack RA, Nichols TE, Van Essen DC, Wager TD. 2011. 
     Large-scale automated synthesis of human functional neuroimaging data. 
