@@ -164,8 +164,8 @@ class Plot(object):
     surf_lh, surf_rh : str or os.PathLike or BSPolyData, optional
         Left and right hemisphere cortical surfaces, either as a file path 
         to a valid surface file (e.g., .gii. .surf) or a pre-loaded 
-        surface from brainspace.mesh.mesh_io.read_surface. At least one 
-        hemisphere must be provided. By default None
+        surface from :func:`brainspace.mesh.mesh_io.read_surface`. At least one 
+        hemisphere must be provided. Default: None
     layout : {'grid', 'column', 'row'}, optional
         Layout in which to plot brain surfaces. 'row' plots brains as a 
         single row ordered from left-to-right hemispheres (if applicable), 
@@ -178,27 +178,27 @@ class Plot(object):
                 'posterior'}, str or list[str], optional
         Views to plot for each provided hemisphere. Views are plotted in 
         in the order they are provided. If None, then lateral and medial
-        views are plotted. By default None
+        views are plotted. Default: None
     flip : bool, optional
         Flip the display order of left and right hemispheres in `grid` or 
         `row` layouts, if applicable. Useful when showing only 'anterior` 
-        or 'inferior' views. By default False
+        or 'inferior' views. Default: False
     size : tuple of int, optional
         The size of the space to plot surfaces, defined by (width, height). 
         Note that this differs from `figsize` in Plot.plot(), which 
         determines the overall figure size for the matplotlib figure. 
-        By default (500, 400)
+        Default: (500, 400)
     zoom : int, optional
-        Level of zoom to apply. By default 1.5
+        Level of zoom to apply. Default: 1.5
     background : tuple, optional
-        Background color, by default (1, 1, 1)
+        Background color, default: (1, 1, 1)
     label_text : dict[str, array-like], optional
         Brainspace label text for column/row. Possible keys are 
         {‘left’, ‘right’, ‘top’, ‘bottom’}, which indicate the location. 
         See brainspace.plotting.surface_plotting.plot_surf for more 
-        details By default None. 
+        details Default: None. 
     brightness : float, optional
-        Brightness of plain gray surface. 0 = black, 1 = white. By default 
+        Brightness of plain gray surface. 0 = black, 1 = white. Default: 
         .5
     
     Raises
@@ -231,7 +231,7 @@ class Plot(object):
         self.layers, self.cmaps, self.color_ranges = [], [], []
         self._show_cbar, self.cbar_labels = [], []
 
-        # add gray surface by default
+        # add gray surface default:
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
         backdrop *= brightness
         self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), cbar=False)
@@ -243,41 +243,45 @@ class Plot(object):
 
         Parameters
         ----------
-        data : numpy.ndarray, dict[{'left', 'right'}, numpy.ndarray]
-            Vertex data to plot on surfaces. If a numpy array, the length must 
-            equal to the total number of vertices in the provided surfaces 
-            (e.g., 32k in left surface + 32k in right surface = 64k total). 
-            Vertices are assumed to be in order of left-to-right, if 
-            applicable. If a dictionary, then vertices can be explicitly 
-            passed to each available hemisphere surface using 'left' and/or 
-            'right' keys. Here, the length of the numpy array must equal the 
-            vertices in the assigned hemisphere. See online examples for more
-            detail.
+        data : str or os.PathLike, numpy.ndarray, dict, 
+               nibabel.gifti.gifti.GiftiImage, 
+               or nibabel.cifti2.cifti2.Cifti2Image
+            Vertex data to plot on surfaces. Must be a valid file path of a 
+            GIFTI or CIFTI image, a loaded GIFTI or CIFTI image, a numpy array
+            with length equal to the total number of vertices in the provided 
+            surfaces (e.g., 32k in left surface + 32k in right surface = 64k 
+            total), or a dictionary with 'left' and/or 'right keys. 
+            If a numpy array, vertices are assumed to be in order of 
+            left-to-right, if applicable. If a dictionary, then values can be
+            any of the possible types mentioned above, assuming that the 
+            vertices match the vertices of their respective surface.
         cmap : matplotlib colormap name or object, optional
-            Colormap to use for data, by default 'viridis'
+            Colormap to use for data, default: 'viridis'
         color_range : tuple[float, float], optional
             Minimum and maximum value for color map. If None, then the minimum
-            and maximum values in `data` are used. By default None
+            and maximum values in `data` are used. Default: None
         as_outline : bool, optional
             Plot only an outline of contiguous vertices with the same value. 
             Useful if plotting regions of interests, atlases, or discretized 
-            data. Not recommended for continous data. By default False
+            data. Not recommended for continous data. Default: False
         zero_transparent : bool, optional
             Set vertices with value of 0 to NaN, which will turn them 
             transparent on the surface. Useful when value of 0 has no 
-            importance (e.g., thresholded data, an atlas). By default True
+            importance (e.g., thresholded data, an atlas). Default: True
         cbar : bool, optional
-            Show colorbar for layer, by default True
+            Show colorbar for layer, default: True
         cbar_label : str, optional
             Label to include with colorbar if shown. Note that this is not 
-            required for the colorbar to be drawn. By default None
+            required for the colorbar to be drawn. Default: None
 
         Raises
         ------
         ValueError
             `data` keys must be 'left' and/or 'right'
         TypeError
-            `data` is neither an instance of numpy.ndarray or dict
+            `data` is neither an instance of str or os.PathLike, numpy.ndarray,
+            dict, nibabel.gifti.gifti.GiftiImage, or 
+            nibabel.cifti2.cifti2.Cifti2Image
         """
         # let the name just be the layer number 
         name = str(len(self.layers))
@@ -375,37 +379,39 @@ class Plot(object):
                        n_ticks=3, decimals=2, fontsize=10,
                        draw_border=True, outer_labels_only=False, 
                        pad=.08, shrink=.3, fraction=.05):
-        """Draw colorbar for applicable layers  
+        """Draw colorbar(s) for applicable layer(s)  
 
         Parameters
         ----------
         location : {'left', 'right', 'top', 'bottom'}, optional
-            The location, relative to the surface plot. 
+            The location, relative to the surface plot. If location is 'top' or
+            'bottom', then colorbars are horizontal. If location is'left' or 
+            'right', then colorbars are vertical. 
         label_direction : int or None, optional
             Angle to draw label for colorbars, if provided. Horizontal = 0, 
-            vertical = 90. If None and `orientation` is 'horizontal', labels 
-            are drawn horizontally. If None and `orientation` is 'vertical', 
-            labels are drawn vertically. By default None
+            vertical = 90. If None and `location` is 'top' or 'bottom', labels 
+            are drawn horizontally. If None and `location` is 'left' or 
+            'right', labels are drawn vertically. Default: None
         n_ticks : int, optional
-            Number of ticks to include on colorbar, by default 3 (minimum, 
+            Number of ticks to include on colorbar, default: 3 (minimum, 
             maximum, and middle values)
         decimals : int, optional
             Number of decimals to show for colorbal tick values. Set 0 to show 
-            integers. By default 2
+            integers. Default: 2
         fontsize : int, optional
-            Font size for labels and tick labels, by default 10
+            Font size for colorbar labels and tick labels, default: 10
         draw_border : bool, optional
-            Draw ticks and black border around colorbar, by default True
+            Draw ticks and black border around colorbar, default: True
         outer_labels_only : bool, optional
             Show tick labels for only the outermost colorbar. This cleans up 
-            tick labels when all colorbars are the same scale. By default False
+            tick labels when all colorbars are the same scale. Default: False
         pad : float, optional
-            Space that separates each colorbar, by default .08
+            Space that separates each colorbar, default: .08
         shrink : float, optional
             Fraction by which to multiply the size of the colorbar, by 
             default .3
         fraction : float, optional
-            Fraction of original axes to use for colorbar, by default .05
+            Fraction of original axes to use for colorbar, default: .05
         """
         cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
         cbar_indices = [i for i, c in enumerate(self._show_cbar) if c]
@@ -448,15 +454,15 @@ class Plot(object):
         Parameters
         ----------
         figsize : tuple, optional
-            Overall figure size, specified by (width, height). By default None, 
+            Overall figure size, specified by (width, height). Default: None, 
             which will determine the figure size based on the `size` parameter.
         colorbar : bool, optional
-            Draw colorbars for each applicable layer, by default True
+            Draw colorbars for each applicable layer, default: True
         cbar_kws : dict, optional
-            Keyword arguments for `Plot._add_colorbar`. By default None, which
-            will plot the default colorbar parameters
+            Keyword arguments for ``Plot._add_colorbar``. Default: None, 
+            which will plot the default colorbar parameters
         scale : tuple, optional
-            Amount to scale the surface plot. By default (2, 2), which is a 
+            Amount to scale the surface plot. Default: (2, 2), which is a 
             good baseline for higher resolution plotting. 
 
         Returns
@@ -486,39 +492,40 @@ class Plot(object):
         -----
         This save the plot created by 
         brainspace.plotting.surface_plotting.plot_surf, and will not include 
-        colorbars created by `Plot.plot()` or any other matplotlib components.   
+        colorbars created by :func:`Plot.plot` or any other matplotlib 
+        components.   
 
         Parameters
         ----------
         fname : str or os.PathLike
-            File name for saving. By default None
+            File name for saving.
         transparent_bg : bool, optional
-            Whether to us a transparent background. By default True
+            Whether to us a transparent background. Default: True
         scale : tuple, optional
-            Amount to scale the surface plot, by default (1, 1)
+            Amount to scale the surface plot, default: (1, 1)
         """
         p = self.build()
         p.screenshot(fname, transparent_bg, scale)
 
     def show(self, embed_nb=False, interactive=True, transparent_bg=True, 
              scale=(1, 1)):
-        """View Brainspace surface rendering
+        """View Brainspace vtk surface rendering
 
         Notes
         -----
         This only shows the plot created by 
         brainspace.plotting.surface_plotting.plot_surf, and will not include 
-        colorbars created by `Plot.plot()` or any other matplotlib components.  
+        colorbars created by :func:`Plot.plot` or any other matplotlib components.  
 
         Parameters
         ----------
         embed_nb : bool, optional
             Whether to embed figure in notebook. Only used if running in a 
-            notebook. By default False
+            notebook. Default: False
         interactive : bool, optional
-            Whether to enable interaction, by default True
+            Whether to enable interaction, default: True
         scale : tuple, optional
-            Amount to scale the surface plot, by default (1, 1)
+            Amount to scale the surface plot, default: (1, 1)
 
         Returns
         -------

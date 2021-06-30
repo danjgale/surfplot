@@ -12,7 +12,7 @@ def add_medial_wall(data, split=False):
     exclude the medial wall in their data arrays, which results in a total of 
     59412 vertices across hemispheres. This function adds back in the missing 
     medial wall vertices to produce a data array with the full 64984 vertices, 
-    which is required for plotting with 32k density fs_LR surfaces. 
+    which is required for plotting with 32k density fsLR surfaces. 
 
     Parameters
     ----------
@@ -20,7 +20,7 @@ def add_medial_wall(data, split=False):
         Surface vertices. Must have exactly 59412 or 64984 vertices. Note that
         if 64984 vertices are present, then the medial wall is already included.
     split : bool
-        Return left and right hemipsheres as separate arrays, by default False
+        Return left and right hemipsheres as separate arrays. Default: False
     Returns
     -------
     numpy.ndarray
@@ -65,10 +65,9 @@ def threshold(data, thresh, binarize=False, two_sided=True):
     thresh : float
         Threshold value. All values below or equal to threshold are set 0.
     binarize : bool, optional
-        Set all values above threshold to 1, by default False
+        Set all values above threshold to 1. Default: False
     two_sided : bool, optional
-        Apply thresholding to both positive and negative values, by default 
-        True
+        Apply thresholding to both positive and negative values. Default: True
 
     Returns
     -------

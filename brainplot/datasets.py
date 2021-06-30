@@ -22,9 +22,9 @@ def load_example_data(dataset='default_mode', join=False):
     Parameters
     ----------
     dataset : {'default_mode', 'frontoparietal'}, optional
-        Neurosynth association map, by default 'default_mode'
+        Neurosynth association map. Default: 'default_mode'
     join : bool, optional
-        Return data as a single concatenated array. By default False, which
+        Return data as a single concatenated array. Default: False, which
         returns left and right hemisphere arrays, respectively
 
     Returns
