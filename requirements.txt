@@ -1,4 +1,4 @@
-brainnotation
+git+git://github.com/netneurolab/brainnotation.git#egg=brainnotation
 brainspace>=0.1.1
 matplotlib>=3.2.0
 nibabel
