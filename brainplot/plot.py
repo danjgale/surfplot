@@ -527,7 +527,3 @@ class Plot(object):
         """
         p = self.build()
         return p.show(embed_nb, interactive, scale=scale)
-
-
-
-
