@@ -4,6 +4,7 @@ import pathlib
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import nibabel as nib
 from brainspace.mesh.mesh_io import read_surface
 from brainspace.plotting.utils import PTuple
 from brainspace.mesh.array_operations import get_labeling_border
@@ -22,29 +23,8 @@ def _check_surf(surf):
                          'BSPolyData, or None')
 
 
-def set_layout(lh, rh, layout, views):
-    """Determine hemisphere and view layout based user input
-
-    Parameters
-    ----------
-    lh, rh : str, BSPolyData, or None
-        Left and right hemisphere input
-    layout : {'grid', 'row', 'column'}
-        Layout style
-    views : str or list
-        One or more view types: 'medial', 'lateral', 'ventral', 'dorsal', 
-        'anterior', or 'posterior'
-
-    Returns
-    -------
-    list, list
-        lists defining view and hemisphere layouts, respectively
-
-    Raises
-    ------
-    ValueError
-        Invalid layout and/or views are provided
-    """
+def _set_layout(lh, rh, layout, views):
+    """Determine hemisphere and view layout based user input"""
     valid_layouts = ['grid', 'row', 'column']
     if layout not in  valid_layouts:
         raise ValueError(f'layout must be one of {valid_layouts}')
@@ -114,6 +94,25 @@ def _flip_hemispheres(v, h):
     return np.flip(v, flip_axis).tolist(), np.flip(h, flip_axis).tolist()
 
 
+def _check_data(data):
+    """Ensure that data is of appropriate type and return numpy array"""
+    if isinstance(data, np.ndarray):
+        return data.astype(float)
+    elif isinstance(data, (str, pathlib.PosixPath)):
+        data = nib.load(data)
+    elif isinstance(data, (nib.Cifti2Image, nib.GiftiImage)):
+        pass
+    else:
+        raise TypeError('data must be a file path to a valid GIFTI or CIFTI '
+                        'file, or an instance of numpy.ndarray, '
+                        'nibabel.Cifti2Image nibabel.GiftiImage')
+    
+    if isinstance(data, nib.Cifti2Image):
+        return data.get_fdata().ravel().astype(float)
+    else:
+        return data.agg_data().ravel().astype(float)
+
+    
 def _find_color_range(v):
     """Find min and max of both hemispheres"""
     hemis = ['left', 'right']
@@ -143,7 +142,6 @@ def _set_label_positions(location, rotation):
 
 def _set_colorbar_labels(cbar, label, location, fontsize=10, rotation=None):
     """Add colorbar labels to drawn colorbar"""
-
     valid_locations = ['top', 'bottom', 'left', 'right']
     if location not in valid_locations:
         raise ValueError(f"`location` must be one of {valid_locations}")
@@ -159,58 +157,58 @@ def _set_colorbar_labels(cbar, label, location, fontsize=10, rotation=None):
 
 
 class Plot(object):
-    def __init__(self, surf_lh=None, surf_rh=None, layout='grid', views=None, 
-                 flip=False, size=(400, 400), zoom=1, background=(1, 1, 1),
-                 label_text=None, brightness=.5):
-        """Class to plot brain surfaces with data layers
+    """Plot brain surfaces with data layers
 
-        Parameters
-        ----------
-        surf_lh, surf_rh : str or os.PathLike or BSPolyData, optional
-            Left and right hemisphere cortical surfaces, either as a file path 
-            to a valid surface file (e.g., .gii. .surf) or a pre-loaded 
-            surface from brainspace.mesh.mesh_io.read_surface. At least one 
-            hemisphere must be provided. By default None
-        layout : {'grid', 'column', 'row'}, optional
-            Layout in which to plot brain surfaces. 'row' plots brains as a 
-            single row ordered from left-to-right hemispheres (if applicable), 
-            'column' plots brains as a single column descending from 
-            left-to-right hemispheres (if applicable). 'grid' plots surfaces 
-            as a views-by-hemisphere (left-right) array; if only one 
-            hemipshere is provided, then 'grid' is equivalent to 'row'. By 
-            default 'grid'.
-        views : {'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
-                 'posterior'}, str or list[str], optional
-            Views to plot for each provided hemisphere. Views are plotted in 
-            in the order they are provided. If None, then lateral and medial
-            views are plotted. By default None
-        flip : bool, optional
-            Flip the display order of left and right hemispheres in `grid` or 
-            `row` layouts, if applicable. Useful when showing only 'anterior` 
-            or 'inferior' views. By default False
-        size : tuple of int, optional
-            The size of the space to plot surfaces, defined by (width, height). 
-            Note that this differs from `figsize` in Plot.plot(), which 
-            determines the overall figure size for the matplotlib figure. 
-            By default (400, 400)
-        zoom : int, optional
-            Level of zoom to apply, by default 1
-        background : tuple, optional
-            Background color, by default (1, 1, 1)
-        label_text : dict[str, array-like], optional
-            Brainspace label text for column/row. Possible keys are 
-            {‘left’, ‘right’, ‘top’, ‘bottom’}, which indicate the location. 
-            See brainspace.plotting.surface_plotting.plot_surf for more 
-            details By default None. 
-        brightness : float, optional
-            Brightness of plain gray surface. 0 = black, 1 = white. By default 
-            .5
-        
-        Raises
-        ------
-        ValueError
-            Neither `surf_lh` or `surf_rh` are provided
-        """
+    Parameters
+    ----------
+    surf_lh, surf_rh : str or os.PathLike or BSPolyData, optional
+        Left and right hemisphere cortical surfaces, either as a file path 
+        to a valid surface file (e.g., .gii. .surf) or a pre-loaded 
+        surface from brainspace.mesh.mesh_io.read_surface. At least one 
+        hemisphere must be provided. By default None
+    layout : {'grid', 'column', 'row'}, optional
+        Layout in which to plot brain surfaces. 'row' plots brains as a 
+        single row ordered from left-to-right hemispheres (if applicable), 
+        'column' plots brains as a single column descending from 
+        left-to-right hemispheres (if applicable). 'grid' plots surfaces 
+        as a views-by-hemisphere (left-right) array; if only one 
+        hemipshere is provided, then 'grid' is equivalent to 'row'. By 
+        default 'grid'.
+    views : {'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
+                'posterior'}, str or list[str], optional
+        Views to plot for each provided hemisphere. Views are plotted in 
+        in the order they are provided. If None, then lateral and medial
+        views are plotted. By default None
+    flip : bool, optional
+        Flip the display order of left and right hemispheres in `grid` or 
+        `row` layouts, if applicable. Useful when showing only 'anterior` 
+        or 'inferior' views. By default False
+    size : tuple of int, optional
+        The size of the space to plot surfaces, defined by (width, height). 
+        Note that this differs from `figsize` in Plot.plot(), which 
+        determines the overall figure size for the matplotlib figure. 
+        By default (500, 400)
+    zoom : int, optional
+        Level of zoom to apply. By default 1.5
+    background : tuple, optional
+        Background color, by default (1, 1, 1)
+    label_text : dict[str, array-like], optional
+        Brainspace label text for column/row. Possible keys are 
+        {‘left’, ‘right’, ‘top’, ‘bottom’}, which indicate the location. 
+        See brainspace.plotting.surface_plotting.plot_surf for more 
+        details By default None. 
+    brightness : float, optional
+        Brightness of plain gray surface. 0 = black, 1 = white. By default 
+        .5
+    
+    Raises
+    ------
+    ValueError
+        Neither `surf_lh` or `surf_rh` are provided
+    """
+    def __init__(self, surf_lh=None, surf_rh=None, layout='grid', views=None, 
+                 flip=False, size=(500, 400), zoom=1.5, background=(1, 1, 1),
+                 label_text=None, brightness=.5):
         hemi_inputs = zip(['left', 'right'], [surf_lh, surf_rh])
         self.surfaces = {k: _check_surf(v) 
                          for k, v in hemi_inputs if v is not None}
@@ -220,7 +218,7 @@ class Plot(object):
 
         if views == None:
             views = ['lateral', 'medial']
-        self.plot_layout = set_layout(surf_lh, surf_rh, layout, views)
+        self.plot_layout = _set_layout(surf_lh, surf_rh, layout, views)
         self.flip = flip
 
         # plot_surf args
@@ -236,13 +234,12 @@ class Plot(object):
         # add gray surface by default
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
         backdrop *= brightness
-        self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), 
-                       show_cbar=False)
+        self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), cbar=False)
 
     def add_layer(self, data, cmap='viridis', color_range=None,
-                  as_outline=False, zero_transparent=True, show_cbar=True, 
+                  as_outline=False, zero_transparent=True, cbar=True, 
                   cbar_label=None):
-        """Add plotting layer to surface
+        """Add plotting layer to surface(s)
 
         Parameters
         ----------
@@ -269,7 +266,7 @@ class Plot(object):
             Set vertices with value of 0 to NaN, which will turn them 
             transparent on the surface. Useful when value of 0 has no 
             importance (e.g., thresholded data, an atlas). By default True
-        show_cbar : bool, optional
+        cbar : bool, optional
             Show colorbar for layer, by default True
         cbar_label : str, optional
             Label to include with colorbar if shown. Note that this is not 
@@ -285,8 +282,10 @@ class Plot(object):
         # let the name just be the layer number 
         name = str(len(self.layers))
 
-        if isinstance(data, np.ndarray):
-            data = data.astype(float)
+        valid_types = (np.ndarray, str, pathlib.PosixPath, nib.GiftiImage, 
+                       nib.Cifti2Image)
+        if isinstance(data, valid_types):
+            data = _check_data(data)
 
             vertices = {}
             if len(self.surfaces.keys()) == 2:
@@ -297,24 +296,30 @@ class Plot(object):
             else:
                 key = list(self.surfaces.keys())[0]
                 vertices[key] = data 
+        
         elif isinstance(data, dict):
             if set(data.keys()) <= set(['left', 'right']):
-                vertices = data
+                vertices = {k: _check_data(v) for k, v in data.items()}
             else:
                 raise ValueError("Only valid keys for `data` are 'left' "
                                  "and/or 'right'")
         else:
-            raise TypeError("`data` must be an instance of numpy.ndarray or "
-                            "dict")
+            raise TypeError("Data type invalid")
 
         for k, v in self.surfaces.items():
-            if as_outline:
-                x = get_labeling_border(v, vertices[k]).astype(float)
+            if k in vertices.keys():
+                if as_outline:
+                    x = get_labeling_border(v, vertices[k])
+                else:
+                    x = vertices[k]
+                if zero_transparent:
+                    x[x == 0] = np.nan
+                v.append_array(x, name=name, at='p')
             else:
-                x = vertices[k].astype(float)
-            if zero_transparent:
+                # blank layer for unspecified hemisphere
+                x = np.zeros(v.n_points)
                 x[x == 0] = np.nan
-            v.append_array(x, name=name, at='p')
+                v.append_array(x, name=name, at='p')
         
         self.layers.append(name)
         self.cmaps.append(cmap)
@@ -324,7 +329,7 @@ class Plot(object):
         else:
             self.color_ranges.append(color_range)
 
-        self._show_cbar.append(show_cbar)
+        self._show_cbar.append(cbar)
         self.cbar_labels.append(cbar_label)
 
     def build(self):
@@ -437,14 +442,14 @@ class Plot(object):
                 cb.outline.set_visible(False)
                 cb.ax.tick_params(size=0)
     
-    def plot(self, figsize=None, colorbar=True, cbar_kws=None, 
-             transparent_bg=True, scale=(2, 2)):
-        """Draw matplotlib figure of surface plot
+    def plot(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2)):
+        """Build matplotlib figure of surface plot
 
         Parameters
         ----------
         figsize : tuple, optional
-            Overall figure size, specified by (width, height). By default None
+            Overall figure size, specified by (width, height). By default None, 
+            which will determine the figure size based on the `size` parameter.
         colorbar : bool, optional
             Draw colorbars for each applicable layer, by default True
         cbar_kws : dict, optional
@@ -462,6 +467,9 @@ class Plot(object):
         p = self.build()
         x = p.to_numpy(transparent_bg=True, scale=scale)
 
+        if figsize is None:
+            figsize = tuple((np.array(self.size) / 100) + 1)
+
         fig, ax = plt.subplots(figsize=figsize)
         ax.imshow(x)
         ax.axis('off')
@@ -472,7 +480,7 @@ class Plot(object):
         return fig
 
     def save(self, fname, transparent_bg=True, scale=(1, 1)):
-        """Save Brainspace vtk rendering to file.
+        """Save Brainspace vtk rendering to file
 
         Notes
         -----
@@ -494,8 +502,7 @@ class Plot(object):
 
     def show(self, embed_nb=False, interactive=True, transparent_bg=True, 
              scale=(1, 1)):
-        """View Brainspace surface rendering as an IPython image or in an 
-        interactive vtk window.
+        """View Brainspace surface rendering
 
         Notes
         -----
