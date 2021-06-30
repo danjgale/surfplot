@@ -1,4 +1,4 @@
-"""Utilities that streamline preparing vertex arrays for plotting"""
+"""Utility functions that streamline preparing vertex arrays for plotting"""
 
 import os
 import numpy as np

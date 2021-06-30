@@ -1,3 +1,4 @@
+"""Convenient data fetchers for tutorial examples"""
 
 import os
 import numpy as np
