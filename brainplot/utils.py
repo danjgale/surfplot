@@ -53,3 +53,30 @@ def add_medial_wall(data, split=False):
         return verts[:hemi_vertices], verts[hemi_vertices:full_vertices]
     else:
         return verts
+
+
+def threshold(data, thresh, binarize=False, two_sided=True):
+    """Threshold vertex array
+
+    Parameters
+    ----------
+    data : numpy.ndarray
+        Vertex array
+    thresh : float
+        Threshold value. All values below or equal to threshold are set 0.
+    binarize : bool, optional
+        Set all values above threshold to 1, by default False
+    two_sided : bool, optional
+        Apply thresholding to both positive and negative values, by default 
+        True
+
+    Returns
+    -------
+    numpy.ndarray
+        Thresholded data
+    """
+    fill = 1 if binarize else data
+    if two_sided:
+        return np.where(np.abs(data) > thresh, fill, 0)
+    else:
+        return np.where(data > thresh, fill, 0)
