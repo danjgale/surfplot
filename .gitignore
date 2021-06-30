@@ -1,5 +1,10 @@
 __pycache__/
 .vscode/
+*.DS_Store
 scratch
 .eggs/
 *.egg-info
+docs/_build
+docs/generated
+build
+dist
