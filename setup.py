@@ -14,7 +14,7 @@ extras = {
     'test': test_deps,
 }
 
-with open("README.md", "r", encoding="utf-8") as fh:
+with open("README.rst", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
@@ -32,11 +32,14 @@ setup(
     url='https://github.com/danjgale/brainplot',
     python_requires='>=3.7.0',
     install_requires=[
-        'brainspace>=0.1.1',
-        'nibabel>=3.2.0',
-        'nilearn>=0.7.0',
-        'numpy>=1.16.5',
-        'vtk'
+            'brainnotation',
+            'brainspace>=0.1.1',
+            'matplotlib>=3.2.0',
+            'nibabel',
+            'nilearn>=0.7.0',
+            'numpy>=1.14.0',
+            'scipy>=0.17',
+            'vtk>=8.1.0'
     ],
     package_data={
         'brainplot': ['data/*']
