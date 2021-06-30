@@ -1,47 +1,27 @@
 
-brainplot: A simple Python package for plotting brain surfaces
-==============================================================
+brainplot: A Python package for plotting brain surfaces
+=======================================================
 
-``brainplot`` is a flexible and easy-to-use package that makes publication-ready brain surface plots. Users can easily set the views and layout, add multiple data layers, draw outlines, and further customize their figure using matplotlib. 
+``brainplot`` is a flexible and easy-to-use package that makes publication-ready brain surface plots. Users can easily set the plot views and layout, add multiple data layers, draw outlines, and further customize their figure directly using matplotlib. 
 
-Notably, ``brainplot`` is built on top of `Brainspace`_ to provide a high-level interface to its *excellent* brain surface plotting capabilities. It is not intended to be a replacement of Brainspace, but rather an extension of its plotting functions.  
+At its core, ``brainplot`` is just a unified high-level interface to `Brainspace's <https://brainspace.readthedocs.io/en/latest/index.html>`_ already *excellent* surface `plotting <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.plotting.html>`_ and `manipulation <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.mesh.html>`_ capabilities, which are built on top of `Visualization Toolkit (VTK) <https://vtk.org/>`_. ``brainplot`` is designed around common use-cases for surface plotting and popular surface plotting software (e.g., `Connectome Workbench <https://www.humanconnectome.org/software/connectome-workbench>`_). ``brainplot`` also provides some additional utility functions to streamline the plotting process.
 
-Installation
-------------
+Getting started
+---------------
 
-``brainplot`` is installable via ``pip``:
+Follow the `installation instructions`_ to install ``brainplot``, and then check out the `tutorials`_ to learn how to get up and running! Refer to the `API reference`_ for complete documentation. 
 
-.. code-block:: bash
 
-	pip install brainplot
+License information
+-------------------
 
-Alternatively, you can install the most up-to-date version of from GitHub:
+This codebase is licensed under the `3-clause BSD license <https://opensource.org/licenses/BSD-3-Clause>`_. The full license can be found in the `LICENSE <https://github.com/danjgale/brainplot/blob/main/LICENSE>`_ file in the ``brainplot`` distribution.
 
-.. code-block:: bash
+Support
+-------
 
-	git clone https://github.com/danjgale/brainplot.git
-	cd brainplot
-	pip install . 
+If you encounter problems or bugs with ``brainplot``, or have questions or improvement suggestions, please feel free to get in touch via the `Github issues <https://github.com/danjgale/brainplot/issues>`_.
 
-Note that ``brainplot`` requires Python 3.6+ and some key dependencies:
-	- numpy (>=1.16.0)
-	- matplotlib (>=3.3.0)
-	- nibabel (>=3.0.0)
-	- brainspace (>=0.1.1)
-	- vtk (>=8.1.0)
-
-Several of the tutorials make use of additional neuroimaging packages. Although these packages are not required for installation, they are recommended to make your brainplotting life a bit easier. These are:
-
-	- `nilearn`_ (>=0.7.0; for manipulating images and volume-to-surface projections)
-	- `brainnotation`_ (for volume-to-surface projections and surface-to-surface resampling). 
-
-Usage
------
-
-Contributing
-------------
-
-.. _example: 
-.. _Brainspace: https://brainspace.readthedocs.io/en/latest/index.html
-.. _nilearn: https://nilearn.github.io/index.html
-.. _brainnotation: https://netneurolab.github.io/brainnotation/
+.. _installation instructions: 
+.. _tutorials: 
+.. _API reference: 
