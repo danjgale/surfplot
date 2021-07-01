@@ -2,7 +2,7 @@ name: brainplot
 channels:
   - conda-forge
   - defaults
-  - ltong
+  - janton01
 dependencies:
   - python>=3.7
   - pip
