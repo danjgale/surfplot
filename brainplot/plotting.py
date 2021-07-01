@@ -334,8 +334,13 @@ class Plot(object):
         self._show_cbar.append(cbar)
         self.cbar_labels.append(cbar_label)
 
-    def build(self):
+    def build(self, offscreen=True):
         """Generate surface plot with all provided layers
+
+        Parameters
+        ----------
+        offscreen : bool, optional
+            Render offscreen. Default: True
 
         Returns
         -------
@@ -371,7 +376,7 @@ class Plot(object):
                          background=self.background, zoom=self.zoom,
                          nan_color=(0, 0, 0, 0), share=True,
                          label_text=self.label_text, size=self.size, 
-                         return_plotter=True)
+                         return_plotter=True, offscreen=offscreen)
 
     def add_colorbars(self, location='bottom', label_direction=None,   
                       n_ticks=3, decimals=2, fontsize=10, draw_border=True, 
@@ -530,5 +535,5 @@ class Plot(object):
         Ipython Image or vtk panel
             Brainspace surface plot rendering
         """
-        p = self.build()
+        p = self.build(offscreen=False)
         return p.show(embed_nb, interactive, scale=scale)
