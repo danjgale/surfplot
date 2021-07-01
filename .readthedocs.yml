@@ -14,7 +14,7 @@ formats:
    - pdf
 
 conda:
-  environment: docs/environment.yml
+  environment: docs/requirements.txt
 
 python:
    version: 3.7
