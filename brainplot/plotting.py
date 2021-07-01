@@ -474,6 +474,7 @@ class Plot(object):
             Surface plot figure
         """
         p = self.build()
+        p._check_offscreen()
         x = p.to_numpy(transparent_bg=True, scale=scale)
 
         if figsize is None:
