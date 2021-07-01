@@ -233,6 +233,7 @@ class Plot(object):
 
         # add gray surface default:
         backdrop = np.ones(sum([v.n_points for v in self.surfaces.values()]))
+        brightness = 1e-6 if brightness == 0 else brightness
         backdrop *= brightness
         self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), cbar=False)
 
