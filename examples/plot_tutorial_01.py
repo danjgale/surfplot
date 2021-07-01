@@ -2,11 +2,12 @@
 """
 .. _tutorial01_ref:
 
-Tutorial 01: Getting Started
+Tutorial 01: Quick Start
 ============================
 
-This tutorial covers the bare basics of ``brainplot`` and introduces the key
-class, ``brainplot.plotting.Plot``. 
+This tutorial gives a quick overview of ``brainplot`` before diving into more
+detail in subsequent tutorials. The aim here is to get a flavour of how 
+``brainplot`` works and what can be plotted. 
 
 Getting surfaces
 ----------------
@@ -57,7 +58,8 @@ fig.show()
 #
 # We can pass our curvature maps to the :func:`add_layer` method with the 
 # first positional parameter, `data`, which accepts either a dictionary with 
-# 'left' and 'right' keys, or a ``numpy`` array. Tutorial 02 covers what types 
+# 'left' and 'right' keys, or a ``numpy`` array. 
+# :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 
 # of data can be passed to the `data` parameter.
 sulc_lh, sulc_rh = surfaces['sulc']
 p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
@@ -82,8 +84,9 @@ lh_data, rh_data = load_example_data()
 print(lh_data)
 ###############################################################################
 # We can add each array as a layer using a dictionary like before. By
-# default a colorbar will be added, and we've explicity set the color range
-# of this layer.
+# default a colorbar will be added for this layer, and its range is determined 
+# by the minimum and maximum values (this can be adjusted with the 
+# `color_range` parameter).
 p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
 fig = p.plot()
 fig.show()
