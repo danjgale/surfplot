@@ -24,7 +24,7 @@ author = 'Dan Gale'
 copyright = '2021, brainplot developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.1a'
 
 # Import project to get version info
 sys.path.insert(0, os.path.abspath(os.path.pardir))
@@ -130,7 +130,7 @@ sphinx_gallery_conf = {
     'examples_dirs': '../examples', 
     'gallery_dirs': 'auto_examples',
     'thumbnail_size': (250, 250),
-    # 'plot_gallery': 'True',
+    # 'plot_gallery': 'False',
     'image_scrapers': ('matplotlib'),
     'within_subsection_order': FileNameSortKey,
     'download_all_examples': False,  
