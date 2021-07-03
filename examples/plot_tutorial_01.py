@@ -37,12 +37,12 @@ lh, rh = surfaces['inflated']
 # These parameters accept file paths/names, or preloaded surfaces from 
 # :func:`brainspace.mesh.mesh_io.read_surface`. 
 #
-# Then, we can call :func:`plot` method to draw the figure, which returns a
+# Then, we can call :func:`build` method to make the figure, which returns a
 # ``matplotlib`` figure, `fig`.
 from brainplot import Plot
 
 p = Plot(surf_lh=lh, surf_rh=rh)
-fig = p.plot()
+fig = p.build()
 # show figure, as you typically would with matplotlib
 fig.show()
 ###############################################################################
@@ -68,7 +68,7 @@ p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
 # colorbar (`cbar`) for this particular layer.
 # 
 # Now, let's plot our updated figure:
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Finally, let's add some statistical data. We can load some example data 
@@ -88,5 +88,5 @@ print(lh_data)
 # by the minimum and maximum values (this can be adjusted with the 
 # `color_range` parameter).
 p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
-fig = p.plot()
+fig = p.build()
 fig.show()

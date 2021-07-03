@@ -55,7 +55,7 @@ from brainplot import Plot
 
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer(data, cmap='YlOrRd_r')
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Note that passing a single array **assumes it goes from the left hemisphere 
@@ -64,7 +64,7 @@ fig.show()
 p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
 # left hemisphere is the first 32492 vertices 
 p.add_layer(data[:32492], cmap='YlOrRd_r')
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Using a dictionary
@@ -82,14 +82,14 @@ lh_data, rh_data = load_example_data()
 
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Using a dictionary, we can also only plot the data for a specific hemisphere, 
 # e.g., the right:
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'right': rh_data}, cmap='YlOrRd_r')
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Using dictionaries is necessary when plotting data from left and/or right 
@@ -106,13 +106,13 @@ fig.show()
 lh_sulc, rh_sulc = surfaces['sulc']
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'left': lh_sulc, 'right': rh_sulc}, cmap='binary_r', cbar=False)
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # And a single hemisphere:
 p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
 p.add_layer(lh_sulc, cmap='binary_r', cbar=False)
-fig = p.plot()
+fig = p.build()
 fig.show()
 
 ###############################################################################
@@ -125,7 +125,7 @@ img = nib.load(lh_sulc)
 
 p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
 p.add_layer(img, cmap='binary_r', cbar=False)
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Altogether, this flexibility makes it easy to plot data in a variety of 

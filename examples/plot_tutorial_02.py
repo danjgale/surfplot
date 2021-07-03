@@ -53,7 +53,7 @@ lh, rh = surfaces['inflated']
 
 # make figure
 p = Plot(lh, rh)
-fig = p.plot()
+fig = p.build()
 fig.show()
 ###############################################################################
 # Brightness
@@ -64,5 +64,5 @@ fig.show()
 # blank surface can be adjusted using the `brightness` parameter, if desired.
 # Values range from 0 (black) to 1 (white). For example:  
 p = Plot(lh, rh, brightness=.8)
-fig = p.plot()
+fig = p.build()
 fig.show()

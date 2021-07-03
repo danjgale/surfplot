@@ -185,7 +185,7 @@ class Plot(object):
         or 'inferior' views. Default: False
     size : tuple of int, optional
         The size of the space to plot surfaces, defined by (width, height). 
-        Note that this differs from `figsize` in Plot.plot(), which 
+        Note that this differs from `figsize` in Plot.build(), which 
         determines the overall figure size for the matplotlib figure. 
         Default: (500, 400)
     zoom : int, optional
@@ -335,7 +335,7 @@ class Plot(object):
         self._show_cbar.append(cbar)
         self.cbar_labels.append(cbar_label)
 
-    def build(self, offscreen=True):
+    def render(self, offscreen=True):
         """Generate surface plot with all provided layers
 
         Parameters
@@ -452,7 +452,7 @@ class Plot(object):
                 cb.outline.set_visible(False)
                 cb.ax.tick_params(size=0)
     
-    def plot(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2)):
+    def build(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2)):
         """Build matplotlib figure of surface plot
 
         Parameters
@@ -474,7 +474,7 @@ class Plot(object):
         matplotlib.pyplot.figure
             Surface plot figure
         """
-        p = self.build()
+        p = self.render()
         p._check_offscreen()
         x = p.to_numpy(transparent_bg=True, scale=scale)
 
@@ -489,28 +489,6 @@ class Plot(object):
             self.add_colorbars(**cbar_kws)
 
         return fig
-
-    def save(self, fname, transparent_bg=True, scale=(1, 1)):
-        """Save Brainspace vtk rendering to file
-
-        Notes
-        -----
-        This save the plot created by 
-        brainspace.plotting.surface_plotting.plot_surf, and will not include 
-        colorbars created by :func:`Plot.plot` or any other matplotlib 
-        components.   
-
-        Parameters
-        ----------
-        fname : str or os.PathLike
-            File name for saving.
-        transparent_bg : bool, optional
-            Whether to us a transparent background. Default: True
-        scale : tuple, optional
-            Amount to scale the surface plot, default: (1, 1)
-        """
-        p = self.build()
-        p.screenshot(fname, transparent_bg, scale)
 
     def show(self, embed_nb=False, interactive=True, transparent_bg=True, 
              scale=(1, 1)):
@@ -537,5 +515,5 @@ class Plot(object):
         Ipython Image or vtk panel
             Brainspace surface plot rendering
         """
-        p = self.build(offscreen=False)
+        p = self.render(offscreen=False)
         return p.show(embed_nb, interactive, scale=scale)

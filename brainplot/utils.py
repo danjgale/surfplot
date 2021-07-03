@@ -5,7 +5,7 @@ import numpy as np
 
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), 'data'))
 
-def add_medial_wall(data, split=False):
+def add_fslr_medial_wall(data, split=False):
     """Add medial wall to data in fs_LR
 
     Data in 32k fs_LR space (e.g., Human Connectome Project data) often 
@@ -18,7 +18,9 @@ def add_medial_wall(data, split=False):
     ----------
     data : numpy.ndarray
         Surface vertices. Must have exactly 59412 or 64984 vertices. Note that
-        if 64984 vertices are present, then the medial wall is already included.
+        if 64984 vertices are present, then the medial wall is already 
+        included. If so, then only hemisphere splitting will be performed, 
+        if applied.
     split : bool
         Return left and right hemipsheres as separate arrays. Default: False
     Returns
@@ -40,6 +42,8 @@ def add_medial_wall(data, split=False):
     if len(data) == full_vertices:
         if split:
             return data[:hemi_vertices], data[hemi_vertices:full_vertices]
+        else:
+            return data
     
     if len(data) != 59412:
         raise ValueError(f'{data.shape[0]} vertices were detected. `data` ' 
