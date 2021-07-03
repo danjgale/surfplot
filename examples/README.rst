@@ -1,4 +1,4 @@
-.. _tutorials:
+.. _tutorials_examples:
 
 Tutorials and Examples
 ======================
@@ -9,11 +9,9 @@ Many of these tutorials and examples rely on `brainnotation <https://netneurolab
 
 	pip install brainnotation
 
+.. _tutorials:
+
 Tutorials
 ---------
 
 These tutorials provide a step-by-step walkthrough of ``brainplot``, covering each major feature in detail.
-
-.. contents:: **Contents**
-    :local:
-    :depth: 1
