@@ -15,3 +15,5 @@ formats:
 
 python:
    version: 3.8
+   install: docs/requirements.txt
+   install: requirements.txt
