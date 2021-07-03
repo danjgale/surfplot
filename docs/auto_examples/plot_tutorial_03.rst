@@ -328,7 +328,7 @@ data match the number of vertices of the surface(s)!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.370 seconds)
+   **Total running time of the script:** ( 0 minutes  2.370 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_03.py:

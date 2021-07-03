@@ -134,7 +134,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 
 
 
-.. _sphx_glr_auto_examples_examples:
+.. _sphx_glr_auto_examples_gallery:
 
 .. examples:
 
@@ -150,10 +150,10 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
 
 .. only:: html
 
- .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
+ .. figure:: /auto_examples/gallery/images/thumb/sphx_glr_plot_example_01_thumb.png
      :alt: Example 01: Multiple Stat Maps
 
-     :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
+     :ref:`sphx_glr_auto_examples_gallery_plot_example_01.py`
 
 .. raw:: html
 
@@ -163,7 +163,7 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
 .. toctree::
    :hidden:
 
-   /auto_examples/examples/plot_example_01
+   /auto_examples/gallery/plot_example_01
 
 .. raw:: html
 
@@ -171,10 +171,10 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
 
 .. only:: html
 
- .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
+ .. figure:: /auto_examples/gallery/images/thumb/sphx_glr_plot_example_02_thumb.png
      :alt: Example 02: Showing Significant Regions
 
-     :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
+     :ref:`sphx_glr_auto_examples_gallery_plot_example_02.py`
 
 .. raw:: html
 
@@ -184,7 +184,7 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
 .. toctree::
    :hidden:
 
-   /auto_examples/examples/plot_example_02
+   /auto_examples/gallery/plot_example_02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
