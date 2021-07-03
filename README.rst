@@ -2,8 +2,10 @@
 brainplot: A Python package for plotting brain surfaces
 =======================================================
 
-.. figure: https://github.com/danjgale/brainplot/blob/main/docs/auto_examples/examples/images/sphx_glr_plot_example_01_001.png
-	:scale: 25 %
+.. figure:: https://raw.githubusercontent.com/danjgale/brainplot/main/docs/auto_examples/examples/images/sphx_glr_plot_example_01_001.png
+	:target: https://brainplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
+	:alt: example
+	:align: center
 	
 	Example Neurosynth association maps; see `Example 01`_
 
@@ -27,7 +29,7 @@ Support
 
 If you encounter problems or bugs with ``brainplot``, or have questions or improvement suggestions, please feel free to get in touch via the `Github issues <https://github.com/danjgale/brainplot/issues>`_.
 
-.. Example 01: 
+.. _Example 01: https://brainplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
 .. _installation instructions: https://brainplot.readthedocs.io/en/latest/installation.html
 .. _tutorials and examples: https://brainplot.readthedocs.io/en/latest/auto_examples/index.html
 .. _API reference: https://brainplot.readthedocs.io/en/latest/api.html
