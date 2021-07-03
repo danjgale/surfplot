@@ -6,8 +6,19 @@
 
 .. _tutorials:
 
+Tutorials and Examples
+======================
+
+Many of these tutorials and examples rely on `brainnotation <https://netneurolab.github.io/brainnotation/>`_ to automatically download surfaces, rather than relying on specifying local file paths. Should you wish to run these tutorials/examples yourself, be sure to install ``brainnotation`` via ``pip``:
+
+.. code-block:: bash
+
+	pip install brainnotation
+
 Tutorials
-=========
+---------
+
+These tutorials provide a step-by-step walkthrough of ``brainplot``, covering each major feature in detail.
 
 .. contents:: **Contents**
     :local:
@@ -118,6 +129,63 @@ Tutorials
    :hidden:
 
    /auto_examples/plot_tutorial_05
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_examples:
+
+.. examples:
+
+Examples
+--------
+
+These examples demonstrate 'publication-ready' figures created with ``brainplot`` based on common use-cases. These are intended to show more typical 'real-world' ``brainplot`` workflows.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clea...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
+     :alt: Example 01: Multiple Stat Maps
+
+     :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/examples/plot_example_01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example 02: Showing Significant Regions">
+
+.. only:: html
+
+ .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
+     :alt: Example 02: Showing Significant Regions
+
+     :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/examples/plot_example_02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

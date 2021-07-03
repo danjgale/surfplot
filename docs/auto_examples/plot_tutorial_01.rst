@@ -21,7 +21,7 @@
 .. _tutorial01_ref:
 
 Tutorial 01: Quick Start
-============================
+========================
 
 This tutorial gives a quick overview of ``brainplot`` before diving into more
 detail in subsequent tutorials. The aim here is to get a flavour of how 
@@ -30,24 +30,18 @@ detail in subsequent tutorials. The aim here is to get a flavour of how
 Getting surfaces
 ----------------
 
-First, we need to get some brain surfaces. We'll use 
-`brainnotation <https://netneurolab.github.io/brainnotation/>`_ to 
-fetch the S1200 Human Connectome Project surface. Be sure to install 
-``brainnotation`` via ``pip`` if you haven't done so already:
+First, we need to get some brain surfaces. Here, we'll use the S1200 Human 
+Connectome Project surface (A.K.A `fsLR` surfaces). We can import and call the 
+:func:`brainnotation.datasets.fetch_fslr` function, and then select the 
+'inflated' surface, which will give the file paths of the left and right 
+hemisphere GIFTI files:
 
-.. code-block:: bash
-
-        pip install brainnotation
-
-We'll import the :func:`brainnotation.datasets.fetch_fslr` function, and then 
-select the 'inflated' surface, which will give the file paths of the left and
-right hemisphere GIFTI files:
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-31
+.. GENERATED FROM PYTHON SOURCE LINES 21-25
 
 .. code-block:: default
 
     from brainnotation.datasets import fetch_fslr
+
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
 
@@ -57,7 +51,7 @@ right hemisphere GIFTI files:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-42
+.. GENERATED FROM PYTHON SOURCE LINES 26-36
 
 Making a plot
 -------------
@@ -70,7 +64,7 @@ These parameters accept file paths/names, or preloaded surfaces from
 Then, we can call :func:`build` method to make the figure, which returns a
 ``matplotlib`` figure, `fig`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-48
+.. GENERATED FROM PYTHON SOURCE LINES 36-42
 
 .. code-block:: default
 
@@ -91,7 +85,7 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-64
+.. GENERATED FROM PYTHON SOURCE LINES 43-58
 
 Adding layers
 -------------
@@ -109,7 +103,7 @@ first positional parameter, `data`, which accepts either a dictionary with
 :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 
 of data can be passed to the `data` parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 58-60
 
 .. code-block:: default
 
@@ -122,14 +116,14 @@ of data can be passed to the `data` parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-71
+.. GENERATED FROM PYTHON SOURCE LINES 61-65
 
 Above, we've also used a grayscale colormap (`cmap`) and turned off the 
 colorbar (`cbar`) for this particular layer.
 
 Now, let's plot our updated figure:
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-73
+.. GENERATED FROM PYTHON SOURCE LINES 65-67
 
 .. code-block:: default
 
@@ -146,7 +140,7 @@ Now, let's plot our updated figure:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-82
+.. GENERATED FROM PYTHON SOURCE LINES 68-76
 
 Finally, let's add some statistical data. We can load some example data 
 packaged with ``brainplot`` using 
@@ -157,7 +151,7 @@ For convenience, this map has already been projected from a volume in MNI152
 coordinates to a fsLR surface using ``brainnotation``, and the `lh_data`
 and `rh_data` variables are just numpy arrays of the vertices:  
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-85
+.. GENERATED FROM PYTHON SOURCE LINES 76-79
 
 .. code-block:: default
 
@@ -179,14 +173,14 @@ and `rh_data` variables are just numpy arrays of the vertices:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-90
+.. GENERATED FROM PYTHON SOURCE LINES 80-84
 
 We can add each array as a layer using a dictionary like before. By
 default a colorbar will be added for this layer, and its range is determined 
 by the minimum and maximum values (this can be adjusted with the 
 `color_range` parameter).
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-93
+.. GENERATED FROM PYTHON SOURCE LINES 84-87
 
 .. code-block:: default
 
@@ -207,7 +201,7 @@ by the minimum and maximum values (this can be adjusted with the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.365 seconds)
+   **Total running time of the script:** ( 0 minutes  1.238 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_01.py:

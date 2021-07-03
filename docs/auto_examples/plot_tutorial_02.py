@@ -26,8 +26,8 @@ to use. Common human surfaces include `fsaverage` surfaces packaged with
 Freesurfer, and Human Connectome Project `fsLR` surfaces (`downloadable here 
 <https://balsa.wustl.edu/reference/show/pkXDZ>`_). Several different 
 human surfaces can also all be found on OSF `here <https://osf.io/4mw3a/>`_. 
-Non-human surfaces can of course also be plotted, such as the `NMTv2 Macaque 
-surfaces <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/nonhuman/macaque_tempatl/template_nmtv2.html>`_.
+Non-human surfaces can also be plotted, such as the `NMTv2 Macaque surfaces 
+<https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/nonhuman/macaque_tempatl/template_nmtv2.html>`_.
 
 Note that throughout these tutorials, surfaces are automatically fetched using
 ``brainnotation`` or  ``Brainspace`` to avoid having to specify local files. It
