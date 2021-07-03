@@ -3,7 +3,7 @@
 .. _tutorial01_ref:
 
 Tutorial 01: Quick Start
-============================
+========================
 
 This tutorial gives a quick overview of ``brainplot`` before diving into more
 detail in subsequent tutorials. The aim here is to get a flavour of how 
@@ -12,20 +12,14 @@ detail in subsequent tutorials. The aim here is to get a flavour of how
 Getting surfaces
 ----------------
 
-First, we need to get some brain surfaces. We'll use 
-`brainnotation <https://netneurolab.github.io/brainnotation/>`_ to 
-fetch the S1200 Human Connectome Project surface. Be sure to install 
-``brainnotation`` via ``pip`` if you haven't done so already:
-
-.. code-block:: bash
-
-	pip install brainnotation
-
-We'll import the :func:`brainnotation.datasets.fetch_fslr` function, and then 
-select the 'inflated' surface, which will give the file paths of the left and
-right hemisphere GIFTI files:
+First, we need to get some brain surfaces. Here, we'll use the S1200 Human 
+Connectome Project surface (A.K.A `fsLR` surfaces). We can import and call the 
+:func:`brainnotation.datasets.fetch_fslr` function, and then select the 
+'inflated' surface, which will give the file paths of the left and right 
+hemisphere GIFTI files:
 """
 from brainnotation.datasets import fetch_fslr
+
 surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']
 ###############################################################################
