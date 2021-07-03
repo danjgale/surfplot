@@ -6,7 +6,7 @@ import numpy as np
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), 'data'))
 
 def add_fslr_medial_wall(data, split=False):
-    """Add medial wall to data in fs_LR
+    """Add medial wall to data in fsLR space
 
     Data in 32k fs_LR space (e.g., Human Connectome Project data) often 
     exclude the medial wall in their data arrays, which results in a total of 
