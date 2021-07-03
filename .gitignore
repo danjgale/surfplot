@@ -1,6 +1,6 @@
 .vscode/
 docs/generated/
-docs/auto_examples/
+# docs/auto_examples/
 docs/modules/
 
 # Byte-compiled / optimized / DLL files
