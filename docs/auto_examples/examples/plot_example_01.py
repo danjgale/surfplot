@@ -38,5 +38,5 @@ p.add_layer(fronto, cmap='Greens_r', color_range=color_range,
 cbar_kws = dict(outer_labels_only=True, pad=.02, n_ticks=2, decimals=0)
 fig = p.build(cbar_kws=cbar_kws)
 # add units to colorbar
-fig.axes[1].set_xlabel('z', labelpad=-12, fontstyle='italic')
+fig.axes[1].set_xlabel('z', labelpad=-11, fontstyle='italic')
 fig.show()

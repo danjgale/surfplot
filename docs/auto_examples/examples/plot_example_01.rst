@@ -70,12 +70,12 @@ stylizing for a clean-looking figure.
     cbar_kws = dict(outer_labels_only=True, pad=.02, n_ticks=2, decimals=0)
     fig = p.build(cbar_kws=cbar_kws)
     # add units to colorbar
-    fig.axes[1].set_xlabel('z', labelpad=-12, fontstyle='italic')
+    fig.axes[1].set_xlabel('z', labelpad=-11, fontstyle='italic')
     fig.show()
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.721 seconds)
+   **Total running time of the script:** ( 0 minutes  0.570 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:
