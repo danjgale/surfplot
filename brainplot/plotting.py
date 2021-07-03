@@ -437,7 +437,7 @@ class Plot(object):
             if decimals > 0:
                 tick_labels = np.around(tick_labels, decimals)
             else:
-                tick_labels = tick_labels.as_type(int)
+                tick_labels = tick_labels.astype(int)
 
             if outer_labels_only and i != cbar_indices[-1]:
                 cb.set_ticklabels([])
