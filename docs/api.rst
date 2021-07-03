@@ -52,5 +52,5 @@ API Reference
    :template: function.rst
    :toctree: generated/
 
-   brainplot.utils.add_medial_wall
+   brainplot.utils.add_fslr_medial_wall
    brainplot.utils.threshold
