@@ -20,11 +20,12 @@
 
 .. _tutorial03_ref:
 
-Tutorial 03: Types of Input Data
-================================
+Tutorial 3: Types of Input Data
+===============================
 
 This tutorial covers what types of data can be passed to the `data` parameter
-of the :func:`add_layer` method of :class:`brainplot.Plot`.
+of the :func:`~brainspace.plotting.Plot.add_layer` method of 
+:class:`~brainspace.plotting.Plot`.
 
 `data` accepts four different types of data:
 
@@ -43,7 +44,7 @@ Here we'll reuse the S1200 surfaces and curvature maps we used in
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`, both of which are 
 downloaded via ``brainnotation``. We'll also reuse the example data. 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-34
+.. GENERATED FROM PYTHON SOURCE LINES 29-35
 
 .. code-block:: default
 
@@ -60,17 +61,18 @@ downloaded via ``brainnotation``. We'll also reuse the example data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-42
+.. GENERATED FROM PYTHON SOURCE LINES 36-44
 
 Arrays
 ------
 
-A numpy array can be passed to `data` in the :func:`add_layer` method. 
-Importantly, the length of this array **must equal the total number of 
-vertices of the hemispheres that are plotted.** With our surfaces, we can 
-check their vertices using ``nibabel``:
+A numpy array can be passed to `data` in the 
+:func:`~brainspace.plotting.Plot.add_layer` method. Importantly, the length 
+of this array **must equal the total number of vertices of the hemispheres 
+that are plotted.** With our surfaces, we can check their vertices using 
+``nibabel``:
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-45
+.. GENERATED FROM PYTHON SOURCE LINES 44-47
 
 .. code-block:: default
 
@@ -93,12 +95,12 @@ check their vertices using ``nibabel``:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Therefore, our data must have a length of 32492 + 32492 = 64984 if we want
 to plot both hemispheres. Let's check this first:
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-52
+.. GENERATED FROM PYTHON SOURCE LINES 50-54
 
 .. code-block:: default
 
@@ -121,11 +123,11 @@ to plot both hemispheres. Let's check this first:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-54
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Perfect, now let's plot: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-60
+.. GENERATED FROM PYTHON SOURCE LINES 56-62
 
 .. code-block:: default
 
@@ -146,13 +148,13 @@ Perfect, now let's plot:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-64
+.. GENERATED FROM PYTHON SOURCE LINES 63-66
 
 Note that passing a single array **assumes it goes from the left hemisphere 
 to the right**. If we want to plot just one hemisphere, then we have to 
 update our data accordingly. Be sure to plot the correct data!
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 66-72
 
 .. code-block:: default
 
@@ -161,6 +163,7 @@ update our data accordingly. Be sure to plot the correct data!
     p.add_layer(data[:32492], cmap='YlOrRd_r')
     fig = p.build()
     fig.show()
+    # sphinx_gallery_thumbnail_number = 2
 
 
 
@@ -172,7 +175,7 @@ update our data accordingly. Be sure to plot the correct data!
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-79
+.. GENERATED FROM PYTHON SOURCE LINES 73-82
 
 Using a dictionary
 ------------------
@@ -184,7 +187,7 @@ passed to the final figure in
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`. Note that the length of 
 each array must equal the number of vertices in their respective hemispheres.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-87
+.. GENERATED FROM PYTHON SOURCE LINES 82-90
 
 .. code-block:: default
 
@@ -207,12 +210,12 @@ each array must equal the number of vertices in their respective hemispheres.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-90
+.. GENERATED FROM PYTHON SOURCE LINES 91-93
 
-Using a dictionary, we can also only plot the data for a specific hemisphere, 
+Using a dictionary, we can also only plot data for a specific hemisphere, 
 e.g., the right:
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-94
+.. GENERATED FROM PYTHON SOURCE LINES 93-97
 
 .. code-block:: default
 
@@ -231,7 +234,7 @@ e.g., the right:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-106
+.. GENERATED FROM PYTHON SOURCE LINES 98-109
 
 Using dictionaries is necessary when plotting data from left and/or right 
 GIFTI files, which we'll cover in the next section.
@@ -243,9 +246,9 @@ It is possible to directly pass in file names, assuming that they're valid
 and readable with ``nibabel``. These files must be either GIFTI or CIFTI 
 images. When plotting both hemispheres, you will need a dictionary to assign 
 each each GIFTI to a hemisphere. To test this out, let's get the downloaded
-curvature maps: 
+curvature maps and add them: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-111
+.. GENERATED FROM PYTHON SOURCE LINES 109-115
 
 .. code-block:: default
 
@@ -257,6 +260,7 @@ curvature maps:
 
 
 
+
 .. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_005.png
     :alt: plot tutorial 03
     :class: sphx-glr-single-img
@@ -265,39 +269,15 @@ curvature maps:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-113
-
-And a single hemisphere:
-
-.. GENERATED FROM PYTHON SOURCE LINES 113-118
-
-.. code-block:: default
-
-    p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
-    p.add_layer(lh_sulc, cmap='binary_r', cbar=False)
-    fig = p.build()
-    fig.show()
-
-
-
-
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_006.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 119-124
+.. GENERATED FROM PYTHON SOURCE LINES 116-121
 
 Loaded files
 ------------
 
 Finally, if a file was already loaded into Python using ``nibabel``, then it
-can also be plotted:
+can also be plotted. For example, with single hemisphere:
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-130
+.. GENERATED FROM PYTHON SOURCE LINES 121-127
 
 .. code-block:: default
 
@@ -310,7 +290,7 @@ can also be plotted:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_007.png
+.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_006.png
     :alt: plot tutorial 03
     :class: sphx-glr-single-img
 
@@ -318,7 +298,7 @@ can also be plotted:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-134
+.. GENERATED FROM PYTHON SOURCE LINES 128-131
 
 Altogether, this flexibility makes it easy to plot data in a variety of 
 different workflows and usecases. As always, be sure to check that the data
@@ -328,7 +308,7 @@ data match the number of vertices of the surface(s)!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.145 seconds)
+   **Total running time of the script:** ( 0 minutes  2.094 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_03.py:

@@ -20,8 +20,8 @@
 
 .. _tutorial02_ref:
 
-Tutorial 02: Types of Surfaces
-==============================
+Tutorial 2: Types of Surfaces
+=============================
 
 This tutorial covers what types of surfaces that can be plotted with 
 ``brainplot``. 
@@ -30,11 +30,11 @@ Types of surfaces
 -----------------
 
 Put briefly, ``brainplot`` can take file paths to any valid surface file(s) 
-with geometry data. Under the hood, :class:`brainplot.plotting.Plot` runs 
+with geometry data. Under the hood, :class:`~brainplot.plotting.Plot` runs 
 :func:`brainspace.mesh.mesh_io.read_surface` to load files. Typically, these
 will be Freesurfer or GIFTI files. 
 
-:class:`Plot` can also read instances of 
+:class:`~brainspace.plottingPlot` can also read instances of 
 :class:`brainspace.vtk_interface.wrappers.data_object.BSPolyData`, which are 
 returned by :func:`read_surface`. So, pre-loaded surfaces with 
 :func:`read_surface` can be plotted as well.
@@ -93,10 +93,10 @@ here, again using ``brainnotation`` fetching functions.
 Brightness
 ----------
 
-By default, :class:`Plot` will plot a medium-gray surface, typical of most
-surface plotting packages like Connectome Workbench. The brightness of the
-blank surface can be adjusted using the `brightness` parameter, if desired.
-Values range from 0 (black) to 1 (white). For example:  
+By default, :class:`~brainspace.plotting.Plot` will plot a medium-gray surface, 
+typical of most surface plotting packages like Connectome Workbench. The 
+brightness of the blank surface can be adjusted using the `brightness` 
+parameter, if desired. Values range from 0 (black) to 1 (white). For example:  
 
 .. GENERATED FROM PYTHON SOURCE LINES 66-69
 
@@ -119,7 +119,7 @@ Values range from 0 (black) to 1 (white). For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.878 seconds)
+   **Total running time of the script:** ( 0 minutes  0.934 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_02.py:

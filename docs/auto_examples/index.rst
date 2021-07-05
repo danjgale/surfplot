@@ -31,7 +31,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_01_thumb.png
-     :alt: Tutorial 01: Quick Start
+     :alt: Tutorial 1: Quick Start
 
      :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`
 
@@ -52,7 +52,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_02_thumb.png
-     :alt: Tutorial 02: Types of Surfaces
+     :alt: Tutorial 2: Types of Surfaces
 
      :ref:`sphx_glr_auto_examples_plot_tutorial_02.py`
 
@@ -73,7 +73,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_03_thumb.png
-     :alt: Tutorial 03: Types of Input Data
+     :alt: Tutorial 3: Types of Input Data
 
      :ref:`sphx_glr_auto_examples_plot_tutorial_03.py`
 
@@ -94,7 +94,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_04_thumb.png
-     :alt: Tutorial 04: Layouts and Views
+     :alt: Tutorial 4: Layouts and Views
 
      :ref:`sphx_glr_auto_examples_plot_tutorial_04.py`
 
@@ -110,12 +110,12 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Tutorial 05: Colorbars">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to configure the colorbar(s) with brainplot.">
 
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_05_thumb.png
-     :alt: Tutorial 05: Colorbars
+     :alt: Tutorial 5: Colors and colorbars
 
      :ref:`sphx_glr_auto_examples_plot_tutorial_05.py`
 
@@ -151,7 +151,7 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
 .. only:: html
 
  .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
-     :alt: Example 01: Multiple Stat Maps
+     :alt: Example 1: Multiple Stat Maps
 
      :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 
@@ -164,27 +164,6 @@ These examples demonstrate 'publication-ready' figures created with ``brainplot`
    :hidden:
 
    /auto_examples/examples/plot_example_01
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example 02: Showing Significant Regions">
-
-.. only:: html
-
- .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
-     :alt: Example 02: Showing Significant Regions
-
-     :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/examples/plot_example_02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

@@ -20,13 +20,13 @@
 
 .. _tutorial04_ref:
 
-Tutorial 04: Layouts and Views
-==============================
+Tutorial 4: Layouts and Views
+=============================
 
 This tutorial covers the layout and view options provided by ``brainplot``.
 
 For variety, let's import the left and right Conte69 midthickness surface
-directly using :func:`brainspace.datasets.load_conte69`. Then, we'll make a 
+directly using :func:`~brainspace.datasets.load_conte69`. Then, we'll make a 
 blank surface plot using the default layout and view, which is a 2x2 'grid' of 
 lateral and medial views that is identical to the default setup in Connectome 
 Workbench.
@@ -88,13 +88,14 @@ Meanwhile, the 'row' layout gives a single horizontal row of brains:
 
 The 'column' layout gives a single vertical column of brains.
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 .. code-block:: default
 
     p = Plot(lh, rh, size=(200, 600), zoom=1.6, layout='column')
     fig = p.build()
     fig.show()
+    # sphinx_gallery_thumbnail_number = 3
 
 
 
@@ -106,12 +107,12 @@ The 'column' layout gives a single vertical column of brains.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-45
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 As well, it's also possible to plot just one hemisphere. If the layout is 
 set as default ('grid'), then a single hemisphere is plotted as row:
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-48
+.. GENERATED FROM PYTHON SOURCE LINES 46-49
 
 .. code-block:: default
 
@@ -129,7 +130,7 @@ set as default ('grid'), then a single hemisphere is plotted as row:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-56
+.. GENERATED FROM PYTHON SOURCE LINES 50-57
 
 Views
 -----
@@ -139,7 +140,7 @@ more views can be specified through the `views` parameter. As we've seen
 before, the default is to include lateral and medial views. It is also 
 possible to show just one view:
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-59
+.. GENERATED FROM PYTHON SOURCE LINES 57-60
 
 .. code-block:: default
 
@@ -157,13 +158,13 @@ possible to show just one view:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-63
+.. GENERATED FROM PYTHON SOURCE LINES 61-64
 
 It is also possible to show more than just lateral and medial views, such
 as 'posterior'. Note that views are plotted in order in which they appear
 in the list:
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-66
+.. GENERATED FROM PYTHON SOURCE LINES 64-67
 
 .. code-block:: default
 
@@ -181,11 +182,11 @@ in the list:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
 
 All possible views are shown here (the right hemisphere for brevity):
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-72
+.. GENERATED FROM PYTHON SOURCE LINES 69-73
 
 .. code-block:: default
 
@@ -204,13 +205,13 @@ All possible views are shown here (the right hemisphere for brevity):
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-76
+.. GENERATED FROM PYTHON SOURCE LINES 74-77
 
 Finally, it is possible to flip the left and right hemisphere. This is 
 useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
 For example: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-78
+.. GENERATED FROM PYTHON SOURCE LINES 77-79
 
 .. code-block:: default
 
@@ -230,7 +231,7 @@ For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.830 seconds)
+   **Total running time of the script:** ( 0 minutes  1.744 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_04.py:

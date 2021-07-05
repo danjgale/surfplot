@@ -2,8 +2,8 @@
 """
 .. _example01_ref:
 
-Example 01: Multiple Stat Maps
-==============================
+Example 1: Multiple Stat Maps
+=============================
 
 This example shows multiple statistical maps on a surface with some extra 
 stylizing for a clean-looking figure.

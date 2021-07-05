@@ -2,13 +2,13 @@
 """
 .. _tutorial04_ref:
 
-Tutorial 04: Layouts and Views
-==============================
+Tutorial 4: Layouts and Views
+=============================
 
 This tutorial covers the layout and view options provided by ``brainplot``.
 
 For variety, let's import the left and right Conte69 midthickness surface
-directly using :func:`brainspace.datasets.load_conte69`. Then, we'll make a 
+directly using :func:`~brainspace.datasets.load_conte69`. Then, we'll make a 
 blank surface plot using the default layout and view, which is a 2x2 'grid' of 
 lateral and medial views that is identical to the default setup in Connectome 
 Workbench.
@@ -39,6 +39,7 @@ fig.show()
 p = Plot(lh, rh, size=(200, 600), zoom=1.6, layout='column')
 fig = p.build()
 fig.show()
+# sphinx_gallery_thumbnail_number = 3
 ###############################################################################
 # As well, it's also possible to plot just one hemisphere. If the layout is 
 # set as default ('grid'), then a single hemisphere is plotted as row:

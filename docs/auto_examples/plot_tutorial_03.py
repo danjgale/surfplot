@@ -2,11 +2,12 @@
 """
 .. _tutorial03_ref:
 
-Tutorial 03: Types of Input Data
-================================
+Tutorial 3: Types of Input Data
+===============================
 
 This tutorial covers what types of data can be passed to the `data` parameter
-of the :func:`add_layer` method of :class:`brainplot.Plot`.
+of the :func:`~brainspace.plotting.Plot.add_layer` method of 
+:class:`~brainspace.plotting.Plot`.
 
 `data` accepts four different types of data:
 
@@ -35,10 +36,11 @@ lh, rh = surfaces['inflated']
 # Arrays
 # ------
 #
-# A numpy array can be passed to `data` in the :func:`add_layer` method. 
-# Importantly, the length of this array **must equal the total number of 
-# vertices of the hemispheres that are plotted.** With our surfaces, we can 
-# check their vertices using ``nibabel``:
+# A numpy array can be passed to `data` in the 
+# :func:`~brainspace.plotting.Plot.add_layer` method. Importantly, the length 
+# of this array **must equal the total number of vertices of the hemispheres 
+# that are plotted.** With our surfaces, we can check their vertices using 
+# ``nibabel``:
 import nibabel as nib
 print('left', nib.load(lh).darrays[0].dims)
 print('right', nib.load(rh).darrays[0].dims)
@@ -66,6 +68,7 @@ p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
 p.add_layer(data[:32492], cmap='YlOrRd_r')
 fig = p.build()
 fig.show()
+# sphinx_gallery_thumbnail_number = 2
 ###############################################################################
 # Using a dictionary
 # ------------------
@@ -85,7 +88,7 @@ p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
 fig = p.build()
 fig.show()
 ###############################################################################
-# Using a dictionary, we can also only plot the data for a specific hemisphere, 
+# Using a dictionary, we can also only plot data for a specific hemisphere, 
 # e.g., the right:
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'right': rh_data}, cmap='YlOrRd_r')
@@ -102,16 +105,10 @@ fig.show()
 # and readable with ``nibabel``. These files must be either GIFTI or CIFTI 
 # images. When plotting both hemispheres, you will need a dictionary to assign 
 # each each GIFTI to a hemisphere. To test this out, let's get the downloaded
-# curvature maps: 
+# curvature maps and add them: 
 lh_sulc, rh_sulc = surfaces['sulc']
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'left': lh_sulc, 'right': rh_sulc}, cmap='binary_r', cbar=False)
-fig = p.build()
-fig.show()
-###############################################################################
-# And a single hemisphere:
-p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
-p.add_layer(lh_sulc, cmap='binary_r', cbar=False)
 fig = p.build()
 fig.show()
 
@@ -120,7 +117,7 @@ fig.show()
 # ------------
 # 
 # Finally, if a file was already loaded into Python using ``nibabel``, then it
-# can also be plotted:
+# can also be plotted. For example, with single hemisphere:
 img = nib.load(lh_sulc)
 
 p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))

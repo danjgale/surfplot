@@ -24,7 +24,7 @@ Note that ``brainplot`` requires Python 3.7+ and some key dependencies:
 	- `nibabel`_ (>=3.0.0)
 	- `vtk`_ (>=8.1.0)
 
-Several of the :ref:`tutorials` make use of additional neuroimaging packages. Although these packages are not required for installation, they are recommended to make your brainplotting life a bit easier. These are:
+Several of the :ref:`tutorials_examples` make use of additional neuroimaging packages. Although these packages are not required for installation, they are recommended to make your brainplotting life a bit easier. These are:
 
 	- `nilearn`_ (for manipulating images and volume-to-surface projections)
 	- `brainnotation`_ (for volume-to-surface projections and surface-to-surface resampling)

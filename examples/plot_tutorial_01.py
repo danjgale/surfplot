@@ -2,8 +2,8 @@
 """
 .. _tutorial01_ref:
 
-Tutorial 01: Quick Start
-========================
+Tutorial 1: Quick Start
+=======================
 
 This tutorial gives a quick overview of ``brainplot`` before diving into more
 detail in subsequent tutorials. The aim here is to get a flavour of how 
@@ -26,7 +26,7 @@ lh, rh = surfaces['inflated']
 # Making a plot
 # -------------
 #
-# Brain plots are created using the :class:`brainspace.plot.Plot` class. We can 
+# Brain plots are created using the :class:`brainspace.plotting.Plot` class. We can 
 # pass both of our surfaces to the `surf_lh` and `surf_rh` parameters. 
 # These parameters accept file paths/names, or preloaded surfaces from 
 # :func:`brainspace.mesh.mesh_io.read_surface`. 
@@ -42,17 +42,17 @@ fig.show()
 ###############################################################################
 # Adding layers
 # -------------
-# Once the plot has been set up by instantiating the :class:`Plot` class, 
+# Once the plot has been set up by instantiating the :class:`~brainspace.plotting.Plot` class, 
 # adding data is as simple as adding plotting layers using the 
-# :func:`add_layer` method. 
+# :func:`~brainspace.plotting.Plot.add_layer` method. 
 # 
 # Let's first add some curvature shading. Note that we already have the 
 # curvature maps in our `surface` variable, which are accessed here with the 
 # 'sulc' key. 
 #
-# We can pass our curvature maps to the :func:`add_layer` method with the 
-# first positional parameter, `data`, which accepts either a dictionary with 
-# 'left' and 'right' keys, or a ``numpy`` array. 
+# We can pass our curvature maps to the :func:`~brainspace.plotting.Plot.add_layer` 
+# method with the first positional parameter, `data`, which accepts either a 
+# dictionary with 'left' and 'right' keys, or a ``numpy`` array. 
 # :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 
 # of data can be passed to the `data` parameter.
 sulc_lh, sulc_rh = surfaces['sulc']
@@ -67,7 +67,7 @@ fig.show()
 ###############################################################################
 # Finally, let's add some statistical data. We can load some example data 
 # packaged with ``brainplot`` using 
-# :func:`brainplot.datasets.load_example_data`. By default, it loads an 
+# :func:`~brainplot.datasets.load_example_data`. By default, it loads an 
 # `association map of the term 'default mode' computed from Neurosynth 
 # <https://www.neurosynth.org/analyses/terms/default%20mode/>`_. 
 # For convenience, this map has already been projected from a volume in MNI152 
@@ -84,3 +84,4 @@ print(lh_data)
 p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
 fig = p.build()
 fig.show()
+# sphinx_gallery_thumbnail_number = 3

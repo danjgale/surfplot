@@ -20,8 +20,8 @@
 
 .. _example01_ref:
 
-Example 01: Multiple Stat Maps
-==============================
+Example 1: Multiple Stat Maps
+=============================
 
 This example shows multiple statistical maps on a surface with some extra 
 stylizing for a clean-looking figure.
@@ -75,7 +75,7 @@ stylizing for a clean-looking figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.598 seconds)
+   **Total running time of the script:** ( 0 minutes  0.615 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:
