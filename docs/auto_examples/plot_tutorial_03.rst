@@ -49,7 +49,7 @@ downloaded via ``brainnotation``. We'll also reuse the example data.
 .. code-block:: default
 
     from brainnotation.datasets import fetch_fslr
-    from brainplot.datasets import load_example_data
+    from surfplot.datasets import load_example_data
 
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
@@ -131,7 +131,7 @@ Perfect, now let's plot:
 
 .. code-block:: default
 
-    from brainplot import Plot
+    from surfplot import Plot
 
     p = Plot(surf_lh=lh, surf_rh=rh)
     p.add_layer(data, cmap='YlOrRd_r')

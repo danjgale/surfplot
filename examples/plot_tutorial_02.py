@@ -6,13 +6,13 @@ Tutorial 2: Types of Surfaces
 =============================
 
 This tutorial covers what types of surfaces that can be plotted with 
-``brainplot``. 
+``surfplot``. 
 
 Types of surfaces
 -----------------
 
-Put briefly, ``brainplot`` can take file paths to any valid surface file(s) 
-with geometry data. Under the hood, :class:`~brainplot.plotting.Plot` runs 
+Put briefly, ``surfplot`` can take file paths to any valid surface file(s) 
+with geometry data. Under the hood, :class:`~surfplot.plotting.Plot` runs 
 :func:`brainspace.mesh.mesh_io.read_surface` to load files. Typically, these
 will be Freesurfer or GIFTI files. 
 
@@ -21,7 +21,7 @@ will be Freesurfer or GIFTI files.
 returned by :func:`read_surface`. So, pre-loaded surfaces with 
 :func:`read_surface` can be plotted as well.
 
-Beyond that, ``brainplot`` is invariant to the actual brain surfaces you wish
+Beyond that, ``surfplot`` is invariant to the actual brain surfaces you wish
 to use. Common human surfaces include `fsaverage` surfaces packaged with 
 Freesurfer, and Human Connectome Project `fsLR` surfaces (`downloadable here 
 <https://balsa.wustl.edu/reference/show/pkXDZ>`_). Several different 
@@ -46,7 +46,7 @@ surfaces. For the sake of demonstration, let's plot Freesurfer's `fsaverage`
 here, again using ``brainnotation`` fetching functions.
 """
 from brainnotation.datasets import fetch_fsaverage
-from brainplot import Plot
+from surfplot import Plot
 
 surfaces = fetch_fsaverage(density='164k')
 lh, rh = surfaces['inflated']

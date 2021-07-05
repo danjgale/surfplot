@@ -23,7 +23,7 @@
 Tutorial 4: Layouts and Views
 =============================
 
-This tutorial covers the layout and view options provided by ``brainplot``.
+This tutorial covers the layout and view options provided by ``surfplot``.
 
 For variety, let's import the left and right Conte69 midthickness surface
 directly using :func:`~brainspace.datasets.load_conte69`. Then, we'll make a 
@@ -36,7 +36,7 @@ Workbench.
 .. code-block:: default
 
     from brainspace.datasets import load_conte69
-    from brainplot import Plot
+    from surfplot import Plot
 
     lh, rh = load_conte69()
     p = Plot(lh, rh)
@@ -135,7 +135,7 @@ set as default ('grid'), then a single hemisphere is plotted as row:
 Views
 -----
 
-``brainplot`` makes it easy to configure the view(s) you wish to use. One or
+``surfplot`` makes it easy to configure the view(s) you wish to use. One or
 more views can be specified through the `views` parameter. As we've seen 
 before, the default is to include lateral and medial views. It is also 
 possible to show just one view:

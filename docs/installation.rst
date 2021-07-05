@@ -2,21 +2,21 @@
 Installation
 ============
 
-``brainplot`` is installable via ``pip``:
+``surfplot`` is installable via ``pip``:
 
 .. code-block:: bash
 
-	pip install brainplot
+	pip install surfplot
 
 Alternatively, you can install the most up-to-date version of from GitHub:
 
 .. code-block:: bash
 
-	git clone https://github.com/danjgale/brainplot.git
-	cd brainplot
+	git clone https://github.com/danjgale/surfplot.git
+	cd surfplot
 	pip install . 
 
-Note that ``brainplot`` requires Python 3.7+ and some key dependencies:
+Note that ``surfplot`` requires Python 3.7+ and some key dependencies:
 
 	- `brainspace`_ (>=0.1.1)
 	- `matplotlib`_ (>=3.3.0)
@@ -24,7 +24,7 @@ Note that ``brainplot`` requires Python 3.7+ and some key dependencies:
 	- `nibabel`_ (>=3.0.0)
 	- `vtk`_ (>=8.1.0)
 
-Several of the :ref:`tutorials_examples` make use of additional neuroimaging packages. Although these packages are not required for installation, they are recommended to make your brainplotting life a bit easier. These are:
+Several of the :ref:`tutorials_examples` make use of additional neuroimaging packages. Although these packages are not required for installation, they are recommended to make your surfplotting life a bit easier. These are:
 
 	- `nilearn`_ (for manipulating images and volume-to-surface projections)
 	- `brainnotation`_ (for volume-to-surface projections and surface-to-surface resampling)

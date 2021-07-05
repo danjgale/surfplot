@@ -23,9 +23,9 @@
 Tutorial 1: Quick Start
 =======================
 
-This tutorial gives a quick overview of ``brainplot`` before diving into more
+This tutorial gives a quick overview of ``surfplot`` before diving into more
 detail in subsequent tutorials. The aim here is to get a flavour of how 
-``brainplot`` works and what can be plotted. 
+``surfplot`` works and what can be plotted. 
 
 Getting surfaces
 ----------------
@@ -68,7 +68,7 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 .. code-block:: default
 
-    from brainplot import Plot
+    from surfplot import Plot
 
     p = Plot(surf_lh=lh, surf_rh=rh)
     fig = p.build()
@@ -143,8 +143,8 @@ Now, let's plot our updated figure:
 .. GENERATED FROM PYTHON SOURCE LINES 68-76
 
 Finally, let's add some statistical data. We can load some example data 
-packaged with ``brainplot`` using 
-:func:`~brainplot.datasets.load_example_data`. By default, it loads an 
+packaged with ``surfplot`` using 
+:func:`~surfplot.datasets.load_example_data`. By default, it loads an 
 `association map of the term 'default mode' computed from Neurosynth 
 <https://www.neurosynth.org/analyses/terms/default%20mode/>`_. 
 For convenience, this map has already been projected from a volume in MNI152 
@@ -155,7 +155,7 @@ and `rh_data` variables are just numpy arrays of the vertices:
 
 .. code-block:: default
 
-    from brainplot.datasets import load_example_data
+    from surfplot.datasets import load_example_data
     lh_data, rh_data = load_example_data()
     print(lh_data)
 

@@ -1,37 +1,37 @@
-brainplot package
+surfplot package
 =================
 
 Submodules
 ----------
 
-brainplot.datasets module
+surfplot.datasets module
 -------------------------
 
-.. automodule:: brainplot.datasets
+.. automodule:: surfplot.datasets
    :members:
    :undoc-members:
    :show-inheritance:
 
-brainplot.plotting module
+surfplot.plotting module
 -------------------------
 
-.. automodule:: brainplot.plotting
+.. automodule:: surfplot.plotting
    :members:
    :undoc-members:
    :show-inheritance:
 
-brainplot.surf module
+surfplot.surf module
 ---------------------
 
-.. automodule:: brainplot.surf
+.. automodule:: surfplot.surf
    :members:
    :undoc-members:
    :show-inheritance:
 
-brainplot.utils module
+surfplot.utils module
 ----------------------
 
-.. automodule:: brainplot.utils
+.. automodule:: surfplot.utils
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ brainplot.utils module
 Module contents
 ---------------
 
-.. automodule:: brainplot
+.. automodule:: surfplot
    :members:
    :undoc-members:
    :show-inheritance:

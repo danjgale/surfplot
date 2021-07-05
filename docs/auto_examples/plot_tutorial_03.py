@@ -27,7 +27,7 @@ Here we'll reuse the S1200 surfaces and curvature maps we used in
 downloaded via ``brainnotation``. We'll also reuse the example data. 
 """
 from brainnotation.datasets import fetch_fslr
-from brainplot.datasets import load_example_data
+from surfplot.datasets import load_example_data
 
 surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']
@@ -53,7 +53,7 @@ data = load_example_data(join=True)
 print(len(data) == 64984)
 ###############################################################################
 # Perfect, now let's plot: 
-from brainplot import Plot
+from surfplot import Plot
 
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer(data, cmap='YlOrRd_r')

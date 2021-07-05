@@ -4,7 +4,7 @@ import io
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-    io.open('brainplot/__init__.py', encoding='utf_8_sig').read()
+    io.open('surfplot/__init__.py', encoding='utf_8_sig').read()
     ).group(1)
 
 test_deps = ['pytest-cov',
@@ -18,7 +18,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name='brainplot',
+    name='surfplot',
     version=__version__,
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*",
                                     "tests"]),
@@ -29,7 +29,7 @@ setup(
                  "capabilities"),
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    url='https://github.com/danjgale/brainplot',
+    url='https://github.com/danjgale/surfplot',
     python_requires='>=3.7.0',
     install_requires=[
             'brainnotation',
@@ -42,7 +42,7 @@ setup(
             'vtk>=8.1.0'
     ],
     package_data={
-        'brainplot': ['data/*']
+        'surfplot': ['data/*']
     },
     include_package_data=True,
     tests_require=test_deps,

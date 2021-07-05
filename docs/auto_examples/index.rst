@@ -20,13 +20,13 @@ Many of these tutorials and examples rely on `brainnotation <https://netneurolab
 Tutorials
 ---------
 
-These tutorials provide a step-by-step walkthrough of ``brainplot``, covering each major feature in detail.
+These tutorials provide a step-by-step walkthrough of ``surfplot``, covering each major feature in detail.
 
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of brainplot before diving into more detail in subsequent ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent ...">
 
 .. only:: html
 
@@ -47,7 +47,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of surfaces that can be plotted with  brainplot. ">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of surfaces that can be plotted with  surfplot. ">
 
 .. only:: html
 
@@ -89,7 +89,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers the layout and view options provided by brainplot.">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers the layout and view options provided by surfplot.">
 
 .. only:: html
 
@@ -110,7 +110,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to configure the colorbar(s) with brainplot.">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to configure the colorbar(s) with surfplot.">
 
 .. only:: html
 
@@ -141,7 +141,7 @@ These tutorials provide a step-by-step walkthrough of ``brainplot``, covering ea
 Examples
 --------
 
-These examples demonstrate 'publication-ready' figures created with ``brainplot`` based on common use-cases. These are intended to show more typical 'real-world' ``brainplot`` workflows.
+These examples demonstrate 'publication-ready' figures created with ``surfplot`` based on common use-cases. These are intended to show more typical 'real-world' ``surfplot`` workflows.
 
 
 .. raw:: html

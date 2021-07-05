@@ -1,56 +1,56 @@
 .. _api_ref:
 
-.. currentmodule:: brainplot
+.. currentmodule:: surfplot
 
 API Reference
 =============
 
 .. _ref_datasets:
 
-:mod:`brainplot.datasets` - Dataset fetchers
+:mod:`surfplot.datasets` - Dataset fetchers
 --------------------------------------------
-.. automodule:: brainplot.datasets
+.. automodule:: surfplot.datasets
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: brainplot.datasets
+.. currentmodule:: surfplot.datasets
 
 .. autosummary::
    :template: function.rst
    :toctree: generated/
 
-   brainplot.datasets.load_example_data
+   surfplot.datasets.load_example_data
 
 
 .. _ref_plot:
 
-:mod:`brainplot.plotting` - Plotting
+:mod:`surfplot.plotting` - Plotting
 ------------------------------------
-.. automodule:: brainplot.plotting
+.. automodule:: surfplot.plotting
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: brainplot.plotting
+.. currentmodule:: surfplot.plotting
 
 .. autosummary::
    :template: class.rst
    :toctree: generated/
 
-   brainplot.plotting.Plot
+   surfplot.plotting.Plot
 
 .. _ref_utils:
 
-:mod:`brainplot.utils` - Utilities
+:mod:`surfplot.utils` - Utilities
 ----------------------------------
-.. automodule:: brainplot.utils
+.. automodule:: surfplot.utils
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: brainplot.utils
+.. currentmodule:: surfplot.utils
 
 .. autosummary::
    :template: function.rst
    :toctree: generated/
 
-   brainplot.utils.add_fslr_medial_wall
-   brainplot.utils.threshold
+   surfplot.utils.add_fslr_medial_wall
+   surfplot.utils.threshold

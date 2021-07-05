@@ -8,8 +8,8 @@ Example 1: Multiple Stat Maps
 This example shows multiple statistical maps on a surface with some extra 
 stylizing for a clean-looking figure.
 """
-from brainplot import Plot
-from brainplot.datasets import load_example_data
+from surfplot import Plot
+from surfplot.datasets import load_example_data
 from brainnotation.datasets import fetch_fslr
 
 surfaces = fetch_fslr()

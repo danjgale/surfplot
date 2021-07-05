@@ -467,7 +467,7 @@ class Plot(object):
             Draw colorbars for each applicable layer, default: True
         cbar_kws : dict, optional
             Keyword arguments for 
-            :func:`~brainplot.plottong.Plot._add_colorbar`. Default: None, 
+            :func:`~surfplot.plottong.Plot._add_colorbar`. Default: None, 
             which will plot the default colorbar parameters. 
         scale : tuple, optional
             Amount to scale the surface plot. Default: (2, 2), which is a 
@@ -502,7 +502,7 @@ class Plot(object):
         -----
         This only shows the plot created by 
         brainspace.plotting.surface_plotting.plot_surf, and will not include 
-        colorbars created by :func:`~brainplot.plottong.Plot.plot` or any 
+        colorbars created by :func:`~surfplot.plottong.Plot.plot` or any 
         other matplotlib components.  
 
         Parameters

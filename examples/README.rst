@@ -14,4 +14,4 @@ Many of these tutorials and examples rely on `brainnotation <https://netneurolab
 Tutorials
 ---------
 
-These tutorials provide a step-by-step walkthrough of ``brainplot``, covering each major feature in detail.
+These tutorials provide a step-by-step walkthrough of ``surfplot``, covering each major feature in detail.

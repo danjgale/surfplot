@@ -40,8 +40,8 @@ stylizing for a clean-looking figure.
 
 .. code-block:: default
 
-    from brainplot import Plot
-    from brainplot.datasets import load_example_data
+    from surfplot import Plot
+    from surfplot.datasets import load_example_data
     from brainnotation.datasets import fetch_fslr
 
     surfaces = fetch_fslr()

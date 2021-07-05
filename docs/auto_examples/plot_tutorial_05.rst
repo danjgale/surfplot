@@ -23,13 +23,13 @@
 Tutorial 5: Colors and colorbars
 ================================
 
-This tutorial demonstrates how to configure the colorbar(s) with ``brainplot``.
+This tutorial demonstrates how to configure the colorbar(s) with ``surfplot``.
 
 Layer color maps and colorbars 
 ------------------------------
 
 The color map can be specified for each added plotting layer using the `cmap` 
-parameter of :func:`~brainplot.plotting.Plot.add_layer`, along with the 
+parameter of :func:`~surfplot.plotting.Plot.add_layer`, along with the 
 associated ``matplotlib`` colorbar drawn if specified. The colobar can be 
 turned off by `cbar=False`. The range of the colormap is specified with the 
 `color_range` parameter, which takes a tuple of (`minimum`, `maximum`) values. 
@@ -45,7 +45,7 @@ Following the first initial steps of
 .. code-block:: default
 
     from brainnotation.datasets import fetch_fslr
-    from brainplot import Plot
+    from surfplot import Plot
 
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
@@ -62,14 +62,14 @@ Following the first initial steps of
 
 Now let's add a plotting layer with a colorbar using the example data. The
 `cmap` parameter accepts any named `matplotlib colormap`_, or a 
-`colormap object`_. This means that ``brainplot`` can work with pretty much
+`colormap object`_. This means that ``surfplot`` can work with pretty much
 any colormap, including those from `seaborn`_ and `cmasher`_,  for example.  
 
 .. GENERATED FROM PYTHON SOURCE LINES 37-44
 
 .. code-block:: default
 
-    from brainplot.datasets import load_example_data
+    from surfplot.datasets import load_example_data
 
     # default mode network associations
     default = load_example_data(join=True)
@@ -93,7 +93,7 @@ any colormap, including those from `seaborn`_ and `cmasher`_,  for example.
 cases where a single layer/colorbar is shown, it can be useful when adding
 multiple layers. To demonstrate that, let's add another layer using the
 `frontoparietal` network associations from 
-:func:`~brainplot.datasets.load_example_data`:
+:func:`~surfplot.datasets.load_example_data`:
 
 .. GENERATED FROM PYTHON SOURCE LINES 50-54
 
@@ -125,9 +125,9 @@ cbar_kws
 --------
 
 Once all layers have been added, the positioning and style can be adjusted 
-using the `cbar_kws` parameter in :func:`~brainplot.plotting.Plot.build`, 
-which are keyword arguments for :func:`brainplot.plotting.Plot._add_colorbars`. 
-Each one is briefly described below (see :func:`~brainplot.plotting.Plot._add_colorbars`
+using the `cbar_kws` parameter in :func:`~surfplot.plotting.Plot.build`, 
+which are keyword arguments for :func:`surfplot.plotting.Plot._add_colorbars`. 
+Each one is briefly described below (see :func:`~surfplot.plotting.Plot._add_colorbars`
 for more detail):
 
 1. `location`: The location, relative to the surface plot

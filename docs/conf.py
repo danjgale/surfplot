@@ -19,20 +19,20 @@ brainspace.OFF_SCREEN = True  # off screen rendering for examples
 
 # -- Project information -----------------------------------------------------
 
-project = 'brainplot'
+project = 'surfplot'
 author = 'Dan Gale'
-copyright = '2021, brainplot developers'
+copyright = '2021, surfplot developers'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1a'
 
 # Import project to get version info
 sys.path.insert(0, os.path.abspath(os.path.pardir))
-import brainplot  # noqa
+import surfplot  # noqa
 # The short X.Y version
-version = brainplot.__version__
+version = surfplot.__version__
 # The full version, including alpha/beta/rc tags
-release = brainplot.__version__
+release = surfplot.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -116,7 +116,7 @@ html_css_files = ['theme_overrides.css']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'brainplotdoc'
+htmlhelp_basename = 'surfplotdoc'
 
 # -- Extension configuration -------------------------------------------------
 intersphinx_mapping = {
@@ -137,10 +137,10 @@ sphinx_gallery_conf = {
 }
 
 # sphinx_gallery_conf = {
-#     'doc_module': 'brainplot',
+#     'doc_module': 'surfplot',
 #     'backreferences_dir': os.path.join('generated', 'modules'),
 #     'reference_url': {
-#         'brainplot': None
+#         'surfplot': None
 #     },
 #     'thumbnail_size': (250, 250),
 #     'ignore_pattern': r'/wip.*\.py',
