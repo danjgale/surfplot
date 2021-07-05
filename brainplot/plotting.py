@@ -134,7 +134,7 @@ def _set_label_positions(location, rotation):
         if rotation == 90 or rotation == 0:
             return rotation, 'center', 'bottom'
         else:
-            return rotation, 'left', 'center'
+            return rotation, 'left', 'bottom'
     else:
         raise ValueError("`location` must be 'top', 'bottom', 'left' or "
                          "'right'")
@@ -379,10 +379,10 @@ class Plot(object):
                          label_text=self.label_text, size=self.size, 
                          return_plotter=True, offscreen=offscreen)
 
-    def add_colorbars(self, location='bottom', label_direction=None,   
-                      n_ticks=3, decimals=2, fontsize=10, draw_border=True, 
-                      outer_labels_only=False, pad=.08, shrink=.3, 
-                      fraction=.05):
+    def _add_colorbars(self, location='bottom', label_direction=None,   
+                       n_ticks=3, decimals=2, fontsize=10, draw_border=True, 
+                       outer_labels_only=False, aspect=20, pad=.08, shrink=.3, 
+                       fraction=.05):
         """Draw colorbar(s) for applicable layer(s)  
 
         Parameters
@@ -403,19 +403,21 @@ class Plot(object):
             Number of decimals to show for colorbal tick values. Set 0 to show 
             integers. Default: 2
         fontsize : int, optional
-            Font size for colorbar labels and tick labels, default: 10
+            Font size for colorbar labels and tick labels. Default: 10
         draw_border : bool, optional
-            Draw ticks and black border around colorbar, default: True
+            Draw ticks and black border around colorbar. Default: True
         outer_labels_only : bool, optional
             Show tick labels for only the outermost colorbar. This cleans up 
             tick labels when all colorbars are the same scale. Default: False
         pad : float, optional
-            Space that separates each colorbar, default: .08
+            Space that separates each colorbar. Default: .08
+        aspect : float, optional
+            Ratio of long to short dimensions. Default: 20
         shrink : float, optional
-            Fraction by which to multiply the size of the colorbar, by 
-            default .3
+            Fraction by which to multiply the size of the colorbar. 
+            Default: .3
         fraction : float, optional
-            Fraction of original axes to use for colorbar, default: .05
+            Fraction of original axes to use for colorbar. Default: .05
         """
         cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
         cbar_indices = [i for i, c in enumerate(self._show_cbar) if c]
@@ -431,7 +433,7 @@ class Plot(object):
             
             cb = plt.colorbar(sm, ticks=ticks, location=location, 
                               fraction=fraction, pad=cbar_pads[i], 
-                              shrink=shrink)
+                              shrink=shrink, aspect=aspect)
 
             tick_labels = np.linspace(vmin, vmax, n_ticks)
             if decimals > 0:
@@ -443,6 +445,7 @@ class Plot(object):
                 cb.set_ticklabels([])
             else:
                 cb.set_ticklabels(tick_labels)
+                cb.ax.tick_params(labelsize=fontsize)
             
             if self.cbar_labels[i] is not None:
                 cb = _set_colorbar_labels(cb, self.cbar_labels[i], location,
@@ -463,8 +466,9 @@ class Plot(object):
         colorbar : bool, optional
             Draw colorbars for each applicable layer, default: True
         cbar_kws : dict, optional
-            Keyword arguments for :func:`Plot.add_colorbar` . Default: None, 
-            which will plot the default colorbar parameters
+            Keyword arguments for 
+            :func:`~brainplot.plottong.Plot._add_colorbar`. Default: None, 
+            which will plot the default colorbar parameters. 
         scale : tuple, optional
             Amount to scale the surface plot. Default: (2, 2), which is a 
             good baseline for higher resolution plotting. 
@@ -486,7 +490,7 @@ class Plot(object):
         ax.axis('off')
         if colorbar:
             cbar_kws = {} if cbar_kws is None else cbar_kws
-            self.add_colorbars(**cbar_kws)
+            self._add_colorbars(**cbar_kws)
 
         return fig
 
@@ -498,7 +502,8 @@ class Plot(object):
         -----
         This only shows the plot created by 
         brainspace.plotting.surface_plotting.plot_surf, and will not include 
-        colorbars created by :func:`Plot.plot` or any other matplotlib components.  
+        colorbars created by :func:`~brainplot.plottong.Plot.plot` or any 
+        other matplotlib components.  
 
         Parameters
         ----------
