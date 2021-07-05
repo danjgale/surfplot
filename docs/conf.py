@@ -127,7 +127,7 @@ intersphinx_mapping = {
 from brainspace.plotting.sphinx_gallery_scrapper import _get_sg_image_scraper
 from sphinx_gallery.sorting import FileNameSortKey
 sphinx_gallery_conf = {
-    'examples_dirs': '../examples', 
+    'examples_dirs': '../tutorials', 
     'gallery_dirs': 'auto_examples',
     'thumbnail_size': (250, 250),
     # 'plot_gallery': 'False',
