@@ -1,6 +1,6 @@
 
-surfplot: A Python package for brain surface figures
-====================================================
+surfplot: A Python package for publication-ready brain surface plots
+====================================================================
 
 .. figure:: https://raw.githubusercontent.com/danjgale/surfplot/main/docs/auto_examples/examples/images/sphx_glr_plot_example_01_001.png
 	:target: https://surfplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
@@ -11,7 +11,9 @@ surfplot: A Python package for brain surface figures
 
 ``surfplot`` is a flexible and easy-to-use package that makes publication-ready brain surface plots. Users can easily set the plot views and layout, add multiple data layers, draw outlines, and further customize their figure directly using matplotlib. 
 
-At its core, ``surfplot`` is simply a high-level interface to `Brainspace's <https://brainspace.readthedocs.io/en/latest/index.html>`_ excellent surface `plotting <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.plotting.html>`_ and `manipulation <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.mesh.html>`_ capabilities, which are built on top of `Visualization Toolkit (VTK) <https://vtk.org/>`_. ``surfplot`` is designed around common use-cases for surface plotting and popular surface plotting software (e.g., `Connectome Workbench <https://www.humanconnectome.org/software/connectome-workbench>`_). ``surfplot`` also provides some additional utility functions to streamline the plotting process.
+At its core, ``surfplot`` is simply a high-level interface to `Brainspace's <https://brainspace.readthedocs.io/en/latest/index.html>`_ excellent surface `plotting <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.plotting.html>`_ and `manipulation <https://brainspace.readthedocs.io/en/latest/python_doc/api_doc/brainspace.mesh.html>`_ capabilities, which are built on top of `Visualization Toolkit (VTK) <https://vtk.org/>`_. Surfaces are rendered with Brainspace and then embedded into a matplotlib figure for easy integration with typical plotting workflows. 
+
+``surfplot`` is designed around common use-cases for surface plotting and popular surface plotting software (e.g., `Connectome Workbench <https://www.humanconnectome.org/software/connectome-workbench>`_). ``surfplot`` also provides some additional utility functions to streamline the plotting process.
 
 Getting started
 ---------------

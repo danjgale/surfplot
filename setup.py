@@ -25,7 +25,7 @@ setup(
     license='BSD-3',
     author='Dan Gale',
     maintainer_email="d.gale@queensu.ca",
-    description=("A Python package for brain surface figures"),
+    description=("A Python package for publication-ready brain surface plots"),
     long_description=long_description,
     long_description_content_type='text/x-rst',
     url='https://surfplot.readthedocs.io/en/latest/',
