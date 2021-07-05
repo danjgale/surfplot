@@ -73,7 +73,7 @@ any colormap, including those from `seaborn`_ and `cmasher`_,  for example.
 
     # default mode network associations
     default = load_example_data(join=True)
-    p.add_layer(default, cmap='YlOrBr_r', cbar_label='Default mode')
+    p.add_layer(default, cmap='GnBu_r', cbar_label='Default mode')
     fig = p.build()
     fig.show()
 
@@ -100,7 +100,7 @@ multiple layers. To demonstrate that, let's add another layer using the
 .. code-block:: default
 
     fronto = load_example_data('frontoparietal', join=True)
-    p.add_layer(fronto, cmap='BuGn_r', cbar_label='Frontoparietal')
+    p.add_layer(fronto, cmap='YlOrBr_r', cbar_label='Frontoparietal')
     fig = p.build()
     fig.show()
 
@@ -183,7 +183,7 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.207 seconds)
+   **Total running time of the script:** ( 0 minutes  1.400 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:

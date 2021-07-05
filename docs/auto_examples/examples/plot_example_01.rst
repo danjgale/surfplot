@@ -75,7 +75,7 @@ stylizing for a clean-looking figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.615 seconds)
+   **Total running time of the script:** ( 0 minutes  0.625 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:

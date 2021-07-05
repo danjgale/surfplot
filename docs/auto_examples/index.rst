@@ -26,7 +26,7 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent t...">
 
 .. only:: html
 
