@@ -183,7 +183,7 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.400 seconds)
+   **Total running time of the script:** ( 0 minutes  1.264 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:
