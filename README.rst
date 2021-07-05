@@ -7,7 +7,7 @@ surfplot: A Python package for plotting brain surfaces
 	:alt: example
 	:align: center
 	
-	Example Neurosynth association maps; see `Example 01`_
+	Example Neurosynth association maps; see `Example 1`_
 
 ``surfplot`` is a flexible and easy-to-use package that makes publication-ready brain surface plots. Users can easily set the plot views and layout, add multiple data layers, draw outlines, and further customize their figure directly using matplotlib. 
 
@@ -16,7 +16,7 @@ At its core, ``surfplot`` is simply a high-level interface to `Brainspace's <htt
 Getting started
 ---------------
 
-Follow the `installation instructions`_ to install ``surfplot``, and then check out the `tutorials and examples`_ to learn how to get up and running! Refer to the `API reference`_ for complete documentation. 
+Follow the `Installation Instructions`_ to install ``surfplot``, and then check out the `Tutorials and Examples`_ to learn how to get up and running! Refer to the `API reference`_ for complete documentation. 
 
 
 License information
@@ -36,7 +36,7 @@ A big thank you to the ``Brainspace`` developers:
 
 Vos de Wael R, Benkarim O, Paquola C, Lariviere S, Royer J, Tavakol S, Xu T, Hong S-J, Langs G, Valk S, Misic B, Milham M, Margulies D, Smallwood J, Bernhardt BC. 2020. BrainSpace: a toolbox for the analysis of macroscale gradients in neuroimaging and connectomics datasets. *Communications Biology*. 3:103.
 
-.. _Example 01: https://surfplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
-.. _installation instructions: https://surfplot.readthedocs.io/en/latest/installation.html
-.. _tutorials and examples: https://surfplot.readthedocs.io/en/latest/auto_examples/index.html
+.. _Example 1: https://surfplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
+.. _Installation Instructions: https://surfplot.readthedocs.io/en/latest/installation.html
+.. _Tutorials and Examples: https://surfplot.readthedocs.io/en/latest/auto_examples/index.html
 .. _API reference: https://surfplot.readthedocs.io/en/latest/api.html
