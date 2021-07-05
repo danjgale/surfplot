@@ -25,11 +25,10 @@ setup(
     license='BSD-3',
     author='Dan Gale',
     maintainer_email="d.gale@queensu.ca",
-    description=("A high-level interface for Brainspace's surface plotting "
-                 "capabilities"),
+    description=("A Python package for brain surface figures"),
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    url='https://github.com/danjgale/surfplot',
+    url='https://surfplot.readthedocs.io/en/latest/',
     python_requires='>=3.7.0',
     install_requires=[
             'brainnotation',

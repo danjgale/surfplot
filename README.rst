@@ -1,6 +1,6 @@
 
-surfplot: A Python package for plotting brain surfaces
-=======================================================
+surfplot: A Python package for brain surface figures
+====================================================
 
 .. figure:: https://raw.githubusercontent.com/danjgale/surfplot/main/docs/auto_examples/examples/images/sphx_glr_plot_example_01_001.png
 	:target: https://surfplot.readthedocs.io/en/latest/auto_examples/examples/plot_example_01.html#sphx-glr-auto-examples-examples-plot-example-01-py
