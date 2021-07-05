@@ -38,7 +38,7 @@ from surfplot.datasets import load_example_data
 
 # default mode network associations
 default = load_example_data(join=True)
-p.add_layer(default, cmap='YlOrBr_r', cbar_label='Default mode')
+p.add_layer(default, cmap='GnBu_r', cbar_label='Default mode')
 fig = p.build()
 fig.show()
 ###############################################################################
@@ -48,7 +48,7 @@ fig.show()
 # `frontoparietal` network associations from 
 # :func:`~surfplot.datasets.load_example_data`:
 fronto = load_example_data('frontoparietal', join=True)
-p.add_layer(fronto, cmap='BuGn_r', cbar_label='Frontoparietal')
+p.add_layer(fronto, cmap='YlOrBr_r', cbar_label='Frontoparietal')
 fig = p.build()
 fig.show()
 ###############################################################################
