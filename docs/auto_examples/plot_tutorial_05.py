@@ -18,7 +18,7 @@ turned off by `cbar=False`. The range of the colormap is specified with the
 If no color range is specified (the default, i.e. `None`), then the color range 
 is computed automically based on the minimum and maximum of the data.
 
-Let's get started by setting up a plot with surface curvature added as well. 
+Let's get started by setting up a plot with surface shading added as well. 
 Following the first initial steps of 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` :
 """
@@ -29,6 +29,8 @@ surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']
 p = Plot(lh, rh)
 
+sulc_lh, sulc_rh = surfaces['sulc']
+p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
 ###############################################################################
 # Now let's add a plotting layer with a colorbar using the example data. The
 # `cmap` parameter accepts any named `matplotlib colormap`_, or a 

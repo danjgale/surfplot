@@ -22,7 +22,7 @@ GIFTI and CIFTI data. Let's dig into this further.
 Getting data
 ------------
 
-Here we'll reuse the S1200 surfaces and curvature maps we used in 
+Here we'll reuse the S1200 fsLR surfaces and Freesurfer sulc maps we used in 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`, both of which are 
 downloaded via ``brainnotation``. We'll also reuse the example data. 
 """
@@ -105,7 +105,7 @@ fig.show()
 # and readable with ``nibabel``. These files must be either GIFTI or CIFTI 
 # images. When plotting both hemispheres, you will need a dictionary to assign 
 # each each GIFTI to a hemisphere. To test this out, let's get the downloaded
-# curvature maps and add them: 
+# sulc maps and add them: 
 lh_sulc, rh_sulc = surfaces['sulc']
 p = Plot(surf_lh=lh, surf_rh=rh)
 p.add_layer({'left': lh_sulc, 'right': rh_sulc}, cmap='binary_r', cbar=False)

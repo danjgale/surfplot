@@ -36,11 +36,11 @@ turned off by `cbar=False`. The range of the colormap is specified with the
 If no color range is specified (the default, i.e. `None`), then the color range 
 is computed automically based on the minimum and maximum of the data.
 
-Let's get started by setting up a plot with surface curvature added as well. 
+Let's get started by setting up a plot with surface shading added as well. 
 Following the first initial steps of 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` :
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-32
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
 
 .. code-block:: default
 
@@ -51,6 +51,8 @@ Following the first initial steps of
     lh, rh = surfaces['inflated']
     p = Plot(lh, rh)
 
+    sulc_lh, sulc_rh = surfaces['sulc']
+    p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
 
 
 
@@ -58,14 +60,14 @@ Following the first initial steps of
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-37
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 Now let's add a plotting layer with a colorbar using the example data. The
 `cmap` parameter accepts any named `matplotlib colormap`_, or a 
 `colormap object`_. This means that ``surfplot`` can work with pretty much
 any colormap, including those from `seaborn`_ and `cmasher`_,  for example.  
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-44
+.. GENERATED FROM PYTHON SOURCE LINES 39-46
 
 .. code-block:: default
 
@@ -87,7 +89,7 @@ any colormap, including those from `seaborn`_ and `cmasher`_,  for example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-50
+.. GENERATED FROM PYTHON SOURCE LINES 47-52
 
 `cbar_label` added a text label to the colorbar. Although not necessary in
 cases where a single layer/colorbar is shown, it can be useful when adding
@@ -95,7 +97,7 @@ multiple layers. To demonstrate that, let's add another layer using the
 `frontoparietal` network associations from 
 :func:`~surfplot.datasets.load_example_data`:
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-54
+.. GENERATED FROM PYTHON SOURCE LINES 52-56
 
 .. code-block:: default
 
@@ -114,7 +116,7 @@ multiple layers. To demonstrate that, let's add another layer using the
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-84
+.. GENERATED FROM PYTHON SOURCE LINES 57-86
 
 The order of the colorbars is always based on the order of the layers, where 
 the outermost colorbar is the last (i.e. uppermost) plotting layer. Of 
@@ -146,7 +148,7 @@ Let's plot colorbars on the right, which will generate vertical colorbars
 instead of horizontal colorbars. We'll also add some style changes for a 
 cleaner look: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-90
+.. GENERATED FROM PYTHON SOURCE LINES 86-92
 
 .. code-block:: default
 
@@ -167,12 +169,12 @@ cleaner look:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-93
+.. GENERATED FROM PYTHON SOURCE LINES 93-95
 
 Be sure to check out :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 for another example of colorbar styling.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-99
+.. GENERATED FROM PYTHON SOURCE LINES 97-101
 
 .. _matplotlib colormap: https://matplotlib.org/stable/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py
 .. _custom colormap: https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html
@@ -183,7 +185,7 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.180 seconds)
+   **Total running time of the script:** ( 0 minutes  1.382 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:

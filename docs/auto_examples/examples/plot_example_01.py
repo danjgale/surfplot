@@ -20,7 +20,7 @@ lh, rh = surfaces['inflated']
 
 p = Plot(lh, rh)
 
-# curvature
+# shading
 lh_sulc, rh_sulc = surfaces['sulc']
 p.add_layer({'left': lh_sulc, 'right': rh_sulc}, cmap='binary_r', cbar=False)
 

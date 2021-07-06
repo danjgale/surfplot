@@ -68,7 +68,7 @@ projected from MNI152 coordinates to fsLR surfaces using ``brainnotation``.
     data_lh = threshold(gii_lh.agg_data(), 3)
     data_rh = threshold(gii_rh.agg_data(), 3)
 
-    # get surfaces + curvature maps
+    # get surfaces + sulc maps
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
     sulc_lh, sulc_rh = surfaces['sulc']
@@ -91,7 +91,7 @@ projected from MNI152 coordinates to fsLR surfaces using ``brainnotation``.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.748 seconds)
+   **Total running time of the script:** ( 0 minutes  0.848 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_02.py:

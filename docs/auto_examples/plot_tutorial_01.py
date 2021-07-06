@@ -46,11 +46,10 @@ fig.show()
 # adding data is as simple as adding plotting layers using the 
 # :func:`~brainspace.plotting.Plot.add_layer` method. 
 # 
-# Let's first add some curvature shading. Note that we already have the 
-# curvature maps in our `surface` variable, which are accessed here with the 
-# 'sulc' key. 
+# Let's first add some shading. We already have the Freesurfer sulc maps in 
+# our `surface` variable, which are accessed here with the 'sulc' key. 
 #
-# We can pass our curvature maps to the :func:`~brainspace.plotting.Plot.add_layer` 
+# We can pass our sulc maps to the :func:`~brainspace.plotting.Plot.add_layer` 
 # method with the first positional parameter, `data`, which accepts either a 
 # dictionary with 'left' and 'right' keys, or a ``numpy`` array. 
 # :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 

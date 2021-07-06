@@ -52,7 +52,7 @@ stylizing for a clean-looking figure.
 
     p = Plot(lh, rh)
 
-    # curvature
+    # shading
     lh_sulc, rh_sulc = surfaces['sulc']
     p.add_layer({'left': lh_sulc, 'right': rh_sulc}, cmap='binary_r', cbar=False)
 
@@ -78,7 +78,7 @@ stylizing for a clean-looking figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.623 seconds)
+   **Total running time of the script:** ( 0 minutes  0.625 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:

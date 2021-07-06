@@ -85,7 +85,7 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-58
+.. GENERATED FROM PYTHON SOURCE LINES 43-57
 
 Adding layers
 -------------
@@ -93,17 +93,16 @@ Once the plot has been set up by instantiating the :class:`~brainspace.plotting.
 adding data is as simple as adding plotting layers using the 
 :func:`~brainspace.plotting.Plot.add_layer` method. 
 
-Let's first add some curvature shading. Note that we already have the 
-curvature maps in our `surface` variable, which are accessed here with the 
-'sulc' key. 
+Let's first add some shading. We already have the Freesurfer sulc maps in 
+our `surface` variable, which are accessed here with the 'sulc' key. 
 
-We can pass our curvature maps to the :func:`~brainspace.plotting.Plot.add_layer` 
+We can pass our sulc maps to the :func:`~brainspace.plotting.Plot.add_layer` 
 method with the first positional parameter, `data`, which accepts either a 
 dictionary with 'left' and 'right' keys, or a ``numpy`` array. 
 :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 
 of data can be passed to the `data` parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-60
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 .. code-block:: default
 
@@ -116,14 +115,14 @@ of data can be passed to the `data` parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-65
+.. GENERATED FROM PYTHON SOURCE LINES 60-64
 
 Above, we've also used a grayscale colormap (`cmap`) and turned off the 
 colorbar (`cbar`) for this particular layer.
 
 Now, let's plot our updated figure:
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 .. code-block:: default
 
@@ -140,7 +139,7 @@ Now, let's plot our updated figure:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-76
+.. GENERATED FROM PYTHON SOURCE LINES 67-75
 
 Finally, let's add some statistical data. We can load some example data 
 packaged with ``surfplot`` using 
@@ -151,7 +150,7 @@ For convenience, this map has already been projected from a volume in MNI152
 coordinates to a fsLR surface using ``brainnotation``, and the `lh_data`
 and `rh_data` variables are just numpy arrays of the vertices:  
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-79
+.. GENERATED FROM PYTHON SOURCE LINES 75-78
 
 .. code-block:: default
 
@@ -173,14 +172,14 @@ and `rh_data` variables are just numpy arrays of the vertices:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-84
+.. GENERATED FROM PYTHON SOURCE LINES 79-83
 
 We can add each array as a layer using a dictionary like before. By
 default a colorbar will be added for this layer, and its range is determined 
 by the minimum and maximum values (this can be adjusted with the 
 `color_range` parameter).
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-88
+.. GENERATED FROM PYTHON SOURCE LINES 83-87
 
 .. code-block:: default
 
@@ -202,7 +201,7 @@ by the minimum and maximum values (this can be adjusted with the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.186 seconds)
+   **Total running time of the script:** ( 0 minutes  1.287 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_01.py:
