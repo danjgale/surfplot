@@ -74,12 +74,11 @@ p.add_layer(regions, cmap='gray', as_outline=True, cbar=False)
 
 fig = p.build()
 fig.show()
-
+# sphinx_gallery_thumbnail_number = 3
 ###############################################################################
 # .. note::
 #   Multiple regions can also be plotted as individual layers, rather
 #   than combined as a single layer, as shown here. In this case, the vertex 
 #   array(s) for each layer would be binary. 
-# # sphinx_gallery_thumbnail_number = 3
 #
 # .. _Schaefer 400 parcellation: https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellation/Schaefer2018_LocalGlobal
