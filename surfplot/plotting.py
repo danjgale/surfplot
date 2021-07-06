@@ -1,6 +1,7 @@
 """Main module containing the Plot class
 """
 import pathlib
+import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -116,8 +117,11 @@ def _check_data(data):
 def _find_color_range(v):
     """Find min and max of both hemispheres"""
     hemis = ['left', 'right']
-    vmin = np.min([np.nanmin(v[h]) for h in hemis if h in v])
-    vmax = np.max([np.nanmax(v[h]) for h in hemis if h in v])
+    with warnings.catch_warnings():
+        # not necessary to warn the user about this. NaNs won't impact anything
+        warnings.filterwarnings('ignore', r'All-NaN (slice|axis) encountered')
+        vmin = np.nanmin([np.nanmin(v[h]) for h in hemis if h in v])
+        vmax = np.nanmax([np.nanmax(v[h]) for h in hemis if h in v])
     return vmin, vmax
 
 
@@ -312,7 +316,7 @@ class Plot(object):
         for k, v in self.surfaces.items():
             if k in vertices.keys():
                 if as_outline:
-                    x = get_labeling_border(v, vertices[k])
+                    x = get_labeling_border(v, vertices[k]).astype(float)
                 else:
                     x = vertices[k]
                 if zero_transparent:
