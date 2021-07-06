@@ -36,7 +36,7 @@ gii_lh, gii_rh = mni152_to_fslr(img)
 data_lh = threshold(gii_lh.agg_data(), 3)
 data_rh = threshold(gii_rh.agg_data(), 3)
 
-# get surfaces + curvature maps
+# get surfaces + sulc maps
 surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']
 sulc_lh, sulc_rh = surfaces['sulc']
