@@ -128,6 +128,27 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
    :hidden:
 
    /auto_examples/plot_tutorial_05
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to plot brain regions.">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_06_thumb.png
+     :alt: Tutorial 6: Regions and Parcellations
+
+     :ref:`sphx_glr_auto_examples_plot_tutorial_06.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_tutorial_06
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -164,6 +185,27 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
    :hidden:
 
    /auto_examples/examples/plot_example_01
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to project data from a NIFTI volume onto a surface, and  then display th...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
+     :alt: Example 2: Plotting volumetric data
+
+     :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/examples/plot_example_02
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
