@@ -31,11 +31,9 @@ setup(
     url='https://surfplot.readthedocs.io/en/latest/',
     python_requires='>=3.7.0',
     install_requires=[
-            'brainnotation',
             'brainspace>=0.1.1',
             'matplotlib>=3.2.0',
             'nibabel',
-            'nilearn>=0.7.0',
             'numpy>=1.14.0',
             'scipy>=0.17',
             'vtk>=8.1.0'
