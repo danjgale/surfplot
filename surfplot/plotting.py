@@ -50,13 +50,14 @@ def _set_layout(lh, rh, layout, views, mirror=False):
         view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
                         ventral='ventral', anterior='anterior', 
                         posterior='posterior')
-        if mirror and (layout != 'grid'):
+        
+        # determine view order                 
+        if mirror and (layout != 'grid') and (lh is not None):
             rh_views = [view_key[i] for i in reversed(views)]
         else: 
             rh_views = [view_key[i] for i in views]
         
         v = np.concatenate([v, np.array(rh_views)])
-        
         h = np.concatenate([h, np.array(['right'] * n_views)])
 
     if layout == 'grid':
