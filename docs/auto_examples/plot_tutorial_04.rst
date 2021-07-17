@@ -205,19 +205,22 @@ All possible views are shown here (the right hemisphere for brevity):
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-77
+.. GENERATED FROM PYTHON SOURCE LINES 74-79
 
-Finally, it is possible to flip the left and right hemisphere. This is 
-useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
-For example: 
+Views can also be mirrored when both hemipsheres are plotted and `layout` is 
+either 'row' or 'column'. Specifically, the right hemisphere view order is
+reversed. For example, plotting default lateral and medial views and setting 
+`mirror_views=True` will situate the medial views in the middle for a 
+symmetrical figure: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 79-82
 
 .. code-block:: default
 
-    p = Plot(lh, rh, size=(200, 200), zoom=3, views='anterior', flip=True)
+    p = Plot(lh, rh, size=(800, 200), zoom=1.2, layout='row', mirror_views=True)
     fig = p.build()
     fig.show()
+
 
 
 .. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_008.png
@@ -228,10 +231,33 @@ For example:
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 83-86
+
+Finally, it is possible to flip the left and right hemisphere. This is 
+useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
+For example: 
+
+.. GENERATED FROM PYTHON SOURCE LINES 86-88
+
+.. code-block:: default
+
+    p = Plot(lh, rh, size=(200, 200), zoom=3, views='anterior', flip=True)
+    fig = p.build()
+    fig.show()
+
+
+.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_009.png
+    :alt: plot tutorial 04
+    :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.061 seconds)
+   **Total running time of the script:** ( 0 minutes  2.099 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_04.py:
