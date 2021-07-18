@@ -5,18 +5,18 @@
 
 Computation times
 =================
-**00:04.847** total execution time for **auto_examples** files:
+**00:02.099** total execution time for **auto_examples** files:
 
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` (``plot_tutorial_03.py``) | 00:02.178 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_tutorial_04.py` (``plot_tutorial_04.py``) | 00:02.099 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_tutorial_05.py` (``plot_tutorial_05.py``) | 00:01.382 | 0.0 MB |
-+-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` (``plot_tutorial_01.py``) | 00:01.287 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` (``plot_tutorial_01.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_plot_tutorial_02.py` (``plot_tutorial_02.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_tutorial_04.py` (``plot_tutorial_04.py``) | 00:00.000 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` (``plot_tutorial_03.py``) | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_plot_tutorial_05.py` (``plot_tutorial_05.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_plot_tutorial_06.py` (``plot_tutorial_06.py``) | 00:00.000 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+

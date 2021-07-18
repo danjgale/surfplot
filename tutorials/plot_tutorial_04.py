@@ -71,6 +71,15 @@ p = Plot(surf_rh=rh, size=(900, 200), zoom=.8, layout='row', views=all_views)
 fig = p.build()
 fig.show()
 ###############################################################################
+# Views can also be mirrored when both hemipsheres are plotted and `layout` is 
+# either 'row' or 'column'. Specifically, the right hemisphere view order is
+# reversed. For example, plotting default lateral and medial views and setting 
+# `mirror_views=True` will situate the medial views in the middle for a 
+# symmetrical figure: 
+p = Plot(lh, rh, size=(800, 200), zoom=1.2, layout='row', mirror_views=True)
+fig = p.build()
+fig.show()
+###############################################################################
 # Finally, it is possible to flip the left and right hemisphere. This is 
 # useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
 # For example: 

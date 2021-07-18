@@ -24,7 +24,7 @@ def _check_surf(surf):
                          'BSPolyData, or None')
 
 
-def _set_layout(lh, rh, layout, views):
+def _set_layout(lh, rh, layout, views, mirror=False):
     """Determine hemisphere and view layout based user input"""
     valid_layouts = ['grid', 'row', 'column']
     if layout not in  valid_layouts:
@@ -50,7 +50,13 @@ def _set_layout(lh, rh, layout, views):
         view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
                         ventral='ventral', anterior='anterior', 
                         posterior='posterior')
-        rh_views = [view_key[i] for i in views]
+        
+        # determine view order                 
+        if mirror and (layout != 'grid') and (lh is not None):
+            rh_views = [view_key[i] for i in reversed(views)]
+        else: 
+            rh_views = [view_key[i] for i in views]
+        
         v = np.concatenate([v, np.array(rh_views)])
         h = np.concatenate([h, np.array(['right'] * n_views)])
 
@@ -183,6 +189,10 @@ class Plot(object):
         Views to plot for each provided hemisphere. Views are plotted in 
         in the order they are provided. If None, then lateral and medial
         views are plotted. Default: None
+    mirror_views : bool, optional
+        Flip the order of the right hemisphere views for 'row' or 'column' 
+        layouts, such that they mirror the left hemisphere views. Ignored if 
+        `surf_rh` is None and `layout` is 'grid'. 
     flip : bool, optional
         Flip the display order of left and right hemispheres in `grid` or 
         `row` layouts, if applicable. Useful when showing only 'anterior` 
@@ -211,8 +221,8 @@ class Plot(object):
         Neither `surf_lh` or `surf_rh` are provided
     """
     def __init__(self, surf_lh=None, surf_rh=None, layout='grid', views=None, 
-                 flip=False, size=(500, 400), zoom=1.5, background=(1, 1, 1),
-                 label_text=None, brightness=.5):
+                 mirror_views=False, flip=False, size=(500, 400), zoom=1.5, 
+                 background=(1, 1, 1), label_text=None, brightness=.5):
         hemi_inputs = zip(['left', 'right'], [surf_lh, surf_rh])
         self.surfaces = {k: _check_surf(v) 
                          for k, v in hemi_inputs if v is not None}
@@ -222,7 +232,8 @@ class Plot(object):
 
         if views == None:
             views = ['lateral', 'medial']
-        self.plot_layout = _set_layout(surf_lh, surf_rh, layout, views)
+        self.plot_layout = _set_layout(surf_lh, surf_rh, layout, views, 
+                                       mirror_views)
         self.flip = flip
 
         # plot_surf args
