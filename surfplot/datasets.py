@@ -10,7 +10,7 @@ def load_example_data(dataset='default_mode', join=False):
 
     Precomputed association maps for terms 'default mode' or 'frontoparietal'
     using Neurosynth. In brief, maps were downloaded from Neurosynth and 
-    projected to fsLR space using ``brainnotation.transforms.mni152_to_fslr``.
+    projected to fsLR space using ``neuromaps.transforms.mni152_to_fslr``.
     Then, their vertex arrays were saved. 
 
     1. Default mode: https://www.neurosynth.org/analyses/terms/default%20mode/  
