@@ -20,7 +20,7 @@ for any parcelation. To demonstrate, we can use the
 :func:`~brainspace.datasets.load_parcellation` from ``Brainspace`` to load the
 `Schaefer 400 parcellation`_.
 """
-from brainnotation.datasets import fetch_fslr
+from neuromaps.datasets import fetch_fslr
 from surfplot import Plot
 from brainspace.datasets import load_parcellation
 

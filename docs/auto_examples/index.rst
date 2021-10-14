@@ -9,11 +9,11 @@
 Tutorials and Examples
 ======================
 
-Many of these tutorials and examples rely on `brainnotation <https://netneurolab.github.io/brainnotation/>`_ to automatically download surfaces, rather than relying on specifying local file paths. Should you wish to run these tutorials/examples yourself, be sure to install ``brainnotation`` via ``pip``:
+Many of these tutorials and examples rely on `neuromaps <https://netneurolab.github.io/neuromaps/>`_ to automatically download surfaces, rather than relying on specifying local file paths. Should you wish to run these tutorials/examples yourself, be sure to install ``neuromaps`` via ``pip``:
 
 .. code-block:: bash
 
-	pip install brainnotation
+	pip install git+git://github.com/netneurolab/neuromaps.git#egg=neuromaps
 
 .. _tutorials:
 

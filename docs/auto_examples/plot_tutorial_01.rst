@@ -30,9 +30,9 @@ detail in subsequent tutorials. The aim here is to get a flavour of how
 Getting surfaces
 ----------------
 
-First, we need to get some brain surfaces. Here, we'll use the S1200 Human 
+First, we need to get some brain surfaces. Here, we'll use the Conte69 Human 
 Connectome Project surface (A.K.A `fsLR` surfaces). We can import and call the 
-:func:`brainnotation.datasets.fetch_fslr` function, and then select the 
+:func:`neuromaps.datasets.fetch_fslr` function, and then select the 
 'inflated' surface, which will give the file paths of the left and right 
 hemisphere GIFTI files:
 
@@ -40,7 +40,7 @@ hemisphere GIFTI files:
 
 .. code-block:: default
 
-    from brainnotation.datasets import fetch_fslr
+    from neuromaps.datasets import fetch_fslr
 
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
@@ -147,7 +147,7 @@ packaged with ``surfplot`` using
 `association map of the term 'default mode' computed from Neurosynth 
 <https://www.neurosynth.org/analyses/terms/default%20mode/>`_. 
 For convenience, this map has already been projected from a volume in MNI152 
-coordinates to a fsLR surface using ``brainnotation``, and the `lh_data`
+coordinates to a fsLR surface using ``neuromaps``, and the `lh_data`
 and `rh_data` variables are just numpy arrays of the vertices:  
 
 .. GENERATED FROM PYTHON SOURCE LINES 75-78
@@ -201,7 +201,7 @@ by the minimum and maximum values (this can be adjusted with the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.278 seconds)
+   **Total running time of the script:** ( 0 minutes  1.218 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_01.py:

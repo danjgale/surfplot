@@ -40,15 +40,15 @@ GIFTI and CIFTI data. Let's dig into this further.
 Getting data
 ------------
 
-Here we'll reuse the S1200 fsLR surfaces and Freesurfer sulc maps we used in 
+Here we'll reuse the Conte69 fsLR surfaces and Freesurfer sulc maps we used in 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`, both of which are 
-downloaded via ``brainnotation``. We'll also reuse the example data. 
+downloaded via ``neuromaps``. We'll also reuse the example data. 
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-35
 
 .. code-block:: default
 
-    from brainnotation.datasets import fetch_fslr
+    from neuromaps.datasets import fetch_fslr
     from surfplot.datasets import load_example_data
 
     surfaces = fetch_fslr()
@@ -308,7 +308,7 @@ data match the number of vertices of the surface(s)!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.218 seconds)
+   **Total running time of the script:** ( 0 minutes  2.130 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_03.py:
