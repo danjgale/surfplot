@@ -32,7 +32,7 @@ setup(
     python_requires='>=3.7.0',
     install_requires=[
             'brainspace>=0.1.1',
-            'matplotlib>=3.2.0',
+            'matplotlib>=3.4.2',
             'nibabel',
             'numpy>=1.14.0',
             'scipy>=0.17',
