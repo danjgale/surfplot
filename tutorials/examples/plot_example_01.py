@@ -13,7 +13,7 @@ stylizing for a clean-looking figure.
 
 from surfplot import Plot
 from surfplot.datasets import load_example_data
-from brainnotation.datasets import fetch_fslr
+from neuromaps.datasets import fetch_fslr
 
 surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']

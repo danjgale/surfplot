@@ -29,7 +29,7 @@ then display the result.
 Data is a Left vs Right hand localizer contrast (t-map) for a single subject 
 of the Midnight Scan Club dataset [1]_. Data is obtained from 
 `Neurovault <https://neurovault.org/images/47307/>`_ via ``nilearn`` and then 
-projected from MNI152 coordinates to fsLR surfaces using ``brainnotation``. 
+projected from MNI152 coordinates to fsLR surfaces using ``neuromaps``. 
 
 .. [1] Gordon EM, et al. 2017. Precision Functional Mapping of Individual Human Brains. Neuron. 95:791–807.e7.
  
@@ -53,8 +53,8 @@ projected from MNI152 coordinates to fsLR surfaces using ``brainnotation``.
 
     from nilearn.datasets import fetch_neurovault_ids
     from nilearn.plotting.cm import _cmap_d as nilearn_cmaps
-    from brainnotation.transforms import mni152_to_fslr
-    from brainnotation.datasets import fetch_fslr
+    from neuromaps.transforms import mni152_to_fslr
+    from neuromaps.datasets import fetch_fslr
     from surfplot import Plot
     from surfplot.utils import threshold
 
@@ -91,7 +91,7 @@ projected from MNI152 coordinates to fsLR surfaces using ``brainnotation``.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.791 seconds)
+   **Total running time of the script:** ( 0 minutes  0.766 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_02.py:

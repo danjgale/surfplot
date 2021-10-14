@@ -44,7 +44,7 @@ Following the first initial steps of
 
 .. code-block:: default
 
-    from brainnotation.datasets import fetch_fslr
+    from neuromaps.datasets import fetch_fslr
     from surfplot import Plot
 
     surfaces = fetch_fslr()
@@ -185,7 +185,7 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.372 seconds)
+   **Total running time of the script:** ( 0 minutes  1.345 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:

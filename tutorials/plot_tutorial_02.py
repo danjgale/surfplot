@@ -30,7 +30,7 @@ Non-human surfaces can also be plotted, such as the `NMTv2 Macaque surfaces
 <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/nonhuman/macaque_tempatl/template_nmtv2.html>`_.
 
 Note that throughout these tutorials, surfaces are automatically fetched using
-``brainnotation`` or  ``Brainspace`` to avoid having to specify local files. It
+``neuromaps`` or  ``Brainspace`` to avoid having to specify local files. It
 is also possible to `fetch fsaverage surfaces <https://nilearn.github.io/modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage>`_
 using ``nilearn``. These are all great options to automically get surfaces in
 your workflow, and make reproducibility and portability of your code a bit 
@@ -43,9 +43,9 @@ more feasible.
 
 In :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` we plotted `fsLR` 
 surfaces. For the sake of demonstration, let's plot Freesurfer's `fsaverage` 
-here, again using ``brainnotation`` fetching functions.
+here, again using ``neuromaps`` fetching functions.
 """
-from brainnotation.datasets import fetch_fsaverage
+from neuromaps.datasets import fetch_fsaverage
 from surfplot import Plot
 
 surfaces = fetch_fsaverage(density='164k')

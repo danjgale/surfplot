@@ -45,7 +45,7 @@ stylizing for a clean-looking figure.
 
     from surfplot import Plot
     from surfplot.datasets import load_example_data
-    from brainnotation.datasets import fetch_fslr
+    from neuromaps.datasets import fetch_fslr
 
     surfaces = fetch_fslr()
     lh, rh = surfaces['inflated']
@@ -78,7 +78,7 @@ stylizing for a clean-looking figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.665 seconds)
+   **Total running time of the script:** ( 0 minutes  0.597 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:
