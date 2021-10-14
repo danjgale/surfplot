@@ -7,8 +7,10 @@ __version__ = re.search(
     io.open('surfplot/__init__.py', encoding='utf_8_sig').read()
     ).group(1)
 
-test_deps = ['pytest-cov',
-             'pytest']
+test_deps = [
+    'pytest-cov',
+    'pytest'
+]
 
 extras = {
     'test': test_deps,
