@@ -22,7 +22,7 @@ Let's get started by setting up a plot with surface shading added as well.
 Following the first initial steps of 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py` :
 """
-from brainnotation.datasets import fetch_fslr
+from neuromaps.datasets import fetch_fslr
 from surfplot import Plot
 
 surfaces = fetch_fslr()

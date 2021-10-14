@@ -121,7 +121,7 @@ htmlhelp_basename = 'surfplotdoc'
 # -- Extension configuration -------------------------------------------------
 intersphinx_mapping = {
     'brainspace': ('https://brainspace.readthedocs.io/en/latest/', None),
-    'brainnotation': ('https://netneurolab.github.io/brainnotation/', None)
+    'neuromaps': ('https://netneurolab.github.io/neuromaps/', None)
 }
 
 from brainspace.plotting.sphinx_gallery_scrapper import _get_sg_image_scraper

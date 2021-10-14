@@ -22,11 +22,11 @@ GIFTI and CIFTI data. Let's dig into this further.
 Getting data
 ------------
 
-Here we'll reuse the S1200 fsLR surfaces and Freesurfer sulc maps we used in 
+Here we'll reuse the Conte69 fsLR surfaces and Freesurfer sulc maps we used in 
 :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`, both of which are 
-downloaded via ``brainnotation``. We'll also reuse the example data. 
+downloaded via ``neuromaps``. We'll also reuse the example data. 
 """
-from brainnotation.datasets import fetch_fslr
+from neuromaps.datasets import fetch_fslr
 from surfplot.datasets import load_example_data
 
 surfaces = fetch_fslr()

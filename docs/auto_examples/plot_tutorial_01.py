@@ -12,13 +12,13 @@ detail in subsequent tutorials. The aim here is to get a flavour of how
 Getting surfaces
 ----------------
 
-First, we need to get some brain surfaces. Here, we'll use the S1200 Human 
+First, we need to get some brain surfaces. Here, we'll use the Conte69 Human 
 Connectome Project surface (A.K.A `fsLR` surfaces). We can import and call the 
-:func:`brainnotation.datasets.fetch_fslr` function, and then select the 
+:func:`neuromaps.datasets.fetch_fslr` function, and then select the 
 'inflated' surface, which will give the file paths of the left and right 
 hemisphere GIFTI files:
 """
-from brainnotation.datasets import fetch_fslr
+from neuromaps.datasets import fetch_fslr
 
 surfaces = fetch_fslr()
 lh, rh = surfaces['inflated']
@@ -70,7 +70,7 @@ fig.show()
 # `association map of the term 'default mode' computed from Neurosynth 
 # <https://www.neurosynth.org/analyses/terms/default%20mode/>`_. 
 # For convenience, this map has already been projected from a volume in MNI152 
-# coordinates to a fsLR surface using ``brainnotation``, and the `lh_data`
+# coordinates to a fsLR surface using ``neuromaps``, and the `lh_data`
 # and `rh_data` variables are just numpy arrays of the vertices:  
 from surfplot.datasets import load_example_data
 lh_data, rh_data = load_example_data()
