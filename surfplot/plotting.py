@@ -327,7 +327,9 @@ class Plot(object):
         for k, v in self.surfaces.items():
             if k in vertices.keys():
                 if as_outline:
-                    x = get_labeling_border(v, vertices[k]).astype(float)
+                    x = get_labeling_border(
+                        v, np.nan_to_num(vertices[k])
+                    ).astype(float)
                 else:
                     x = vertices[k]
                 if zero_transparent:
