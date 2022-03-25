@@ -252,7 +252,7 @@ class Plot(object):
         backdrop *= brightness
         self.add_layer(backdrop, 'Greys_r', color_range=(0, 1), cbar=False)
 
-    def add_layer(self, data, cmap='viridis', color_range=None,
+    def add_layer(self, data, cmap='viridis', alpha=1, color_range=None,
                   as_outline=False, zero_transparent=True, cbar=True, 
                   cbar_label=None):
         """Add plotting layer to surface(s)
@@ -271,6 +271,8 @@ class Plot(object):
             vertices match the vertices of their respective surface.
         cmap : matplotlib colormap name or object, optional
             Colormap to use for data, default: 'viridis'
+        alpha : float, optional
+            colormap opacity (0 to 1), default: 1
         color_range : tuple[float, float], optional
             Minimum and maximum value for color map. If None, then the minimum
             and maximum values in `data` are used. Default: None
@@ -341,6 +343,11 @@ class Plot(object):
                 x[x == 0] = np.nan
                 v.append_array(x, name=name, at='p')
         
+        if alpha < 1
+            cmapV = cmap(np.arange(cmap.N))
+            cmapV[:, -1] = alpha
+            cmap = mpl.ListedColormap(cmapV)
+            
         self.layers.append(name)
         self.cmaps.append(cmap)
         
