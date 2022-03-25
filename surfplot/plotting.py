@@ -272,7 +272,7 @@ class Plot(object):
         cmap : matplotlib colormap name or object, optional
             Colormap to use for data, default: 'viridis'
         alpha : float, optional
-            colormap opacity (0 to 1), default: 1
+            Colormap opacity (0 to 1). Default: 1
         color_range : tuple[float, float], optional
             Minimum and maximum value for color map. If None, then the minimum
             and maximum values in `data` are used. Default: None
