@@ -457,7 +457,7 @@ class Plot(object):
             
             cb = plt.colorbar(sm, ticks=ticks, location=location, 
                               fraction=fraction, pad=cbar_pads[i], 
-                              shrink=shrink, aspect=aspect)
+                              shrink=shrink, aspect=aspect, ax=plt.gca())
 
             tick_labels = np.linspace(vmin, vmax, n_ticks)
             if decimals > 0:
