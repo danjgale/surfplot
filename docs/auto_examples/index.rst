@@ -9,7 +9,7 @@ Many of these tutorials and examples rely on `neuromaps <https://netneurolab.git
 
 .. code-block:: bash
 
-	pip install git+git://github.com/netneurolab/neuromaps.git#egg=neuromaps
+	pip install neuromaps
 
 .. _tutorials:
 
