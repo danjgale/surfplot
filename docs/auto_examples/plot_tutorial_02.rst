@@ -121,7 +121,7 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.611 seconds)
+   **Total running time of the script:** ( 0 minutes  0.576 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_02.py:

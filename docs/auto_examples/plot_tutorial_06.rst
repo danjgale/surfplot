@@ -132,10 +132,10 @@ possible using ``matplotlib``:
 
 .. code-block:: default
 
-    from matplotlib.colors import LinearSegmentedColormap
+    from matplotlib.colors import ListedColormap
 
     colors = ['orange', 'steelblue']
-    cmap = LinearSegmentedColormap.from_list('regions', colors, N=2)
+    cmap = ListedColormap(colors, 'regions', N=2)
 
 
 
@@ -183,7 +183,7 @@ only need to show the left lateral view
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.511 seconds)
+   **Total running time of the script:** ( 0 minutes  0.506 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_06.py:
