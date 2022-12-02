@@ -15,7 +15,7 @@ from .surf import plot_surf
 
 def _check_surf(surf):
     """Validate surface type and load if a file name"""
-    if isinstance(surf, (str, pathlib.PosixPath)):
+    if isinstance(surf, (str, pathlib.Path)):
         return read_surface(str(surf))
     elif isinstance(surf, BSPolyData) or (surf is None):
         return surf
