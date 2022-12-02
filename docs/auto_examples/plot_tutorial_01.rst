@@ -77,9 +77,10 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_01_001.png
-    :alt: plot tutorial 01
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_001.png
+   :alt: plot tutorial 01
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -131,9 +132,10 @@ Now, let's plot our updated figure:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
-    :alt: plot tutorial 01
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+   :alt: plot tutorial 01
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -163,8 +165,6 @@ and `rh_data` variables are just numpy arrays of the vertices:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     [6.6808 0.     0.     ... 0.     0.     0.    ]
@@ -190,9 +190,10 @@ by the minimum and maximum values (this can be adjusted with the
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
-    :alt: plot tutorial 01
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
+   :alt: plot tutorial 01
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -201,28 +202,23 @@ by the minimum and maximum values (this can be adjusted with the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.313 seconds)
+   **Total running time of the script:** ( 0 minutes  1.076 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_01.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_01.py <plot_tutorial_01.py>`
 
-     :download:`Download Python source code: plot_tutorial_01.py <plot_tutorial_01.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_01.ipynb <plot_tutorial_01.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_01.ipynb <plot_tutorial_01.ipynb>`
 
 
 .. only:: html

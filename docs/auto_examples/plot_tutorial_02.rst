@@ -80,9 +80,10 @@ here, again using ``neuromaps`` fetching functions.
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_02_001.png
-    :alt: plot tutorial 02
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_02_001.png
+   :alt: plot tutorial 02
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_02_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -108,9 +109,10 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_02_002.png
-    :alt: plot tutorial 02
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_02_002.png
+   :alt: plot tutorial 02
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_02_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -119,28 +121,23 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.940 seconds)
+   **Total running time of the script:** ( 0 minutes  0.576 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_02.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_02.py <plot_tutorial_02.py>`
 
-     :download:`Download Python source code: plot_tutorial_02.py <plot_tutorial_02.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_02.ipynb <plot_tutorial_02.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_02.ipynb <plot_tutorial_02.ipynb>`
 
 
 .. only:: html

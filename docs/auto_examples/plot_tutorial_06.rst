@@ -59,9 +59,10 @@ for any parcelation. To demonstrate, we can use the
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_06_001.png
-    :alt: plot tutorial 06
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_06_001.png
+   :alt: plot tutorial 06
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_06_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -85,9 +86,10 @@ parameter, as with any data. To show black outlines, we can just use the
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_06_002.png
-    :alt: plot tutorial 06
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_06_002.png
+   :alt: plot tutorial 06
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_06_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -130,10 +132,10 @@ possible using ``matplotlib``:
 
 .. code-block:: default
 
-    from matplotlib.colors import LinearSegmentedColormap
+    from matplotlib.colors import ListedColormap
 
     colors = ['orange', 'steelblue']
-    cmap = LinearSegmentedColormap.from_list('regions', colors, N=2)
+    cmap = ListedColormap(colors, 'regions', N=2)
 
 
 
@@ -160,9 +162,10 @@ only need to show the left lateral view
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_06_003.png
-    :alt: plot tutorial 06
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_06_003.png
+   :alt: plot tutorial 06
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_06_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -180,28 +183,23 @@ only need to show the left lateral view
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.110 seconds)
+   **Total running time of the script:** ( 0 minutes  0.506 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_06.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_06.py <plot_tutorial_06.py>`
 
-     :download:`Download Python source code: plot_tutorial_06.py <plot_tutorial_06.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_06.ipynb <plot_tutorial_06.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_06.ipynb <plot_tutorial_06.ipynb>`
 
 
 .. only:: html

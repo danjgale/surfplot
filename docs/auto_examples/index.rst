@@ -1,9 +1,5 @@
 :orphan:
 
-
-
-.. _sphx_glr_auto_examples:
-
 .. _tutorials_examples:
 
 Tutorials and Examples
@@ -26,14 +22,110 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent t...">
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_01_thumb.png
-     :alt: Tutorial 1: Quick Start
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_01_thumb.png
+    :alt: Tutorial 1: Quick Start
 
-     :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`
+  :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 1: Quick Start</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of surfaces that can be plotted with  surfplot. ">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_02_thumb.png
+    :alt: Tutorial 2: Types of Surfaces
+
+  :ref:`sphx_glr_auto_examples_plot_tutorial_02.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 2: Types of Surfaces</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of data can be passed to the data parameter of the add_layer me...">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_03_thumb.png
+    :alt: Tutorial 3: Types of Input Data
+
+  :ref:`sphx_glr_auto_examples_plot_tutorial_03.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 3: Types of Input Data</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers the layout and view options provided by surfplot.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_04_thumb.png
+    :alt: Tutorial 4: Layouts and Views
+
+  :ref:`sphx_glr_auto_examples_plot_tutorial_04.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 4: Layouts and Views</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to configure the colorbar(s) with surfplot.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_05_thumb.png
+    :alt: Tutorial 5: Colors and colorbars
+
+  :ref:`sphx_glr_auto_examples_plot_tutorial_05.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 5: Colors and colorbars</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to plot brain regions.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_06_thumb.png
+    :alt: Tutorial 6: Regions and Parcellations
+
+  :ref:`sphx_glr_auto_examples_plot_tutorial_06.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tutorial 6: Regions and Parcellations</div>
+    </div>
+
 
 .. raw:: html
 
@@ -44,118 +136,11 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
    :hidden:
 
    /auto_examples/plot_tutorial_01
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of surfaces that can be plotted with  surfplot. ">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_02_thumb.png
-     :alt: Tutorial 2: Types of Surfaces
-
-     :ref:`sphx_glr_auto_examples_plot_tutorial_02.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /auto_examples/plot_tutorial_02
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of data can be passed to the data parameter of the add_layer me...">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_03_thumb.png
-     :alt: Tutorial 3: Types of Input Data
-
-     :ref:`sphx_glr_auto_examples_plot_tutorial_03.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /auto_examples/plot_tutorial_03
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers the layout and view options provided by surfplot.">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_04_thumb.png
-     :alt: Tutorial 4: Layouts and Views
-
-     :ref:`sphx_glr_auto_examples_plot_tutorial_04.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /auto_examples/plot_tutorial_04
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to configure the colorbar(s) with surfplot.">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_05_thumb.png
-     :alt: Tutorial 5: Colors and colorbars
-
-     :ref:`sphx_glr_auto_examples_plot_tutorial_05.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /auto_examples/plot_tutorial_05
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to plot brain regions.">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_06_thumb.png
-     :alt: Tutorial 6: Regions and Parcellations
-
-     :ref:`sphx_glr_auto_examples_plot_tutorial_06.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /auto_examples/plot_tutorial_06
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. _sphx_glr_auto_examples_examples:
 
 .. examples:
 
@@ -167,24 +152,25 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clea...">
 
 .. only:: html
 
- .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
-     :alt: Example 1: Multiple Stat Maps
+  .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
+    :alt: Example 1: Multiple Stat Maps
 
-     :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
+  :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 
 .. raw:: html
 
+      <div class="sphx-glr-thumbnail-title">Example 1: Multiple Stat Maps</div>
     </div>
 
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/examples/plot_example_01
 
 .. raw:: html
 
@@ -192,10 +178,16 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
 .. only:: html
 
- .. figure:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
-     :alt: Example 2: Plotting volumetric data
+  .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
+    :alt: Example 2: Plotting volumetric data
 
-     :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
+  :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Example 2: Plotting volumetric data</div>
+    </div>
+
 
 .. raw:: html
 
@@ -204,11 +196,9 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
 .. toctree::
    :hidden:
+   :includehidden:
 
-   /auto_examples/examples/plot_example_02
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
+   /auto_examples/examples/index.rst
 
 
 
