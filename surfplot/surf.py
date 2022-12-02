@@ -13,6 +13,7 @@ Code has been modified (lines 30-31) just to accommodate extra orientations
 
 from itertools import product as iter_prod
 
+from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -283,13 +284,13 @@ def build_plotter(surfs, layout, array_name=None, view=None, color_bar=None,
 
             cm = cmap[i, j][ia]
             if cm is not None:
-                if cm in colormaps:
-                    table = colormaps[cm]
-                else:
+                if isinstance(cm, LinearSegmentedColormap) or cm not in colormaps:
                     cm = plt.get_cmap(cm)
                     nvals = lut['numberOfTableValues']
                     table = cm(np.linspace(0, 1, nvals)) * 255
                     table = table.astype(np.uint8)
+                else:
+                    table = colormaps[cm]
 
                 lut['table'] = table
             if nan_color:
