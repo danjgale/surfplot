@@ -61,10 +61,10 @@ regions = np.where(np.isin(lh_parc, region_numbers), lh_parc, 0)
 # Although we can use a pre-defined color map, we might want to define a 
 # custom colormap where we can define the exact color for each region. This is
 # possible using ``matplotlib``:
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import ListedColormap
 
 colors = ['orange', 'steelblue']
-cmap = LinearSegmentedColormap.from_list('regions', colors, N=2)
+cmap = ListedColormap(colors, 'regions', N=2)
 ###############################################################################
 # Now we can plot both regions with their outlines:
 # only need to show the left lateral view
