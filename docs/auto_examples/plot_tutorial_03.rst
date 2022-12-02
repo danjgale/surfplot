@@ -85,8 +85,6 @@ that are plotted.** With our surfaces, we can check their vertices using
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     left [32492, 3]
@@ -114,8 +112,6 @@ to plot both hemispheres. Let's check this first:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     True
@@ -140,9 +136,10 @@ Perfect, now let's plot:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_001.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_001.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -167,9 +164,10 @@ update our data accordingly. Be sure to plot the correct data!
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_002.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_002.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -202,9 +200,10 @@ each array must equal the number of vertices in their respective hemispheres.
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_003.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_003.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -226,9 +225,10 @@ e.g., the right:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_004.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_004.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_004.png
+   :class: sphx-glr-single-img
 
 
 
@@ -261,9 +261,10 @@ sulc maps and add them:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_005.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_005.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_005.png
+   :class: sphx-glr-single-img
 
 
 
@@ -290,9 +291,10 @@ can also be plotted. For example, with single hemisphere:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_03_006.png
-    :alt: plot tutorial 03
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_03_006.png
+   :alt: plot tutorial 03
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_03_006.png
+   :class: sphx-glr-single-img
 
 
 
@@ -308,28 +310,23 @@ data match the number of vertices of the surface(s)!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.126 seconds)
+   **Total running time of the script:** ( 0 minutes  0.978 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_03.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_03.py <plot_tutorial_03.py>`
 
-     :download:`Download Python source code: plot_tutorial_03.py <plot_tutorial_03.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_03.ipynb <plot_tutorial_03.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_03.ipynb <plot_tutorial_03.ipynb>`
 
 
 .. only:: html

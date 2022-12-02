@@ -45,9 +45,10 @@ Workbench.
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_001.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_001.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -76,9 +77,10 @@ Meanwhile, the 'row' layout gives a single horizontal row of brains:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_002.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_002.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -99,9 +101,10 @@ The 'column' layout gives a single vertical column of brains.
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_003.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_003.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -122,9 +125,10 @@ set as default ('grid'), then a single hemisphere is plotted as row:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_004.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_004.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_004.png
+   :class: sphx-glr-single-img
 
 
 
@@ -150,9 +154,10 @@ possible to show just one view:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_005.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_005.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_005.png
+   :class: sphx-glr-single-img
 
 
 
@@ -174,9 +179,10 @@ in the list:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_006.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_006.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_006.png
+   :class: sphx-glr-single-img
 
 
 
@@ -197,9 +203,10 @@ All possible views are shown here (the right hemisphere for brevity):
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_007.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_007.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_007.png
+   :class: sphx-glr-single-img
 
 
 
@@ -223,9 +230,10 @@ symmetrical figure:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_008.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_008.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_008.png
+   :class: sphx-glr-single-img
 
 
 
@@ -246,9 +254,10 @@ For example:
     fig.show()
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_04_009.png
-    :alt: plot tutorial 04
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_009.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_009.png
+   :class: sphx-glr-single-img
 
 
 
@@ -257,28 +266,23 @@ For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.023 seconds)
+   **Total running time of the script:** ( 0 minutes  0.974 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_04.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_04.py <plot_tutorial_04.py>`
 
-     :download:`Download Python source code: plot_tutorial_04.py <plot_tutorial_04.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_04.ipynb <plot_tutorial_04.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_04.ipynb <plot_tutorial_04.ipynb>`
 
 
 .. only:: html

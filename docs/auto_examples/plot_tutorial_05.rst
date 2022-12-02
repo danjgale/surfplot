@@ -81,9 +81,10 @@ any colormap, including those from `seaborn`_ and `cmasher`_,  for example.
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_05_001.png
-    :alt: plot tutorial 05
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_05_001.png
+   :alt: plot tutorial 05
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_05_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -108,9 +109,10 @@ multiple layers. To demonstrate that, let's add another layer using the
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_05_002.png
-    :alt: plot tutorial 05
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_05_002.png
+   :alt: plot tutorial 05
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_05_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -161,9 +163,10 @@ cleaner look:
 
 
 
-.. image:: /auto_examples/images/sphx_glr_plot_tutorial_05_003.png
-    :alt: Frontoparietal, Default mode
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_05_003.png
+   :alt: Frontoparietal, Default mode
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_05_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -185,28 +188,23 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.327 seconds)
+   **Total running time of the script:** ( 0 minutes  0.570 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_tutorial_05.py <plot_tutorial_05.py>`
 
-     :download:`Download Python source code: plot_tutorial_05.py <plot_tutorial_05.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_tutorial_05.ipynb <plot_tutorial_05.ipynb>`
+      :download:`Download Jupyter notebook: plot_tutorial_05.ipynb <plot_tutorial_05.ipynb>`
 
 
 .. only:: html
