@@ -392,7 +392,7 @@ class Plot(object):
                          array_name=names, cmap=cmap, color_bar=False,
                          color_range=color_range, view=view_layout,
                          background=self.background, zoom=self.zoom,
-                         nan_color=(0, 0, 0, 0), share=True,
+                         nan_color=(0, 0, 0, 0), share=False,
                          label_text=self.label_text, size=self.size, 
                          return_plotter=True, offscreen=offscreen)
 
