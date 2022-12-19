@@ -343,10 +343,10 @@ class Plot(object):
                 x[x == 0] = np.nan
                 v.append_array(x, name=name, at='p')
         
-        if alpha < 1
+        if alpha < 1:
             cmapV = cmap(np.arange(cmap.N))
             cmapV[:, -1] = alpha
-            cmap = mpl.ListedColormap(cmapV)
+            cmap = mpl.colors.ListedColormap(cmapV)
             
         self.layers.append(name)
         self.cmaps.append(cmap)
