@@ -344,6 +344,9 @@ class Plot(object):
                 v.append_array(x, name=name, at='p')
         
         if alpha < 1:
+            if isinstance(cmap, str):
+                cmap = plt.get_cmap(cmap)
+            
             cmapV = cmap(np.arange(cmap.N))
             cmapV[:, -1] = alpha
             cmap = mpl.colors.ListedColormap(cmapV)
