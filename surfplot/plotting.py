@@ -15,7 +15,7 @@ from .surf import plot_surf
 
 def _check_surf(surf):
     """Validate surface type and load if a file name"""
-    if isinstance(surf, (str, pathlib.PosixPath)):
+    if isinstance(surf, (str, pathlib.Path)):
         return read_surface(str(surf))
     elif isinstance(surf, BSPolyData) or (surf is None):
         return surf
@@ -399,7 +399,7 @@ class Plot(object):
                          array_name=names, cmap=cmap, color_bar=False,
                          color_range=color_range, view=view_layout,
                          background=self.background, zoom=self.zoom,
-                         nan_color=(0, 0, 0, 0), share=True,
+                         nan_color=(0, 0, 0, 0), share=False,
                          label_text=self.label_text, size=self.size, 
                          return_plotter=True, offscreen=offscreen)
 
@@ -457,7 +457,7 @@ class Plot(object):
             
             cb = plt.colorbar(sm, ticks=ticks, location=location, 
                               fraction=fraction, pad=cbar_pads[i], 
-                              shrink=shrink, aspect=aspect)
+                              shrink=shrink, aspect=aspect, ax=plt.gca())
 
             tick_labels = np.linspace(vmin, vmax, n_ticks)
             if decimals > 0:
