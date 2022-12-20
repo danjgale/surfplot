@@ -172,12 +172,45 @@ cleaner look:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-95
+.. GENERATED FROM PYTHON SOURCE LINES 93-102
 
 Be sure to check out :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 for another example of colorbar styling.
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-101
+Transparency
+------------
+
+The transparency of the plotting layers can be adjusted by the ``alpha`` 
+parameter. This may be preferred in cases with overlapping plotting layers.
+We can recreate the example above with transparent maps like so:
+
+.. GENERATED FROM PYTHON SOURCE LINES 102-108
+
+.. code-block:: default
+
+    p = Plot(lh, rh)
+    p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
+    p.add_layer(default, cmap='GnBu_r', cbar_label='Default mode', alpha=.5)
+    p.add_layer(fronto, cmap='YlOrBr_r', cbar_label='Frontoparietal', alpha=.5)
+    fig = p.build(cbar_kws=kws)
+    fig.show()
+
+
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_05_004.png
+   :alt: Frontoparietal, Default mode
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_05_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 109-117
+
+Although these particular maps are largely non-overlapping, you can see some
+small overlap at the edges of the  default mode and frontoparietal clusters 
+thanks to the transparency.
 
 .. _matplotlib colormap: https://matplotlib.org/stable/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py
 .. _custom colormap: https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html
@@ -188,7 +221,7 @@ for another example of colorbar styling.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.573 seconds)
+   **Total running time of the script:** ( 0 minutes  0.783 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:

@@ -92,8 +92,23 @@ fig.show()
 ###############################################################################
 # Be sure to check out :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 # for another example of colorbar styling.
-
+#
+# Transparency
+# ------------
+#
+# The transparency of the plotting layers can be adjusted by the ``alpha`` 
+# parameter. This may be preferred in cases with overlapping plotting layers.
+# We can recreate the example above with transparent maps like so:
+p = Plot(lh, rh)
+p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
+p.add_layer(default, cmap='GnBu_r', cbar_label='Default mode', alpha=.5)
+p.add_layer(fronto, cmap='YlOrBr_r', cbar_label='Frontoparietal', alpha=.5)
+fig = p.build(cbar_kws=kws)
+fig.show()
 ###############################################################################
+# Although these particular maps are largely non-overlapping, you can see some
+# small overlap at the edges of the  default mode and frontoparietal clusters 
+# thanks to the transparency.
 #
 # .. _matplotlib colormap: https://matplotlib.org/stable/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py
 # .. _custom colormap: https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html
