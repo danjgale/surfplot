@@ -219,11 +219,13 @@ class Plot(object):
         as a views-by-hemisphere (left-right) array; if only one 
         hemipshere is provided, then 'grid' is equivalent to 'row'. By 
         default 'grid'.
-    views : {'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
-                'posterior'}, str or list[str], optional
-        Views to plot for each provided hemisphere. Views are plotted in 
-        in the order they are provided. If None, then lateral and medial
-        views are plotted. Default: None
+    views : str or list[str] or 3-tuple or list of 3-tuple, optional
+        Views to plot for each provided hemisphere. Views are plotted in the 
+        order they are provided. If a string or list of string, must be one or 
+        more of 'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
+        'posterior'. If a tuple or list of tuples, each tuple have a length of 
+        3 and specify the rotation angles for (pitch, roll, yaw). If None, then 
+        lateral and medial views are plotted. Default: None
     mirror_views : bool, optional
         Flip the order of the right hemisphere views for 'row' or 'column' 
         layouts, such that they mirror the left hemisphere views. Ignored if 
@@ -294,9 +296,7 @@ class Plot(object):
 
         Parameters
         ----------
-        data : str or os.PathLike, or numpy.ndarray, or dict, 
-               or nibabel.gifti.gifti.GiftiImage, or 
-               nibabel.cifti2.cifti2.Cifti2Image
+        data : str or os.PathLike, or numpy.ndarray, or dict, or nibabel.gifti.gifti.GiftiImage, or nibabel.cifti2.cifti2.Cifti2Image
             Vertex data to plot on surfaces. Must be a valid file path of a 
             GIFTI or CIFTI image, a loaded GIFTI or CIFTI image, a numpy array
             with length equal to the total number of vertices in the provided 
