@@ -411,7 +411,7 @@ class Plot(object):
             Surface plot 
         """
         view_layout, hemi_layout = self.plot_layout
-        dims = _object_array(view_layout).shape
+        dims = np.array(hemi_layout).shape
                 
         if self.flip and len(self.surfaces) == 2:
             view_layout, hemi_layout = _flip_hemispheres(view_layout, 
@@ -432,9 +432,6 @@ class Plot(object):
             names = [layers]
             cmap = [cmaps]
             color_range = [crange]
-
-        # print(names)
-        # print(hemi_layout)
 
         return plot_surf(surfs=self.surfaces, layout=hemi_layout,
                          array_name=names, cmap=cmap, color_bar=False,
