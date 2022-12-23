@@ -24,18 +24,63 @@ def _check_surf(surf):
                          'BSPolyData, or None')
 
 
+def _check_views(views):
+    """Check named views and length of custom tuple views"""
+    valid_views = ['medial', 'lateral', 'ventral', 'dorsal', 'anterior', 
+                   'posterior']
+    for v in views:
+        if isinstance(v, str) and (v not in valid_views):
+            raise ValueError(f'view must be one of {valid_views} or tuple')
+        
+        if isinstance(v, tuple):
+            if len(v) != 3:
+                raise ValueError('tuple views must have length of 3')
+
+
+def _set_right_hemipshere_views(views, layout='grid', mirror=False):
+    """Handle view flips for necessary for right hemisphere
+    
+    The view of the right hemisphere must be flipped for some views 
+    (e.g., medial/lateral) to correctly correspond with the intended view. For 
+    custom views the y and z angles are flipped to match what is done in
+    connectome workbench
+    """
+    # flip medial/lateral
+    view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
+                    ventral='ventral', anterior='anterior', 
+                    posterior='posterior')
+        
+    # determine view order                 
+    if mirror and (layout != 'grid'):
+        _views = reversed(views)
+    else: 
+        _views = views
+
+    rh_views = []
+    for v in _views:
+        if isinstance(v, str):
+            rh_views.append(view_key[v])
+        elif isinstance(v, tuple):
+            rh_views.append((v[0], v[1] * -1, v[2] * -1))
+    return rh_views
+
+
+def _object_array(x):
+    """Forces numpy array of objects from list of string or tuples"""
+    out = np.empty(len(x), dtype=object)
+    out[:] = x
+    return out
+
+
 def _set_layout(lh, rh, layout, views, mirror=False):
     """Determine hemisphere and view layout based user input"""
     valid_layouts = ['grid', 'row', 'column']
     if layout not in  valid_layouts:
         raise ValueError(f'layout must be one of {valid_layouts}')
     
-    if isinstance(views, str):
-        views = [views]
-    valid_views = ['medial', 'lateral', 'ventral', 'dorsal', 'anterior', 
-                   'posterior']
-    if not set(views) <= set(valid_views):
-        raise ValueError(f'layout must be one of {valid_views}') 
+    if isinstance(views, (str, tuple)):
+        views = [views]    
+    _check_views(views)
 
     n_hemi = len([x for x in [lh, rh] if x is not None])
     n_views = len(views)
@@ -43,21 +88,11 @@ def _set_layout(lh, rh, layout, views, mirror=False):
     # create view (v) and hemisphere (h) matrices for plotting layout
     v, h = np.array([], dtype=object), np.array([], dtype=object)
     if lh is not None:
-        v = np.concatenate([v, np.array(views)])
+        v = np.concatenate([v, _object_array(views)])
         h = np.concatenate([h, np.array(['left'] * n_views)])
     if rh is not None:
-        # flip medial/lateral
-        view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
-                        ventral='ventral', anterior='anterior', 
-                        posterior='posterior')
-        
-        # determine view order                 
-        if mirror and (layout != 'grid') and (lh is not None):
-            rh_views = [view_key[i] for i in reversed(views)]
-        else: 
-            rh_views = [view_key[i] for i in views]
-        
-        v = np.concatenate([v, np.array(rh_views)])
+        rh_views = _set_right_hemipshere_views(views, layout, mirror)
+        v = np.concatenate([v, _object_array(rh_views)])
         h = np.concatenate([h, np.array(['right'] * n_views)])
 
     if layout == 'grid':
@@ -90,7 +125,7 @@ def _flip_hemispheres(v, h):
     list, list
         Flipped view and hemisphere layouts 
     """
-    v = np.array(v)
+    v = _object_array(v)
     h = np.array(h)
     if (v.ndim == 1) and (v.shape[0] > 1):
         # flip row
@@ -184,11 +219,13 @@ class Plot(object):
         as a views-by-hemisphere (left-right) array; if only one 
         hemipshere is provided, then 'grid' is equivalent to 'row'. By 
         default 'grid'.
-    views : {'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
-                'posterior'}, str or list[str], optional
-        Views to plot for each provided hemisphere. Views are plotted in 
-        in the order they are provided. If None, then lateral and medial
-        views are plotted. Default: None
+    views : str or list[str] or 3-tuple or list of 3-tuple, optional
+        Views to plot for each provided hemisphere. Views are plotted in the 
+        order they are provided. If a string or list of string, must be one or 
+        more of 'lateral', 'medial', 'dorsal', 'ventral', 'anterior', 
+        'posterior'. If a tuple or list of tuples, each tuple have a length of 
+        3 and specify the rotation angles for (pitch, roll, yaw). If None, then 
+        lateral and medial views are plotted. Default: None
     mirror_views : bool, optional
         Flip the order of the right hemisphere views for 'row' or 'column' 
         layouts, such that they mirror the left hemisphere views. Ignored if 
@@ -259,7 +296,7 @@ class Plot(object):
 
         Parameters
         ----------
-        data : str or os.PathLike, numpy.ndarray, dict, nibabel.gifti.gifti.GiftiImage, or nibabel.cifti2.cifti2.Cifti2Image
+        data : str or os.PathLike, or numpy.ndarray, or dict, or nibabel.gifti.gifti.GiftiImage, or nibabel.cifti2.cifti2.Cifti2Image
             Vertex data to plot on surfaces. Must be a valid file path of a 
             GIFTI or CIFTI image, a loaded GIFTI or CIFTI image, a numpy array
             with length equal to the total number of vertices in the provided 
@@ -376,7 +413,7 @@ class Plot(object):
             Surface plot 
         """
         view_layout, hemi_layout = self.plot_layout
-        dims = np.array(view_layout).shape
+        dims = np.array(hemi_layout).shape
                 
         if self.flip and len(self.surfaces) == 2:
             view_layout, hemi_layout = _flip_hemispheres(view_layout, 

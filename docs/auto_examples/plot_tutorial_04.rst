@@ -136,8 +136,8 @@ set as default ('grid'), then a single hemisphere is plotted as row:
 
 .. GENERATED FROM PYTHON SOURCE LINES 50-57
 
-Views
------
+Preset Views
+------------
 
 ``surfplot`` makes it easy to configure the view(s) you wish to use. One or
 more views can be specified through the `views` parameter. As we've seen 
@@ -188,11 +188,14 @@ in the list:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-69
+.. GENERATED FROM PYTHON SOURCE LINES 68-72
 
-All possible views are shown here (the right hemisphere for brevity):
+All possible views are include "lateral", "medial", "dorsal", "ventral", 
+ "anterior", and "posterior". These are shown here (with the right hemisphere 
+ only for brevity):
+##############################################################################
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 72-76
 
 .. code-block:: default
 
@@ -212,7 +215,7 @@ All possible views are shown here (the right hemisphere for brevity):
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 77-82
 
 Views can also be mirrored when both hemipsheres are plotted and `layout` is 
 either 'row' or 'column'. Specifically, the right hemisphere view order is
@@ -220,7 +223,7 @@ reversed. For example, plotting default lateral and medial views and setting
 `mirror_views=True` will situate the medial views in the middle for a 
 symmetrical figure: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-82
+.. GENERATED FROM PYTHON SOURCE LINES 82-85
 
 .. code-block:: default
 
@@ -239,19 +242,20 @@ symmetrical figure:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-86
+.. GENERATED FROM PYTHON SOURCE LINES 86-89
 
-Finally, it is possible to flip the left and right hemisphere. This is 
+It is possible to flip the left and right hemisphere. This is 
 useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
 For example: 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 89-92
 
 .. code-block:: default
 
     p = Plot(lh, rh, size=(200, 200), zoom=3, views='anterior', flip=True)
     fig = p.build()
     fig.show()
+
 
 
 .. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_009.png
@@ -263,10 +267,65 @@ For example:
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 93-101
+
+Custom Views
+------------
+
+In addition to the six preset views demonstrated above, custom views can be
+passed in as a 3-element tuple to set the pitch, roll and yaw angles (in 
+that order) of the view. For example, if we wanted a clearer view of dorsal 
+frontal areas, we could tilt the brain by setting pitch = 30, roll = 60, 
+and yaw = 100:
+
+.. GENERATED FROM PYTHON SOURCE LINES 101-104
+
+.. code-block:: default
+
+    p = Plot(lh, size=(200, 200), zoom=1.5, views=(30, 60, 100))
+    fig = p.build()
+    fig.show()
+
+
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_010.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_010.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 105-109
+
+Of course we can plot both hemispheres together, which will give the same 
+rotated view for each. Note that for this example, we flip the hemispheres 
+(as above) so that the medial sides are facing inwards. This replicates 
+rotating views in Connectome Workbench:
+
+.. GENERATED FROM PYTHON SOURCE LINES 109-111
+
+.. code-block:: default
+
+    p = Plot(lh, rh, size=(400, 200), zoom=1.6, views=(30, 60, 100), flip=True)
+    fig = p.build()
+    fig.show()
+
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_04_011.png
+   :alt: plot tutorial 04
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_04_011.png
+   :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.961 seconds)
+   **Total running time of the script:** ( 0 minutes  1.106 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_04.py:
