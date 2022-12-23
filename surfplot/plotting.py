@@ -41,14 +41,14 @@ def _set_right_hemipshere_views(views, layout='grid', mirror=False):
     """Handle view flips for necessary for right hemisphere
     
     The view of the right hemisphere must be flipped for some views 
-    (medial/lateral) to correctly correspond with the intended view. For 
-    example, to show a 'medial' right hemisphere view, it needs to be flipped to
-    'lateral', and vice versa. 
+    (e.g., medial/lateral) to correctly correspond with the intended view. For 
+    custom views the y and z angles are flipped to match what is done in
+    connectome workbench
     """
     # flip medial/lateral
     view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
-                        ventral='ventral', anterior='anterior', 
-                        posterior='posterior')
+                    ventral='ventral', anterior='anterior', 
+                    posterior='posterior')
         
     # determine view order                 
     if mirror and (layout != 'grid'):
@@ -294,7 +294,9 @@ class Plot(object):
 
         Parameters
         ----------
-        data : str or os.PathLike, numpy.ndarray, dict, nibabel.gifti.gifti.GiftiImage, or nibabel.cifti2.cifti2.Cifti2Image
+        data : str or os.PathLike, or numpy.ndarray, or dict, 
+               or nibabel.gifti.gifti.GiftiImage, or 
+               nibabel.cifti2.cifti2.Cifti2Image
             Vertex data to plot on surfaces. Must be a valid file path of a 
             GIFTI or CIFTI image, a loaded GIFTI or CIFTI image, a numpy array
             with length equal to the total number of vertices in the provided 
