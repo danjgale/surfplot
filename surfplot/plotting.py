@@ -24,18 +24,63 @@ def _check_surf(surf):
                          'BSPolyData, or None')
 
 
+def _check_views(views):
+    """Check named views and length of custom tuple views"""
+    valid_views = ['medial', 'lateral', 'ventral', 'dorsal', 'anterior', 
+                   'posterior']
+    for v in views:
+        if isinstance(v, str) and (v not in valid_views):
+            raise ValueError(f'view must be one of {valid_views} or tuple')
+        
+        if isinstance(v, tuple):
+            if len(v) != 3:
+                raise ValueError('tuple views must have length of 3')
+
+
+def _set_right_hemipshere_views(views, layout='grid', mirror=False):
+    """Handle view flips for necessary for right hemisphere
+    
+    The view of the right hemisphere must be flipped for some views 
+    (medial/lateral) to correctly correspond with the intended view. For 
+    example, to show a 'medial' right hemisphere view, it needs to be flipped to
+    'lateral', and vice versa. 
+    """
+    # flip medial/lateral
+    view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
+                        ventral='ventral', anterior='anterior', 
+                        posterior='posterior')
+        
+    # determine view order                 
+    if mirror and (layout != 'grid'):
+        _views = reversed(views)
+    else: 
+        _views = views
+
+    rh_views = []
+    for v in _views:
+        if isinstance(v, str):
+            rh_views.append(view_key[v])
+        elif isinstance(v, tuple):
+            rh_views.append((v[0], v[1] * -1, v[2] * -1))
+    return rh_views
+
+
+def _object_array(x):
+    """Forces numpy array of objects from list of string or tuples"""
+    out = np.empty(len(x), dtype=object)
+    out[:] = x
+    return out
+
+
 def _set_layout(lh, rh, layout, views, mirror=False):
     """Determine hemisphere and view layout based user input"""
     valid_layouts = ['grid', 'row', 'column']
     if layout not in  valid_layouts:
         raise ValueError(f'layout must be one of {valid_layouts}')
     
-    if isinstance(views, str):
-        views = [views]
-    valid_views = ['medial', 'lateral', 'ventral', 'dorsal', 'anterior', 
-                   'posterior']
-    if not set(views) <= set(valid_views):
-        raise ValueError(f'layout must be one of {valid_views}') 
+    if isinstance(views, (str, tuple)):
+        views = [views]    
+    _check_views(views)
 
     n_hemi = len([x for x in [lh, rh] if x is not None])
     n_views = len(views)
@@ -43,21 +88,11 @@ def _set_layout(lh, rh, layout, views, mirror=False):
     # create view (v) and hemisphere (h) matrices for plotting layout
     v, h = np.array([], dtype=object), np.array([], dtype=object)
     if lh is not None:
-        v = np.concatenate([v, np.array(views)])
+        v = np.concatenate([v, _object_array(views)])
         h = np.concatenate([h, np.array(['left'] * n_views)])
     if rh is not None:
-        # flip medial/lateral
-        view_key = dict(medial='lateral', lateral='medial', dorsal='dorsal', 
-                        ventral='ventral', anterior='anterior', 
-                        posterior='posterior')
-        
-        # determine view order                 
-        if mirror and (layout != 'grid') and (lh is not None):
-            rh_views = [view_key[i] for i in reversed(views)]
-        else: 
-            rh_views = [view_key[i] for i in views]
-        
-        v = np.concatenate([v, np.array(rh_views)])
+        rh_views = _set_right_hemipshere_views(views, layout, mirror)
+        v = np.concatenate([v, _object_array(rh_views)])
         h = np.concatenate([h, np.array(['right'] * n_views)])
 
     if layout == 'grid':
@@ -90,7 +125,7 @@ def _flip_hemispheres(v, h):
     list, list
         Flipped view and hemisphere layouts 
     """
-    v = np.array(v)
+    v = _object_array(v)
     h = np.array(h)
     if (v.ndim == 1) and (v.shape[0] > 1):
         # flip row
@@ -376,7 +411,7 @@ class Plot(object):
             Surface plot 
         """
         view_layout, hemi_layout = self.plot_layout
-        dims = np.array(view_layout).shape
+        dims = _object_array(view_layout).shape
                 
         if self.flip and len(self.surfaces) == 2:
             view_layout, hemi_layout = _flip_hemispheres(view_layout, 
@@ -397,6 +432,9 @@ class Plot(object):
             names = [layers]
             cmap = [cmaps]
             color_range = [crange]
+
+        # print(names)
+        # print(hemi_layout)
 
         return plot_surf(surfs=self.surfaces, layout=hemi_layout,
                          array_name=names, cmap=cmap, color_bar=False,
