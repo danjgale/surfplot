@@ -409,7 +409,7 @@ class Plot(object):
     def _add_colorbars(self, location='bottom', label_direction=None,   
                        n_ticks=3, decimals=2, fontsize=10, draw_border=True, 
                        outer_labels_only=False, aspect=20, pad=.08, shrink=.3, 
-                       fraction=.05):
+                       fraction=.05, ax=None):
         """Draw colorbar(s) for applicable layer(s)  
 
         Parameters
@@ -445,6 +445,8 @@ class Plot(object):
             Default: .3
         fraction : float, optional
             Fraction of original axes to use for colorbar. Default: .05
+        ax : matplot.axes.Axes, optional
+            Axes to use for colorbar. Default: plt.gca() 
         """
         cbar_pads = [.01] + [pad] * (len(self._show_cbar) - 1)
         cbar_indices = [i for i, c in enumerate(self._show_cbar) if c]
@@ -458,9 +460,11 @@ class Plot(object):
             sm.set_array([])
             ticks = np.linspace(vmin, vmax, n_ticks)
             
+            # use current axes if ax was not specified (for backward compatibility reasons)
+            ax = plt.gca() if ax is None else ax
             cb = plt.colorbar(sm, ticks=ticks, location=location, 
                               fraction=fraction, pad=cbar_pads[i], 
-                              shrink=shrink, aspect=aspect, ax=plt.gca())
+                              shrink=shrink, aspect=aspect, ax=ax)
 
             tick_labels = np.linspace(vmin, vmax, n_ticks)
             if decimals > 0:
@@ -482,6 +486,41 @@ class Plot(object):
                 cb.outline.set_visible(False)
                 cb.ax.tick_params(size=0)
     
+    def build_axis(self, ax:mpl.axes.Axes, colorbar=True, cbar_kws=None, scale=(2, 2)):
+        """Build matplotlib Axes of surface plot
+
+        Parameters
+        ----------
+        ax : matplotlib.axes.Axes,
+            Axes to render the surface plot in.
+        colorbar : bool, optional
+            Draw colorbars for each applicable layer, default: True
+        cbar_kws : dict, optional
+            Keyword arguments for 
+            :func:`~surfplot.plottong.Plot._add_colorbar`. Default: None, 
+            which will plot the default colorbar parameters. 
+        scale : tuple, optional
+            Amount to scale the surface plot. Default: (2, 2), which is a 
+            good baseline for higher resolution plotting. 
+
+        Returns
+        -------
+        matplotlib.axes.Axes
+            Surface plot Axes
+        """
+        p = self.render()
+        p._check_offscreen()
+        x = p.to_numpy(transparent_bg=True, scale=scale)
+
+        ax.imshow(x)
+        ax.axis('off')
+        if colorbar:
+            cbar_kws = {} if cbar_kws is None else cbar_kws
+            cbar_kws['ax'] = ax
+            self._add_colorbars(**cbar_kws)
+
+        return ax
+
     def build(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2)):
         """Build matplotlib figure of surface plot
 
@@ -505,19 +544,11 @@ class Plot(object):
         matplotlib.pyplot.figure
             Surface plot figure
         """
-        p = self.render()
-        p._check_offscreen()
-        x = p.to_numpy(transparent_bg=True, scale=scale)
-
         if figsize is None:
             figsize = tuple((np.array(self.size) / 100) + 1)
 
         fig, ax = plt.subplots(figsize=figsize)
-        ax.imshow(x)
-        ax.axis('off')
-        if colorbar:
-            cbar_kws = {} if cbar_kws is None else cbar_kws
-            self._add_colorbars(**cbar_kws)
+        self.build_axis(ax, colorbar=colorbar, cbar_kws=cbar_kws, scale=scale)
 
         return fig
 
