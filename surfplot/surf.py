@@ -24,7 +24,7 @@ from brainspace.plotting.utils import (_broadcast, _expand_arg, _grep_args,
                                        _gen_grid, _get_ranges)
 
 
-orientations = {'medial': (0, -90, -90),
+ORIENTATIONS = {'medial': (0, -90, -90),
                 'lateral': (0, 90, 90),
                 'ventral': (0, 180, 0),
                 'dorsal': (0, 0, 0), 
@@ -273,7 +273,11 @@ def build_plotter(surfs, layout, array_name=None, view=None, color_bar=None,
             actor = dp.actor_kwds.copy()
             actor.update({k: v[i, j][ia] for k, v in actor_kwds.items()})
             if view[i, j] is not None:
-                actor['orientation'] = orientations[view[i, j]]
+                orient = view[i, j]
+                if isinstance(orient, tuple):
+                    actor['orientation'] = orient
+                else:
+                    actor['orientation'] = ORIENTATIONS[view[i, j]]
 
             # Mapper
             mapper = dp.mapper_kwds.copy()

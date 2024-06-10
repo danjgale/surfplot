@@ -47,8 +47,8 @@ p = Plot(lh, size=(400, 200), zoom=1.2)
 fig = p.build()
 fig.show()
 ###############################################################################
-# Views
-# -----
+# Preset Views
+# ------------
 #
 # ``surfplot`` makes it easy to configure the view(s) you wish to use. One or
 # more views can be specified through the `views` parameter. As we've seen 
@@ -65,7 +65,10 @@ p = Plot(lh, rh, size=(500, 400), zoom=1.4,  views=['lateral', 'posterior'])
 fig = p.build()
 fig.show()
 ###############################################################################
-# All possible views are shown here (the right hemisphere for brevity):
+# All possible views are include "lateral", "medial", "dorsal", "ventral", 
+# "anterior", and "posterior". These are shown here (with the right hemisphere 
+# only for brevity):
+###############################################################################
 all_views = ['lateral', 'medial', 'dorsal', 'ventral', 'anterior', 'posterior']
 p = Plot(surf_rh=rh, size=(900, 200), zoom=.8, layout='row', views=all_views)
 fig = p.build()
@@ -80,9 +83,29 @@ p = Plot(lh, rh, size=(800, 200), zoom=1.2, layout='row', mirror_views=True)
 fig = p.build()
 fig.show()
 ###############################################################################
-# Finally, it is possible to flip the left and right hemisphere. This is 
+# It is possible to flip the left and right hemisphere. This is 
 # useful when plotting just the 'anterior' or 'ventral' for both hemispheres.
 # For example: 
 p = Plot(lh, rh, size=(200, 200), zoom=3, views='anterior', flip=True)
+fig = p.build()
+fig.show()
+###############################################################################
+# Custom Views
+# ------------
+#
+# In addition to the six preset views demonstrated above, custom views can be
+# passed in as a 3-element tuple to set the pitch, roll and yaw angles (in 
+# that order) of the view. For example, if we wanted a clearer view of dorsal 
+# frontal areas, we could tilt the brain by setting pitch = 30, roll = 60, 
+# and yaw = 100:
+p = Plot(lh, size=(200, 200), zoom=1.5, views=(30, 60, 100))
+fig = p.build()
+fig.show()
+###############################################################################
+# Of course we can plot both hemispheres together, which will give the same 
+# rotated view for each. Note that for this example, we flip the hemispheres 
+# (as above) so that the medial sides are facing inwards. This replicates 
+# rotating views in Connectome Workbench:
+p = Plot(lh, rh, size=(400, 200), zoom=1.6, views=(30, 60, 100), flip=True)
 fig = p.build()
 fig.show()
