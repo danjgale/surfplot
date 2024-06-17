@@ -291,7 +291,7 @@ class Plot(object):
 
     def add_layer(self, data, cmap='viridis', alpha=1, color_range=None,
                   as_outline=False, zero_transparent=True, cbar=True, 
-                  cbar_label=None):
+                  cbar_label=None, tick_labels=None):
         """Add plotting layer to surface(s)
 
         Parameters
@@ -326,6 +326,8 @@ class Plot(object):
         cbar_label : str, optional
             Label to include with colorbar if shown. Note that this is not 
             required for the colorbar to be drawn. Default: None
+        tick_labels : list, optional
+            List of tick labels to include on colorbar. Default: None
 
         Raises
         ------
@@ -398,6 +400,7 @@ class Plot(object):
 
         self._show_cbar.append(cbar)
         self.cbar_labels.append(cbar_label)
+        self.tick_labels.append(tick_labels)
 
     def render(self, offscreen=True):
         """Generate surface plot with all provided layers
@@ -493,17 +496,23 @@ class Plot(object):
             norm = mpl.colors.Normalize(vmin, vmax)
             sm = plt.cm.ScalarMappable(cmap=self.cmaps[i], norm=norm)
             sm.set_array([])
+            
+            tick_labels_defined = self.tick_labels[i] is not None
+            if tick_labels_defined:
+                tick_labels = self.tick_labels[i]
+                n_ticks = len(tick_labels)
+            else:
+                tick_labels = np.linspace(vmin, vmax, n_ticks)
+                if decimals > 0:
+                    tick_labels = np.around(tick_labels, decimals)
+                else:
+                    tick_labels = tick_labels.astype(int)
             ticks = np.linspace(vmin, vmax, n_ticks)
             
             cb = plt.colorbar(sm, ticks=ticks, location=location, 
                               fraction=fraction, pad=cbar_pads[i], 
                               shrink=shrink, aspect=aspect, ax=plt.gca())
 
-            tick_labels = np.linspace(vmin, vmax, n_ticks)
-            if decimals > 0:
-                tick_labels = np.around(tick_labels, decimals)
-            else:
-                tick_labels = tick_labels.astype(int)
 
             if outer_labels_only and i != cbar_indices[-1]:
                 cb.set_ticklabels([])
@@ -519,7 +528,8 @@ class Plot(object):
                 cb.outline.set_visible(False)
                 cb.ax.tick_params(size=0)
     
-    def build(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2)):
+    def build(self, figsize=None, colorbar=True, cbar_kws=None, scale=(2, 2), dpi=100, 
+              save_as=None):
         """Build matplotlib figure of surface plot
 
         Parameters
@@ -535,7 +545,12 @@ class Plot(object):
             which will plot the default colorbar parameters. 
         scale : tuple, optional
             Amount to scale the surface plot. Default: (2, 2), which is a 
-            good baseline for higher resolution plotting. 
+            good baseline for higher resolution plotting.
+        dpi : int, optional
+            Resoltuion parameter (dots per inch) for the figure. Default: 100
+        save_as : str or os.PathLike, optional
+            File path to save figure. Default: None, which will not save the 
+            figure.
 
         Returns
         -------
@@ -549,13 +564,16 @@ class Plot(object):
         if figsize is None:
             figsize = tuple((np.array(self.size) / 100) + 1)
 
-        fig, ax = plt.subplots(figsize=figsize)
+        fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
         ax.imshow(x)
         ax.axis('off')
         if colorbar:
             cbar_kws = {} if cbar_kws is None else cbar_kws
             self._add_colorbars(**cbar_kws)
 
+        if save_as is not None:
+            fig.savefig(save_as, bbox_inches='tight', pad_inches=0)
+        
         return fig
 
     def show(self, embed_nb=False, interactive=True, transparent_bg=True, 
