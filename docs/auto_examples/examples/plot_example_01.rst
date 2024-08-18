@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_examples_plot_example_01.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_examples_plot_example_01.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -39,7 +39,7 @@ stylizing for a clean-looking figure.
 
 
 
-.. code-block:: default
+.. code-block:: Python
 
     # Code source: Dan Gale
     # License: BSD 3 clause
@@ -79,7 +79,7 @@ stylizing for a clean-looking figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.222 seconds)
+   **Total running time of the script:** (0 minutes 0.160 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_01.py:
@@ -88,14 +88,17 @@ stylizing for a clean-looking figure.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_example_01.ipynb <plot_example_01.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_example_01.py <plot_example_01.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_example_01.ipynb <plot_example_01.ipynb>`
+      :download:`Download zipped: plot_example_01.zip <plot_example_01.zip>`
 
 
 .. only:: html

@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_06.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_06.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -40,7 +40,7 @@ for any parcelation. To demonstrate, we can use the
 
 .. GENERATED FROM PYTHON SOURCE LINES 23-37
 
-.. code-block:: default
+.. code-block:: Python
 
     from neuromaps.datasets import fetch_fslr
     from surfplot import Plot
@@ -77,7 +77,7 @@ parameter, as with any data. To show black outlines, we can just use the
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-46
 
-.. code-block:: default
+.. code-block:: Python
 
     p.add_layer({'left': lh_parc, 'right': rh_parc}, cmap='gray', 
                 as_outline=True, cbar=False)
@@ -109,7 +109,7 @@ remaining regions. We'll just stick with the left hemisphere here.
 
 .. GENERATED FROM PYTHON SOURCE LINES 56-60
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
     region_numbers = [71, 72]
@@ -130,7 +130,7 @@ possible using ``matplotlib``:
 
 .. GENERATED FROM PYTHON SOURCE LINES 64-68
 
-.. code-block:: default
+.. code-block:: Python
 
     from matplotlib.colors import ListedColormap
 
@@ -150,7 +150,7 @@ only need to show the left lateral view
 
 .. GENERATED FROM PYTHON SOURCE LINES 71-78
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, views='lateral')
     p.add_layer(regions, cmap=cmap, cbar=False)
@@ -183,7 +183,7 @@ only need to show the left lateral view
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.499 seconds)
+   **Total running time of the script:** (0 minutes 0.400 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_06.py:
@@ -192,14 +192,17 @@ only need to show the left lateral view
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_06.ipynb <plot_tutorial_06.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_06.py <plot_tutorial_06.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_06.ipynb <plot_tutorial_06.ipynb>`
+      :download:`Download zipped: plot_tutorial_06.zip <plot_tutorial_06.zip>`
 
 
 .. only:: html

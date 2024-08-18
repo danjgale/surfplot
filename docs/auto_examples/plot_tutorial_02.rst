@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_02.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_02.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -65,7 +65,7 @@ here, again using ``neuromaps`` fetching functions.
 
 .. GENERATED FROM PYTHON SOURCE LINES 48-58
 
-.. code-block:: default
+.. code-block:: Python
 
     from neuromaps.datasets import fetch_fsaverage
     from surfplot import Plot
@@ -101,7 +101,7 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
 .. GENERATED FROM PYTHON SOURCE LINES 66-69
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, brightness=.8)
     fig = p.build()
@@ -121,7 +121,7 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.578 seconds)
+   **Total running time of the script:** (0 minutes 0.438 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_02.py:
@@ -130,14 +130,17 @@ parameter, if desired. Values range from 0 (black) to 1 (white). For example:
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_02.ipynb <plot_tutorial_02.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_02.py <plot_tutorial_02.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_02.ipynb <plot_tutorial_02.ipynb>`
+      :download:`Download zipped: plot_tutorial_02.zip <plot_tutorial_02.zip>`
 
 
 .. only:: html

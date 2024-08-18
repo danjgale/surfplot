@@ -40,6 +40,16 @@ fig = p.build()
 # show figure, as you typically would with matplotlib
 fig.show()
 ###############################################################################
+# You can also simply plot to an existing `matplotlib` axis using the 
+# :func:`build_axis` method instead:
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+p = Plot(surf_lh=lh, surf_rh=rh)
+ax = p.build_axis(ax)
+fig.show()
+###############################################################################
 # Adding layers
 # -------------
 # Once the plot has been set up by instantiating the :class:`~brainspace.plotting.Plot` class, 

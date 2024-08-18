@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_examples_plot_example_02.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_examples_plot_example_02.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -47,7 +47,7 @@ projected from MNI152 coordinates to fsLR surfaces using ``neuromaps``.
 
 
 
-.. code-block:: default
+.. code-block:: Python
 
     # Code source: Dan Gale
     # License: BSD 3 clause
@@ -92,7 +92,7 @@ projected from MNI152 coordinates to fsLR surfaces using ``neuromaps``.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.285 seconds)
+   **Total running time of the script:** (0 minutes 0.226 seconds)
 
 
 .. _sphx_glr_download_auto_examples_examples_plot_example_02.py:
@@ -101,14 +101,17 @@ projected from MNI152 coordinates to fsLR surfaces using ``neuromaps``.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_example_02.ipynb <plot_example_02.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_example_02.py <plot_example_02.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_example_02.ipynb <plot_example_02.ipynb>`
+      :download:`Download zipped: plot_example_02.zip <plot_example_02.zip>`
 
 
 .. only:: html

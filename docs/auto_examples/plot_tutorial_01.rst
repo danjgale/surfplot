@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_01.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_01.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -38,7 +38,7 @@ hemisphere GIFTI files:
 
 .. GENERATED FROM PYTHON SOURCE LINES 21-25
 
-.. code-block:: default
+.. code-block:: Python
 
     from neuromaps.datasets import fetch_fslr
 
@@ -66,7 +66,7 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-42
 
-.. code-block:: default
+.. code-block:: Python
 
     from surfplot import Plot
 
@@ -86,7 +86,35 @@ Then, we can call :func:`build` method to make the figure, which returns a
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-57
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
+
+You can also simply plot to an existing `matplotlib` axis using the 
+:func:`build_axis` method instead:
+
+.. GENERATED FROM PYTHON SOURCE LINES 45-52
+
+.. code-block:: Python
+
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+
+    p = Plot(surf_lh=lh, surf_rh=rh)
+    ax = p.build_axis(ax)
+    fig.show()
+
+
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+   :alt: plot tutorial 01
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 53-67
 
 Adding layers
 -------------
@@ -103,9 +131,9 @@ dictionary with 'left' and 'right' keys, or a ``numpy`` array.
 :ref:`sphx_glr_auto_examples_plot_tutorial_03.py` covers what types 
 of data can be passed to the `data` parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
-.. code-block:: default
+.. code-block:: Python
 
     sulc_lh, sulc_rh = surfaces['sulc']
     p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
@@ -116,32 +144,32 @@ of data can be passed to the `data` parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 70-74
 
 Above, we've also used a grayscale colormap (`cmap`) and turned off the 
 colorbar (`cbar`) for this particular layer.
 
 Now, let's plot our updated figure:
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 74-76
 
-.. code-block:: default
+.. code-block:: Python
 
     fig = p.build()
     fig.show()
 
 
 
-.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
    :alt: plot tutorial 01
-   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_002.png
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
    :class: sphx-glr-single-img
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-75
+.. GENERATED FROM PYTHON SOURCE LINES 77-85
 
 Finally, let's add some statistical data. We can load some example data 
 packaged with ``surfplot`` using 
@@ -152,9 +180,9 @@ For convenience, this map has already been projected from a volume in MNI152
 coordinates to a fsLR surface using ``neuromaps``, and the `lh_data`
 and `rh_data` variables are just numpy arrays of the vertices:  
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-78
+.. GENERATED FROM PYTHON SOURCE LINES 85-88
 
-.. code-block:: default
+.. code-block:: Python
 
     from surfplot.datasets import load_example_data
     lh_data, rh_data = load_example_data()
@@ -172,16 +200,16 @@ and `rh_data` variables are just numpy arrays of the vertices:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-83
+.. GENERATED FROM PYTHON SOURCE LINES 89-93
 
 We can add each array as a layer using a dictionary like before. By
 default a colorbar will be added for this layer, and its range is determined 
 by the minimum and maximum values (this can be adjusted with the 
 `color_range` parameter).
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-87
+.. GENERATED FROM PYTHON SOURCE LINES 93-97
 
-.. code-block:: default
+.. code-block:: Python
 
     p.add_layer({'left': lh_data, 'right': rh_data}, cmap='YlOrRd_r')
     fig = p.build()
@@ -190,9 +218,9 @@ by the minimum and maximum values (this can be adjusted with the
 
 
 
-.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tutorial_01_004.png
    :alt: plot tutorial 01
-   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_003.png
+   :srcset: /auto_examples/images/sphx_glr_plot_tutorial_01_004.png
    :class: sphx-glr-single-img
 
 
@@ -202,7 +230,7 @@ by the minimum and maximum values (this can be adjusted with the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.001 seconds)
+   **Total running time of the script:** (0 minutes 0.928 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_01.py:
@@ -211,14 +239,17 @@ by the minimum and maximum values (this can be adjusted with the
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_01.ipynb <plot_tutorial_01.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_01.py <plot_tutorial_01.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_01.ipynb <plot_tutorial_01.ipynb>`
+      :download:`Download zipped: plot_tutorial_01.zip <plot_tutorial_01.zip>`
 
 
 .. only:: html

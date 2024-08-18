@@ -1,0 +1,567 @@
+{
+ "Plot": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  }
+ ],
+ "cmap": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.colors",
+   "module_short": "matplotlib.colors",
+   "name": "LinearSegmentedColormap"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "LinearSegmentedColormap"
+  }
+ ],
+ "data": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils._bunch",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn",
+   "module_short": "sklearn",
+   "name": "Bunch"
+  }
+ ],
+ "data_lh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "data_rh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "fetch_fslr": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "neuromaps.datasets",
+   "module_short": "neuromaps.datasets",
+   "name": "fetch_fslr"
+  }
+ ],
+ "fetch_neurovault_ids": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nilearn.datasets",
+   "module_short": "nilearn.datasets",
+   "name": "fetch_neurovault_ids"
+  }
+ ],
+ "fig": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "Figure"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Figure"
+  }
+ ],
+ "fig.axes": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "Figure.axes"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Figure.axes"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "FigureBase.axes"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "FigureBase.axes"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.artist",
+   "module_short": "matplotlib.artist",
+   "name": "Artist.axes"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Artist.axes"
+  }
+ ],
+ "fig.show": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "FigureBase.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "FigureBase.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.artist",
+   "module_short": "matplotlib.artist",
+   "name": "Artist.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Artist.show"
+  }
+ ],
+ "gii_lh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  }
+ ],
+ "gii_lh.agg_data": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.xmlutils",
+   "module_short": "nibabel.xmlutils",
+   "name": "XmlSerializable.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "XmlSerializable.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.filebasedimages",
+   "module_short": "nibabel.filebasedimages",
+   "name": "SerializableImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "SerializableImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.filebasedimages",
+   "module_short": "nibabel.filebasedimages",
+   "name": "FileBasedImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "FileBasedImage.agg_data"
+  }
+ ],
+ "gii_rh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "GiftiImage"
+  }
+ ],
+ "gii_rh.agg_data": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.gifti",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "GiftiImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.xmlutils",
+   "module_short": "nibabel.xmlutils",
+   "name": "XmlSerializable.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "XmlSerializable.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.filebasedimages",
+   "module_short": "nibabel.filebasedimages",
+   "name": "SerializableImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "SerializableImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel.filebasedimages",
+   "module_short": "nibabel.filebasedimages",
+   "name": "FileBasedImage.agg_data"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nibabel",
+   "module_short": "nibabel",
+   "name": "FileBasedImage.agg_data"
+  }
+ ],
+ "img": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "kws": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "dict"
+  }
+ ],
+ "lh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "mni152_to_fslr": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "neuromaps.transforms",
+   "module_short": "neuromaps.transforms",
+   "name": "mni152_to_fslr"
+  }
+ ],
+ "nilearn_cmaps": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "dict"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "nilearn.plotting.cm",
+   "module_short": "nilearn.plotting.cm",
+   "name": "_cmap_d"
+  }
+ ],
+ "p": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  }
+ ],
+ "p.add_layer": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot.add_layer"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot.add_layer"
+  }
+ ],
+ "p.build": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot.build"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot.build"
+  }
+ ],
+ "rh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "sulc_lh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "sulc_rh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "surfaces": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils._bunch",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn",
+   "module_short": "sklearn",
+   "name": "Bunch"
+  }
+ ],
+ "threshold": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.utils",
+   "module_short": "surfplot.utils",
+   "name": "threshold"
+  }
+ ]
+}

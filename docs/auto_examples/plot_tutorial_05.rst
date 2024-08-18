@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_05.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_05.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -42,7 +42,7 @@ Following the first initial steps of
 
 .. GENERATED FROM PYTHON SOURCE LINES 25-34
 
-.. code-block:: default
+.. code-block:: Python
 
     from neuromaps.datasets import fetch_fslr
     from surfplot import Plot
@@ -69,7 +69,7 @@ any colormap, including those from `seaborn`_ and `cmasher`_,  for example.
 
 .. GENERATED FROM PYTHON SOURCE LINES 39-46
 
-.. code-block:: default
+.. code-block:: Python
 
     from surfplot.datasets import load_example_data
 
@@ -100,7 +100,7 @@ multiple layers. To demonstrate that, let's add another layer using the
 
 .. GENERATED FROM PYTHON SOURCE LINES 52-56
 
-.. code-block:: default
+.. code-block:: Python
 
     fronto = load_example_data('frontoparietal', join=True)
     p.add_layer(fronto, cmap='YlOrBr_r', cbar_label='Frontoparietal')
@@ -152,7 +152,7 @@ cleaner look:
 
 .. GENERATED FROM PYTHON SOURCE LINES 86-92
 
-.. code-block:: default
+.. code-block:: Python
 
     kws = {'location': 'right', 'label_direction': 45, 'decimals': 1, 
            'fontsize': 8, 'n_ticks': 2, 'shrink': .15, 'aspect': 8, 
@@ -186,7 +186,7 @@ We can recreate the example above with transparent maps like so:
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-108
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh)
     p.add_layer({'left': sulc_lh, 'right': sulc_rh}, cmap='binary_r', cbar=False)
@@ -221,7 +221,7 @@ thanks to the transparency.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.761 seconds)
+   **Total running time of the script:** (0 minutes 0.569 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_05.py:
@@ -230,14 +230,17 @@ thanks to the transparency.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_05.ipynb <plot_tutorial_05.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_05.py <plot_tutorial_05.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_05.ipynb <plot_tutorial_05.ipynb>`
+      :download:`Download zipped: plot_tutorial_05.zip <plot_tutorial_05.zip>`
 
 
 .. only:: html

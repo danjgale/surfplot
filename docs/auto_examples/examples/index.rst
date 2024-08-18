@@ -14,15 +14,16 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clea...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clean-looking figure.">
 
 .. only:: html
 
   .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
-    :alt: Example 1: Multiple Stat Maps
+    :alt:
 
   :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 
@@ -34,12 +35,12 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to project data from a NIFTI volume onto a surface, and  then display th...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to project data from a NIFTI volume onto a surface, and  then display the result. ">
 
 .. only:: html
 
   .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
-    :alt: Example 2: Plotting volumetric data
+    :alt:
 
   :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
 
@@ -48,6 +49,8 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
       <div class="sphx-glr-thumbnail-title">Example 2: Plotting volumetric data</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 

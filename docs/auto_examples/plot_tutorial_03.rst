@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_03.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_03.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -46,7 +46,7 @@ downloaded via ``neuromaps``. We'll also reuse the example data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-35
 
-.. code-block:: default
+.. code-block:: Python
 
     from neuromaps.datasets import fetch_fslr
     from surfplot.datasets import load_example_data
@@ -74,7 +74,7 @@ that are plotted.** With our surfaces, we can check their vertices using
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-47
 
-.. code-block:: default
+.. code-block:: Python
 
     import nibabel as nib
     print('left', nib.load(lh).darrays[0].dims)
@@ -100,7 +100,7 @@ to plot both hemispheres. Let's check this first:
 
 .. GENERATED FROM PYTHON SOURCE LINES 50-54
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # return a single concatenated array from both hemispheres
@@ -125,7 +125,7 @@ Perfect, now let's plot:
 
 .. GENERATED FROM PYTHON SOURCE LINES 56-62
 
-.. code-block:: default
+.. code-block:: Python
 
     from surfplot import Plot
 
@@ -153,7 +153,7 @@ update our data accordingly. Be sure to plot the correct data!
 
 .. GENERATED FROM PYTHON SOURCE LINES 66-72
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(surf_lh=lh, zoom=1.2, size=(400, 200))
     # left hemisphere is the first 32492 vertices 
@@ -187,7 +187,7 @@ each array must equal the number of vertices in their respective hemispheres.
 
 .. GENERATED FROM PYTHON SOURCE LINES 82-90
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # return as separate arrays for each hemisphere
@@ -216,7 +216,7 @@ e.g., the right:
 
 .. GENERATED FROM PYTHON SOURCE LINES 93-97
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(surf_lh=lh, surf_rh=rh)
     p.add_layer({'right': rh_data}, cmap='YlOrRd_r')
@@ -250,7 +250,7 @@ sulc maps and add them:
 
 .. GENERATED FROM PYTHON SOURCE LINES 109-115
 
-.. code-block:: default
+.. code-block:: Python
 
     lh_sulc, rh_sulc = surfaces['sulc']
     p = Plot(surf_lh=lh, surf_rh=rh)
@@ -280,7 +280,7 @@ can also be plotted. For example, with single hemisphere:
 
 .. GENERATED FROM PYTHON SOURCE LINES 121-127
 
-.. code-block:: default
+.. code-block:: Python
 
     img = nib.load(lh_sulc)
 
@@ -310,7 +310,7 @@ data match the number of vertices of the surface(s)!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.918 seconds)
+   **Total running time of the script:** (0 minutes 0.704 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_03.py:
@@ -319,14 +319,17 @@ data match the number of vertices of the surface(s)!
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_03.ipynb <plot_tutorial_03.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_03.py <plot_tutorial_03.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_03.ipynb <plot_tutorial_03.ipynb>`
+      :download:`Download zipped: plot_tutorial_03.zip <plot_tutorial_03.zip>`
 
 
 .. only:: html

@@ -10,8 +10,8 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_tutorial_04.py>`
-        to download the full example code
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_tutorial_04.py>`
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -33,7 +33,7 @@ Workbench.
 
 .. GENERATED FROM PYTHON SOURCE LINES 16-23
 
-.. code-block:: default
+.. code-block:: Python
 
     from brainspace.datasets import load_conte69
     from surfplot import Plot
@@ -69,7 +69,7 @@ Meanwhile, the 'row' layout gives a single horizontal row of brains:
 
 .. GENERATED FROM PYTHON SOURCE LINES 34-37
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(800, 200), zoom=1.2, layout='row')
     fig = p.build()
@@ -92,7 +92,7 @@ The 'column' layout gives a single vertical column of brains.
 
 .. GENERATED FROM PYTHON SOURCE LINES 39-43
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(200, 600), zoom=1.6, layout='column')
     fig = p.build()
@@ -117,7 +117,7 @@ set as default ('grid'), then a single hemisphere is plotted as row:
 
 .. GENERATED FROM PYTHON SOURCE LINES 46-49
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, size=(400, 200), zoom=1.2)
     fig = p.build()
@@ -146,7 +146,7 @@ possible to show just one view:
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-60
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(400, 200), zoom=1.2, views='lateral')
     fig = p.build()
@@ -171,7 +171,7 @@ in the list:
 
 .. GENERATED FROM PYTHON SOURCE LINES 64-67
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(500, 400), zoom=1.4,  views=['lateral', 'posterior'])
     fig = p.build()
@@ -197,7 +197,7 @@ All possible views are include "lateral", "medial", "dorsal", "ventral",
 
 .. GENERATED FROM PYTHON SOURCE LINES 72-76
 
-.. code-block:: default
+.. code-block:: Python
 
     all_views = ['lateral', 'medial', 'dorsal', 'ventral', 'anterior', 'posterior']
     p = Plot(surf_rh=rh, size=(900, 200), zoom=.8, layout='row', views=all_views)
@@ -225,7 +225,7 @@ symmetrical figure:
 
 .. GENERATED FROM PYTHON SOURCE LINES 82-85
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(800, 200), zoom=1.2, layout='row', mirror_views=True)
     fig = p.build()
@@ -250,7 +250,7 @@ For example:
 
 .. GENERATED FROM PYTHON SOURCE LINES 89-92
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(200, 200), zoom=3, views='anterior', flip=True)
     fig = p.build()
@@ -280,7 +280,7 @@ and yaw = 100:
 
 .. GENERATED FROM PYTHON SOURCE LINES 101-104
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, size=(200, 200), zoom=1.5, views=(30, 60, 100))
     fig = p.build()
@@ -306,7 +306,7 @@ rotating views in Connectome Workbench:
 
 .. GENERATED FROM PYTHON SOURCE LINES 109-111
 
-.. code-block:: default
+.. code-block:: Python
 
     p = Plot(lh, rh, size=(400, 200), zoom=1.6, views=(30, 60, 100), flip=True)
     fig = p.build()
@@ -325,7 +325,7 @@ rotating views in Connectome Workbench:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.106 seconds)
+   **Total running time of the script:** (0 minutes 0.883 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tutorial_04.py:
@@ -334,14 +334,17 @@ rotating views in Connectome Workbench:
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_tutorial_04.ipynb <plot_tutorial_04.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_tutorial_04.py <plot_tutorial_04.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_tutorial_04.ipynb <plot_tutorial_04.ipynb>`
+      :download:`Download zipped: plot_tutorial_04.zip <plot_tutorial_04.zip>`
 
 
 .. only:: html

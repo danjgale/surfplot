@@ -1,0 +1,235 @@
+{
+ "Plot": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  }
+ ],
+ "brainspace.mesh.mesh_io.read_surface": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "brainspace.mesh.mesh_io",
+   "module_short": "brainspace.mesh.mesh_io",
+   "name": "read_surface"
+  }
+ ],
+ "brainspace.plotting.Plot": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "brainspace.plotting",
+   "module_short": "brainspace.plotting",
+   "name": "Plot"
+  }
+ ],
+ "brainspace.plottingPlot": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "brainspace",
+   "module_short": "brainspace",
+   "name": "plottingPlot"
+  }
+ ],
+ "brainspace.vtk_interface.wrappers.data_object.BSPolyData": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "brainspace.vtk_interface.wrappers.data_object",
+   "module_short": "brainspace.vtk_interface.wrappers",
+   "name": "BSPolyData"
+  }
+ ],
+ "fetch_fsaverage": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "neuromaps.datasets",
+   "module_short": "neuromaps.datasets",
+   "name": "fetch_fsaverage"
+  }
+ ],
+ "fig": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "Figure"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Figure"
+  }
+ ],
+ "fig.show": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.figure",
+   "module_short": "matplotlib.figure",
+   "name": "FigureBase.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "FigureBase.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.artist",
+   "module_short": "matplotlib.artist",
+   "name": "Artist.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib",
+   "module_short": "matplotlib",
+   "name": "Artist.show"
+  }
+ ],
+ "lh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "p": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot"
+  }
+ ],
+ "p.build": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot.build"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "surfplot",
+   "module_short": "surfplot",
+   "name": "Plot.build"
+  }
+ ],
+ "read_surface": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "read_surface"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "read_surface"
+  }
+ ],
+ "rh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "PosixPath"
+  }
+ ],
+ "surfaces": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils._bunch",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn.utils",
+   "module_short": "sklearn.utils",
+   "name": "Bunch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "sklearn",
+   "module_short": "sklearn",
+   "name": "Bunch"
+  }
+ ],
+ "surfplot.plotting.Plot": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "surfplot.plotting",
+   "module_short": "surfplot",
+   "name": "Plot"
+  }
+ ]
+}

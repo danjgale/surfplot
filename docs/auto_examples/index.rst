@@ -24,15 +24,16 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent t...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial gives a quick overview of surfplot before diving into more detail in subsequent tutorials. The aim here is to get a flavour of how  surfplot works and what can be plotted. ">
 
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_01_thumb.png
-    :alt: Tutorial 1: Quick Start
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_01.py`
 
@@ -49,7 +50,7 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_02_thumb.png
-    :alt: Tutorial 2: Types of Surfaces
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_02.py`
 
@@ -61,12 +62,12 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of data can be passed to the data parameter of the add_layer me...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial covers what types of data can be passed to the data parameter of the add_layer method of  Plot.">
 
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_03_thumb.png
-    :alt: Tutorial 3: Types of Input Data
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_03.py`
 
@@ -83,7 +84,7 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_04_thumb.png
-    :alt: Tutorial 4: Layouts and Views
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_04.py`
 
@@ -100,7 +101,7 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_05_thumb.png
-    :alt: Tutorial 5: Colors and colorbars
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_05.py`
 
@@ -117,7 +118,7 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_tutorial_06_thumb.png
-    :alt: Tutorial 6: Regions and Parcellations
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_tutorial_06.py`
 
@@ -126,6 +127,8 @@ These tutorials provide a step-by-step walkthrough of ``surfplot``, covering eac
       <div class="sphx-glr-thumbnail-title">Tutorial 6: Regions and Parcellations</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -154,15 +157,16 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clea...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows multiple statistical maps on a surface with some extra  stylizing for a clean-looking figure.">
 
 .. only:: html
 
   .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_01_thumb.png
-    :alt: Example 1: Multiple Stat Maps
+    :alt:
 
   :ref:`sphx_glr_auto_examples_examples_plot_example_01.py`
 
@@ -174,12 +178,12 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to project data from a NIFTI volume onto a surface, and  then display th...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to project data from a NIFTI volume onto a surface, and  then display the result. ">
 
 .. only:: html
 
   .. image:: /auto_examples/examples/images/thumb/sphx_glr_plot_example_02_thumb.png
-    :alt: Example 2: Plotting volumetric data
+    :alt:
 
   :ref:`sphx_glr_auto_examples_examples_plot_example_02.py`
 
@@ -189,6 +193,8 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
     </div>
 
 
+.. thumbnail-parent-div-close
+
 .. raw:: html
 
     </div>
@@ -197,6 +203,7 @@ These examples demonstrate 'publication-ready' figures created with ``surfplot``
 .. toctree::
    :hidden:
    :includehidden:
+
 
    /auto_examples/examples/index.rst
 
