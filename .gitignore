@@ -97,3 +97,4 @@ ENV/
 .imdone
 
 scratch/
+.DS_Store
