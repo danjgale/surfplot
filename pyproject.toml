@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "surfplot"
+version = "0.3.0rc0"
+description = "A package for publication-ready brain surface figures"
+readme = "README.rst"
+requires-python = ">=3.7.0"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Dan Gale", email = "d.gale@queensu.ca"}
+]
+maintainers = [
+    {name = "Dan Gale", email = "d.gale@queensu.ca"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering"
+]
+dependencies = [
+    "brainspace>=0.1.1",
+    "matplotlib>=3.4.2",
+    "nibabel",
+    "numpy>=1.14.0",
+    "scipy>=0.17",
+    "vtk>=8.1.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest-cov",
+    "pytest"
+]
+
+[project.urls]
+Homepage = "https://surfplot.readthedocs.io/en/latest/"
+Documentation = "https://surfplot.readthedocs.io/en/latest/"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["*.tests", "*.tests.*", "tests.*", "tests"]
+
+[tool.setuptools.package-data]
+surfplot = ["data/*"]
