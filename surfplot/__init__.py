@@ -1,5 +1,7 @@
+from importlib.metadata import version
+
 from .plotting import Plot
 
-__version__ = '0.3.0rc0'
+__version__ = version('surfplot')
 
 __all__ = ['Plot']
